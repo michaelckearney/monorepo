@@ -1,0 +1,19 @@
+name: Slipway
+id: com.michaelckearney.slipway
+# Where the app keeps its settings and the bots' lines, as it always has.
+data: ~/.slipway-app
+window:
+  title: Slipway
+  width: 1280
+  height: 820
+# prod is the app a release installs. dev is the one harness run starts,
+# such as a branch run from the app itself: its own name and id, so macOS
+# keeps it apart from the app it was started from, and both can be open.
+# dev asks the made-up server and GitHub in backend/fixture, never the real
+# ones, so a branch run from the app shows and posts nothing real.
+default_mode: dev
+modes:
+  prod:
+  dev:
+    name: Slipway Dev
+    id: com.michaelckearney.slipway.dev

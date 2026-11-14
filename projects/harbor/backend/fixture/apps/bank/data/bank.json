@@ -1,0 +1,1626 @@
+{
+ "user": {
+  "username": "alex@example.localhost",
+  "name": "Alex Morgan",
+  "email": "alex@example.localhost",
+  "totpSecret": "TIDEWATERBANKHARBORFIXTURESALEXQ"
+ },
+ "accounts": [
+  {
+   "id": "chk-4821",
+   "name": "Everyday Checking",
+   "number": "\u2022\u2022\u2022\u20224821",
+   "kind": "checking",
+   "openingBalanceCents": 624512
+  },
+  {
+   "id": "sav-7730",
+   "name": "High-Yield Savings",
+   "number": "\u2022\u2022\u2022\u20227730",
+   "kind": "savings",
+   "openingBalanceCents": 1843077
+  },
+  {
+   "id": "cc-1194",
+   "name": "Tidewater Rewards Visa",
+   "number": "\u2022\u2022\u2022\u20221194",
+   "kind": "credit",
+   "openingBalanceCents": -48233
+  }
+ ],
+ "openingDate": "2026-03-01",
+ "transactions": [
+  {
+   "account": "chk-4821",
+   "date": "2026-03-01",
+   "description": "MAPLE GROVE APTS RENT",
+   "amountCents": -195000,
+   "category": "Housing",
+   "id": "T00001"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-03-01",
+   "description": "TRANSFER FROM CHECKING \u2022\u20224821",
+   "amountCents": 50000,
+   "category": "Transfer",
+   "id": "T00002"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-03-01",
+   "description": "TRANSFER TO SAVINGS \u2022\u20227730",
+   "amountCents": -50000,
+   "category": "Transfer",
+   "id": "T00003"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-04",
+   "description": "GOLDEN WOK",
+   "amountCents": -4742,
+   "category": "Dining",
+   "id": "T00004"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-03-05",
+   "description": "NORTHCOAST WIRELESS",
+   "amountCents": -8499,
+   "category": "Utilities",
+   "id": "T00005"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-05",
+   "description": "PARCEL.LOCALHOST P1190056-024",
+   "amountCents": -6326,
+   "category": "Shopping",
+   "id": "T00006"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-03-06",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00007"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-07",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -9203,
+   "category": "Groceries",
+   "id": "T00008"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-13",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -4587,
+   "category": "Dining",
+   "id": "T00009"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-14",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -16082,
+   "category": "Groceries",
+   "id": "T00010"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-15",
+   "description": "PAYMENT THANK YOU",
+   "amountCents": 128615,
+   "category": "Transfer",
+   "id": "T00011"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-03-15",
+   "description": "TIDEWATER VISA PAYMENT",
+   "amountCents": -128615,
+   "category": "Transfer",
+   "id": "T00012"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-16",
+   "description": "PARCEL.LOCALHOST P1197975-025",
+   "amountCents": -8848,
+   "category": "Shopping",
+   "id": "T00013"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-17",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -5591,
+   "category": "Dining",
+   "id": "T00014"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-03-20",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00015"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-21",
+   "description": "SAFEWAY #1742",
+   "amountCents": -11089,
+   "category": "Groceries",
+   "id": "T00016"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-03-22",
+   "description": "BRIGHTLINE ENERGY AUTOPAY",
+   "amountCents": -13603,
+   "category": "Utilities",
+   "id": "T00017"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-22",
+   "description": "PARCEL.LOCALHOST P1205894-026",
+   "amountCents": -1670,
+   "category": "Shopping",
+   "id": "T00018"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-26",
+   "description": "PIER 9 TACOS",
+   "amountCents": -6741,
+   "category": "Dining",
+   "id": "T00019"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-03-28",
+   "description": "INTEREST PAID",
+   "amountCents": 4786,
+   "category": "Income",
+   "id": "T00020"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-28",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -8379,
+   "category": "Groceries",
+   "id": "T00021"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-28",
+   "description": "PARCEL.LOCALHOST P1213813-027",
+   "amountCents": -13835,
+   "category": "Shopping",
+   "id": "T00022"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-03-31",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -3067,
+   "category": "Dining",
+   "id": "T00023"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-04-01",
+   "description": "MAPLE GROVE APTS RENT",
+   "amountCents": -195000,
+   "category": "Housing",
+   "id": "T00024"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-04-01",
+   "description": "TRANSFER FROM CHECKING \u2022\u20224821",
+   "amountCents": 50000,
+   "category": "Transfer",
+   "id": "T00025"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-04-01",
+   "description": "TRANSFER TO SAVINGS \u2022\u20227730",
+   "amountCents": -50000,
+   "category": "Transfer",
+   "id": "T00026"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-04-03",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00027"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-04",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -17435,
+   "category": "Groceries",
+   "id": "T00028"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-04-05",
+   "description": "NORTHCOAST WIRELESS",
+   "amountCents": -8499,
+   "category": "Utilities",
+   "id": "T00029"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-06",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -5057,
+   "category": "Transport",
+   "id": "T00030"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-06",
+   "description": "PARCEL.LOCALHOST P1221732-028",
+   "amountCents": -4289,
+   "category": "Shopping",
+   "id": "T00031"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-11",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -12624,
+   "category": "Groceries",
+   "id": "T00032"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-11",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -6103,
+   "category": "Dining",
+   "id": "T00033"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-13",
+   "description": "PARCEL.LOCALHOST P1229651-029",
+   "amountCents": -4192,
+   "category": "Shopping",
+   "id": "T00034"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-15",
+   "description": "PAYMENT THANK YOU",
+   "amountCents": 131291,
+   "category": "Transfer",
+   "id": "T00035"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-04-15",
+   "description": "TIDEWATER VISA PAYMENT",
+   "amountCents": -131291,
+   "category": "Transfer",
+   "id": "T00036"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-16",
+   "description": "PIER 9 TACOS",
+   "amountCents": -1062,
+   "category": "Dining",
+   "id": "T00037"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-04-17",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00038"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-18",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -7987,
+   "category": "Groceries",
+   "id": "T00039"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-19",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -6124,
+   "category": "Transport",
+   "id": "T00040"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-19",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -4364,
+   "category": "Dining",
+   "id": "T00041"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-04-22",
+   "description": "BRIGHTLINE ENERGY AUTOPAY",
+   "amountCents": -11899,
+   "category": "Utilities",
+   "id": "T00042"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-22",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -5902,
+   "category": "Dining",
+   "id": "T00043"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-24",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -5281,
+   "category": "Transport",
+   "id": "T00044"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-24",
+   "description": "PARCEL.LOCALHOST P1237570-030",
+   "amountCents": -10507,
+   "category": "Shopping",
+   "id": "T00045"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-24",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -6320,
+   "category": "Dining",
+   "id": "T00046"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-25",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -8456,
+   "category": "Groceries",
+   "id": "T00047"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-04-28",
+   "description": "INTEREST PAID",
+   "amountCents": 4755,
+   "category": "Income",
+   "id": "T00048"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-04-30",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -3374,
+   "category": "Dining",
+   "id": "T00049"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-01",
+   "description": "MAPLE GROVE APTS RENT",
+   "amountCents": -195000,
+   "category": "Housing",
+   "id": "T00050"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-01",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00051"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-05-01",
+   "description": "TRANSFER FROM CHECKING \u2022\u20224821",
+   "amountCents": 50000,
+   "category": "Transfer",
+   "id": "T00052"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-01",
+   "description": "TRANSFER TO SAVINGS \u2022\u20227730",
+   "amountCents": -50000,
+   "category": "Transfer",
+   "id": "T00053"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-02",
+   "description": "SAFEWAY #1742",
+   "amountCents": -14272,
+   "category": "Groceries",
+   "id": "T00054"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-04",
+   "description": "GOLDEN WOK",
+   "amountCents": -982,
+   "category": "Dining",
+   "id": "T00055"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-05",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -6414,
+   "category": "Transport",
+   "id": "T00056"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-05",
+   "description": "NORTHCOAST WIRELESS",
+   "amountCents": -8499,
+   "category": "Utilities",
+   "id": "T00057"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-07",
+   "description": "PARCEL.LOCALHOST P1245489-031",
+   "amountCents": -7721,
+   "category": "Shopping",
+   "id": "T00058"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-08",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -2993,
+   "category": "Dining",
+   "id": "T00059"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-09",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -16849,
+   "category": "Groceries",
+   "id": "T00060"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-09",
+   "description": "PIER 9 TACOS",
+   "amountCents": -1174,
+   "category": "Dining",
+   "id": "T00061"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-10",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -1177,
+   "category": "Dining",
+   "id": "T00062"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-11",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -2076,
+   "category": "Dining",
+   "id": "T00063"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-13",
+   "description": "PIER 9 TACOS",
+   "amountCents": -3495,
+   "category": "Dining",
+   "id": "T00064"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-15",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00065"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-15",
+   "description": "PAYMENT THANK YOU",
+   "amountCents": 117311,
+   "category": "Transfer",
+   "id": "T00066"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-15",
+   "description": "TIDEWATER VISA PAYMENT",
+   "amountCents": -117311,
+   "category": "Transfer",
+   "id": "T00067"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-16",
+   "description": "SAFEWAY #1742",
+   "amountCents": -9964,
+   "category": "Groceries",
+   "id": "T00068"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-17",
+   "description": "GOLDEN WOK",
+   "amountCents": -3369,
+   "category": "Dining",
+   "id": "T00069"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-18",
+   "description": "PARCEL.LOCALHOST P1253408-032",
+   "amountCents": -4986,
+   "category": "Shopping",
+   "id": "T00070"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-22",
+   "description": "BRIGHTLINE ENERGY AUTOPAY",
+   "amountCents": -10068,
+   "category": "Utilities",
+   "id": "T00071"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-22",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -6882,
+   "category": "Transport",
+   "id": "T00072"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-22",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -3310,
+   "category": "Dining",
+   "id": "T00073"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-23",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -7827,
+   "category": "Groceries",
+   "id": "T00074"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-27",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -6935,
+   "category": "Transport",
+   "id": "T00075"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-27",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -6436,
+   "category": "Dining",
+   "id": "T00076"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-05-28",
+   "description": "INTEREST PAID",
+   "amountCents": 4235,
+   "category": "Income",
+   "id": "T00077"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-05-29",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00078"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-30",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -5548,
+   "category": "Transport",
+   "id": "T00079"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-30",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -11970,
+   "category": "Groceries",
+   "id": "T00080"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-31",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -5780,
+   "category": "Transport",
+   "id": "T00081"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-05-31",
+   "description": "PARCEL.LOCALHOST P1261327-033",
+   "amountCents": -6488,
+   "category": "Shopping",
+   "id": "T00082"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-01",
+   "description": "GOLDEN WOK",
+   "amountCents": -3796,
+   "category": "Dining",
+   "id": "T00083"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-06-01",
+   "description": "MAPLE GROVE APTS RENT",
+   "amountCents": -195000,
+   "category": "Housing",
+   "id": "T00084"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-06-01",
+   "description": "TRANSFER FROM CHECKING \u2022\u20224821",
+   "amountCents": 50000,
+   "category": "Transfer",
+   "id": "T00085"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-06-01",
+   "description": "TRANSFER TO SAVINGS \u2022\u20227730",
+   "amountCents": -50000,
+   "category": "Transfer",
+   "id": "T00086"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-04",
+   "description": "PIER 9 TACOS",
+   "amountCents": -4434,
+   "category": "Dining",
+   "id": "T00087"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-05",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -2546,
+   "category": "Dining",
+   "id": "T00088"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-06-05",
+   "description": "NORTHCOAST WIRELESS",
+   "amountCents": -8499,
+   "category": "Utilities",
+   "id": "T00089"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-06",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -11725,
+   "category": "Groceries",
+   "id": "T00090"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-07",
+   "description": "PARCEL.LOCALHOST P1269246-034",
+   "amountCents": -4182,
+   "category": "Shopping",
+   "id": "T00091"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-07",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -1532,
+   "category": "Dining",
+   "id": "T00092"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-08",
+   "description": "PIER 9 TACOS",
+   "amountCents": -3940,
+   "category": "Dining",
+   "id": "T00093"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-10",
+   "description": "PIER 9 TACOS",
+   "amountCents": -1436,
+   "category": "Dining",
+   "id": "T00094"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-11",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -2875,
+   "category": "Dining",
+   "id": "T00095"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-06-12",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00096"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-12",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -731,
+   "category": "Dining",
+   "id": "T00097"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-13",
+   "description": "SAFEWAY #1742",
+   "amountCents": -9895,
+   "category": "Groceries",
+   "id": "T00098"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-14",
+   "description": "PARCEL.LOCALHOST P1277165-035",
+   "amountCents": -10242,
+   "category": "Shopping",
+   "id": "T00099"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-14",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -6480,
+   "category": "Dining",
+   "id": "T00100"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-15",
+   "description": "PAYMENT THANK YOU",
+   "amountCents": 101503,
+   "category": "Transfer",
+   "id": "T00101"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-06-15",
+   "description": "TIDEWATER VISA PAYMENT",
+   "amountCents": -101503,
+   "category": "Transfer",
+   "id": "T00102"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-17",
+   "description": "PIER 9 TACOS",
+   "amountCents": -2339,
+   "category": "Dining",
+   "id": "T00103"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-18",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -4679,
+   "category": "Dining",
+   "id": "T00104"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-20",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -3646,
+   "category": "Dining",
+   "id": "T00105"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-20",
+   "description": "SAFEWAY #1742",
+   "amountCents": -8730,
+   "category": "Groceries",
+   "id": "T00106"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-06-22",
+   "description": "BRIGHTLINE ENERGY AUTOPAY",
+   "amountCents": -8065,
+   "category": "Utilities",
+   "id": "T00107"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-23",
+   "description": "PARCEL.LOCALHOST P1285084-036",
+   "amountCents": -23699,
+   "category": "Shopping",
+   "id": "T00108"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-25",
+   "description": "PIER 9 TACOS",
+   "amountCents": -3174,
+   "category": "Dining",
+   "id": "T00109"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-06-26",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00110"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-27",
+   "description": "PIER 9 TACOS",
+   "amountCents": -1342,
+   "category": "Dining",
+   "id": "T00111"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-27",
+   "description": "SAFEWAY #1742",
+   "amountCents": -15541,
+   "category": "Groceries",
+   "id": "T00112"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-06-28",
+   "description": "INTEREST PAID",
+   "amountCents": 5094,
+   "category": "Income",
+   "id": "T00113"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-30",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -5555,
+   "category": "Dining",
+   "id": "T00114"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-06-30",
+   "description": "PARCEL.LOCALHOST P1293003-037",
+   "amountCents": -4502,
+   "category": "Shopping",
+   "id": "T00115"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-07-01",
+   "description": "MAPLE GROVE APTS RENT",
+   "amountCents": -195000,
+   "category": "Housing",
+   "id": "T00116"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-07-01",
+   "description": "TRANSFER FROM CHECKING \u2022\u20224821",
+   "amountCents": 50000,
+   "category": "Transfer",
+   "id": "T00117"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-07-01",
+   "description": "TRANSFER TO SAVINGS \u2022\u20227730",
+   "amountCents": -50000,
+   "category": "Transfer",
+   "id": "T00118"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-03",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -7123,
+   "category": "Transport",
+   "id": "T00119"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-03",
+   "description": "GOLDEN WOK",
+   "amountCents": -3180,
+   "category": "Dining",
+   "id": "T00120"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-04",
+   "description": "SAFEWAY #1742",
+   "amountCents": -9375,
+   "category": "Groceries",
+   "id": "T00121"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-07-05",
+   "description": "NORTHCOAST WIRELESS",
+   "amountCents": -8499,
+   "category": "Utilities",
+   "id": "T00122"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-07",
+   "description": "PARCEL.LOCALHOST P1300922-038",
+   "amountCents": -2742,
+   "category": "Shopping",
+   "id": "T00123"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-07-10",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00124"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-10",
+   "description": "PIER 9 TACOS",
+   "amountCents": -1383,
+   "category": "Dining",
+   "id": "T00125"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-11",
+   "description": "SAFEWAY #1742",
+   "amountCents": -16322,
+   "category": "Groceries",
+   "id": "T00126"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-15",
+   "description": "PAYMENT THANK YOU",
+   "amountCents": 133844,
+   "category": "Transfer",
+   "id": "T00127"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-07-15",
+   "description": "TIDEWATER VISA PAYMENT",
+   "amountCents": -133844,
+   "category": "Transfer",
+   "id": "T00128"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-18",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -16136,
+   "category": "Groceries",
+   "id": "T00129"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-18",
+   "description": "PIER 9 TACOS",
+   "amountCents": -5464,
+   "category": "Dining",
+   "id": "T00130"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-20",
+   "description": "PARCEL.LOCALHOST P1308841-039",
+   "amountCents": -1992,
+   "category": "Shopping",
+   "id": "T00131"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-07-22",
+   "description": "BRIGHTLINE ENERGY AUTOPAY",
+   "amountCents": -10536,
+   "category": "Utilities",
+   "id": "T00132"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-07-24",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00133"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-25",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -7119,
+   "category": "Groceries",
+   "id": "T00134"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-27",
+   "description": "PIER 9 TACOS",
+   "amountCents": -4528,
+   "category": "Dining",
+   "id": "T00135"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-07-28",
+   "description": "INTEREST PAID",
+   "amountCents": 4349,
+   "category": "Income",
+   "id": "T00136"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-28",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -5110,
+   "category": "Dining",
+   "id": "T00137"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-28",
+   "description": "PARCEL.LOCALHOST P1316760-040",
+   "amountCents": -10936,
+   "category": "Shopping",
+   "id": "T00138"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-07-30",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -6461,
+   "category": "Dining",
+   "id": "T00139"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-08-01",
+   "description": "MAPLE GROVE APTS RENT",
+   "amountCents": -195000,
+   "category": "Housing",
+   "id": "T00140"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-01",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -7138,
+   "category": "Groceries",
+   "id": "T00141"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-08-01",
+   "description": "TRANSFER FROM CHECKING \u2022\u20224821",
+   "amountCents": 50000,
+   "category": "Transfer",
+   "id": "T00142"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-08-01",
+   "description": "TRANSFER TO SAVINGS \u2022\u20227730",
+   "amountCents": -50000,
+   "category": "Transfer",
+   "id": "T00143"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-02",
+   "description": "PIER 9 TACOS",
+   "amountCents": -5033,
+   "category": "Dining",
+   "id": "T00144"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-03",
+   "description": "PIER 9 TACOS",
+   "amountCents": -6591,
+   "category": "Dining",
+   "id": "T00145"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-08-05",
+   "description": "NORTHCOAST WIRELESS",
+   "amountCents": -8499,
+   "category": "Utilities",
+   "id": "T00146"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-05",
+   "description": "PARCEL.LOCALHOST P1324679-041",
+   "amountCents": -4352,
+   "category": "Shopping",
+   "id": "T00147"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-08-07",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00148"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-08",
+   "description": "GOLDEN WOK",
+   "amountCents": -4862,
+   "category": "Dining",
+   "id": "T00149"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-08",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -14955,
+   "category": "Groceries",
+   "id": "T00150"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-10",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -1766,
+   "category": "Dining",
+   "id": "T00151"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-12",
+   "description": "PIER 9 TACOS",
+   "amountCents": -5017,
+   "category": "Dining",
+   "id": "T00152"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-15",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -13134,
+   "category": "Groceries",
+   "id": "T00153"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-15",
+   "description": "PAYMENT THANK YOU",
+   "amountCents": 113644,
+   "category": "Transfer",
+   "id": "T00154"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-08-15",
+   "description": "TIDEWATER VISA PAYMENT",
+   "amountCents": -113644,
+   "category": "Transfer",
+   "id": "T00155"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-16",
+   "description": "PARCEL.LOCALHOST P1332598-042",
+   "amountCents": -23056,
+   "category": "Shopping",
+   "id": "T00156"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-08-21",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00157"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-08-22",
+   "description": "BRIGHTLINE ENERGY AUTOPAY",
+   "amountCents": -12311,
+   "category": "Utilities",
+   "id": "T00158"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-22",
+   "description": "SAFEWAY #1742",
+   "amountCents": -9417,
+   "category": "Groceries",
+   "id": "T00159"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-25",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -4073,
+   "category": "Transport",
+   "id": "T00160"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-27",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -4104,
+   "category": "Transport",
+   "id": "T00161"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-08-28",
+   "description": "INTEREST PAID",
+   "amountCents": 4603,
+   "category": "Income",
+   "id": "T00162"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-28",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -6149,
+   "category": "Dining",
+   "id": "T00163"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-29",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -8367,
+   "category": "Groceries",
+   "id": "T00164"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-29",
+   "description": "PARCEL.LOCALHOST P1340517-043",
+   "amountCents": -3601,
+   "category": "Shopping",
+   "id": "T00165"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-08-31",
+   "description": "PIER 9 TACOS",
+   "amountCents": -1698,
+   "category": "Dining",
+   "id": "T00166"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-09-01",
+   "description": "MAPLE GROVE APTS RENT",
+   "amountCents": -195000,
+   "category": "Housing",
+   "id": "T00167"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-09-01",
+   "description": "TRANSFER FROM CHECKING \u2022\u20224821",
+   "amountCents": 50000,
+   "category": "Transfer",
+   "id": "T00168"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-09-01",
+   "description": "TRANSFER TO SAVINGS \u2022\u20227730",
+   "amountCents": -50000,
+   "category": "Transfer",
+   "id": "T00169"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-03",
+   "description": "GOLDEN WOK",
+   "amountCents": -935,
+   "category": "Dining",
+   "id": "T00170"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-03",
+   "description": "PARCEL.LOCALHOST P1348436-044",
+   "amountCents": -3385,
+   "category": "Shopping",
+   "id": "T00171"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-04",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -1257,
+   "category": "Dining",
+   "id": "T00172"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-09-04",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00173"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-05",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -10436,
+   "category": "Groceries",
+   "id": "T00174"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-09-05",
+   "description": "NORTHCOAST WIRELESS",
+   "amountCents": -8499,
+   "category": "Utilities",
+   "id": "T00175"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-05",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -6291,
+   "category": "Dining",
+   "id": "T00176"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-07",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -2623,
+   "category": "Dining",
+   "id": "T00177"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-08",
+   "description": "PARCEL.LOCALHOST P1356355-045",
+   "amountCents": -12278,
+   "category": "Shopping",
+   "id": "T00178"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-09",
+   "description": "GOLDEN WOK",
+   "amountCents": -5962,
+   "category": "Dining",
+   "id": "T00179"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-12",
+   "description": "SAFEWAY #1742",
+   "amountCents": -11799,
+   "category": "Groceries",
+   "id": "T00180"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-12",
+   "description": "STREAMFLIX",
+   "amountCents": -1599,
+   "category": "Entertainment",
+   "id": "T00181"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-14",
+   "description": "COASTAL FUEL #22",
+   "amountCents": -4411,
+   "category": "Transport",
+   "id": "T00182"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-15",
+   "description": "PAYMENT THANK YOU",
+   "amountCents": 96081,
+   "category": "Transfer",
+   "id": "T00183"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-09-15",
+   "description": "TIDEWATER VISA PAYMENT",
+   "amountCents": -96081,
+   "category": "Transfer",
+   "id": "T00184"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-17",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -2533,
+   "category": "Dining",
+   "id": "T00185"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-09-18",
+   "description": "NORTHWIND INC PAYROLL PPD",
+   "amountCents": 313250,
+   "category": "Income",
+   "id": "T00186"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-18",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -3842,
+   "category": "Dining",
+   "id": "T00187"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-19",
+   "description": "MAPLE GROVE CO-OP",
+   "amountCents": -17064,
+   "category": "Groceries",
+   "id": "T00188"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-20",
+   "description": "THE SALTY DOG PUB",
+   "amountCents": -3270,
+   "category": "Dining",
+   "id": "T00189"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-21",
+   "description": "PARCEL.LOCALHOST P1364274-046",
+   "amountCents": -3708,
+   "category": "Shopping",
+   "id": "T00190"
+  },
+  {
+   "account": "chk-4821",
+   "date": "2026-09-22",
+   "description": "BRIGHTLINE ENERGY AUTOPAY",
+   "amountCents": -13263,
+   "category": "Utilities",
+   "id": "T00191"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-22",
+   "description": "CLEARWATER HEALTH ORTHOPEDICS",
+   "amountCents": -124000,
+   "category": "Health",
+   "id": "T00192"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-22",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -6350,
+   "category": "Dining",
+   "id": "T00193"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-24",
+   "description": "GOLDEN WOK",
+   "amountCents": -3356,
+   "category": "Dining",
+   "id": "T00194"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-25",
+   "description": "LIGHTHOUSE COFFEE",
+   "amountCents": -6210,
+   "category": "Dining",
+   "id": "T00195"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-26",
+   "description": "HARBOR FRESH MARKET",
+   "amountCents": -18292,
+   "category": "Groceries",
+   "id": "T00196"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-27",
+   "description": "GOLDEN WOK",
+   "amountCents": -6483,
+   "category": "Dining",
+   "id": "T00197"
+  },
+  {
+   "account": "sav-7730",
+   "date": "2026-09-28",
+   "description": "INTEREST PAID",
+   "amountCents": 4573,
+   "category": "Income",
+   "id": "T00198"
+  },
+  {
+   "account": "cc-1194",
+   "date": "2026-09-29",
+   "description": "PIER 9 TACOS",
+   "amountCents": -2933,
+   "category": "Dining",
+   "id": "T00199"
+  }
+ ]
+}

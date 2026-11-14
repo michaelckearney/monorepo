@@ -1,0 +1,13 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>MyClearwater</h1>
+<p class="muted">Your health record, appointments, and messages from your care team.</p>
+{{if .Data}}{{if .Data.Ended}}<p class="notice">Your session ended. For your privacy, sessions last 30 minutes.</p>{{end}}
+{{if .Data.Error}}<p class="error" role="alert">{{.Data.Error}}</p>{{end}}{{end}}
+<form method="post" action="/login">
+  <label>Username <input name="username" autocomplete="username" autofocus required></label>
+  <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+  <button>Sign in</button>
+</form>
+</div>
+{{end}}

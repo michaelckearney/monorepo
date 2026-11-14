@@ -1,0 +1,12 @@
+{{define "content"}}
+<h1>Statements</h1>
+<div class="card">
+<table>
+<tr><th>Account</th><th>Month</th><th class="num">Closing balance</th><th>Download</th></tr>
+{{range .Data.Months}}
+<tr><td>{{.Account.Name}} <span class="muted">{{.Account.Number}}</span></td><td>{{.Month.Format "January 2006"}}</td><td class="num">{{money .Closing}}</td>
+<td><a href="/statements/{{.ID}}.pdf">PDF</a> · <a href="/statements/{{.ID}}.csv">CSV</a></td></tr>
+{{end}}
+</table>
+</div>
+{{end}}

@@ -1,0 +1,305 @@
+{
+ "user": {
+  "email": "alex@example.localhost",
+  "name": "Alex Morgan"
+ },
+ "albums": [
+  {
+   "id": "al-coast",
+   "title": "Coast trip, July 2026"
+  },
+  {
+   "id": "al-school",
+   "title": "First day of school"
+  },
+  {
+   "id": "al-garden",
+   "title": "Garden"
+  },
+  {
+   "id": "al-misc",
+   "title": "Camera roll"
+  }
+ ],
+ "photos": [
+  {
+   "id": "ph-001",
+   "album": "al-coast",
+   "name": "IMG_4100.jpg",
+   "taken": "2026-07-06T17:40:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#b56576"
+  },
+  {
+   "id": "ph-002",
+   "album": "al-coast",
+   "name": "IMG_4101.jpg",
+   "taken": "2026-07-06T13:40:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#3d405b"
+  },
+  {
+   "id": "ph-003",
+   "album": "al-coast",
+   "name": "IMG_4102.jpg",
+   "taken": "2026-07-06T13:05:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#2f6f8f"
+  },
+  {
+   "id": "ph-004",
+   "album": "al-coast",
+   "name": "IMG_4103.jpg",
+   "taken": "2026-07-06T17:36:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#e07a5f"
+  },
+  {
+   "id": "ph-005",
+   "album": "al-coast",
+   "name": "IMG_4104.jpg",
+   "taken": "2026-07-06T12:23:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#f2cc8f"
+  },
+  {
+   "id": "ph-006",
+   "album": "al-coast",
+   "name": "IMG_4105.jpg",
+   "taken": "2026-07-06T14:56:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#f2cc8f"
+  },
+  {
+   "id": "ph-007",
+   "album": "al-coast",
+   "name": "IMG_4106.jpg",
+   "taken": "2026-07-06T13:40:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#f2cc8f"
+  },
+  {
+   "id": "ph-008",
+   "album": "al-school",
+   "name": "IMG_4107.jpg",
+   "taken": "2026-09-02T16:01:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#3d405b"
+  },
+  {
+   "id": "ph-009",
+   "album": "al-school",
+   "name": "IMG_4108.jpg",
+   "taken": "2026-09-02T09:10:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#e07a5f"
+  },
+  {
+   "id": "ph-010",
+   "album": "al-school",
+   "name": "IMG_4109.jpg",
+   "taken": "2026-09-02T14:26:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#f2cc8f"
+  },
+  {
+   "id": "ph-011",
+   "album": "al-school",
+   "name": "IMG_4110.jpg",
+   "taken": "2026-09-02T15:21:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#6d597a"
+  },
+  {
+   "id": "ph-012",
+   "album": "al-school",
+   "name": "IMG_4111.jpg",
+   "taken": "2026-09-02T08:34:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#e07a5f"
+  },
+  {
+   "id": "ph-013",
+   "album": "al-school",
+   "name": "IMG_4112.jpg",
+   "taken": "2026-09-02T09:36:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#b56576"
+  },
+  {
+   "id": "ph-014",
+   "album": "al-school",
+   "name": "IMG_4113.jpg",
+   "taken": "2026-09-02T13:47:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#457b9d"
+  },
+  {
+   "id": "ph-015",
+   "album": "al-school",
+   "name": "IMG_4114.jpg",
+   "taken": "2026-09-02T17:45:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#6d597a"
+  },
+  {
+   "id": "ph-016",
+   "album": "al-school",
+   "name": "IMG_4115.jpg",
+   "taken": "2026-09-02T09:32:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#457b9d"
+  },
+  {
+   "id": "ph-017",
+   "album": "al-school",
+   "name": "IMG_4116.jpg",
+   "taken": "2026-09-02T18:17:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#f2cc8f"
+  },
+  {
+   "id": "ph-018",
+   "album": "al-garden",
+   "name": "IMG_4117.jpg",
+   "taken": "2026-08-06T11:42:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#457b9d"
+  },
+  {
+   "id": "ph-019",
+   "album": "al-garden",
+   "name": "IMG_4118.jpg",
+   "taken": "2026-09-15T08:55:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#b56576"
+  },
+  {
+   "id": "ph-020",
+   "album": "al-garden",
+   "name": "IMG_4119.jpg",
+   "taken": "2026-04-07T09:04:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#2f6f8f"
+  },
+  {
+   "id": "ph-021",
+   "album": "al-garden",
+   "name": "IMG_4120.jpg",
+   "taken": "2026-05-02T16:37:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#81b29a"
+  },
+  {
+   "id": "ph-022",
+   "album": "al-garden",
+   "name": "IMG_4121.jpg",
+   "taken": "2026-04-15T14:59:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#3d405b"
+  },
+  {
+   "id": "ph-023",
+   "album": "al-garden",
+   "name": "IMG_4122.jpg",
+   "taken": "2026-08-29T11:02:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#b56576"
+  },
+  {
+   "id": "ph-024",
+   "album": "al-garden",
+   "name": "IMG_4123.jpg",
+   "taken": "2026-09-04T18:01:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#81b29a"
+  },
+  {
+   "id": "ph-025",
+   "album": "al-garden",
+   "name": "IMG_4124.jpg",
+   "taken": "2026-07-17T09:15:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#f2cc8f"
+  },
+  {
+   "id": "ph-026",
+   "album": "al-garden",
+   "name": "IMG_4125.jpg",
+   "taken": "2026-07-04T08:16:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#81b29a"
+  },
+  {
+   "id": "ph-027",
+   "album": "al-misc",
+   "name": "IMG_4126.jpg",
+   "taken": "2026-08-05T08:34:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#f2cc8f"
+  },
+  {
+   "id": "ph-028",
+   "album": "al-misc",
+   "name": "IMG_4127.jpg",
+   "taken": "2026-07-07T12:06:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#457b9d"
+  },
+  {
+   "id": "ph-029",
+   "album": "al-misc",
+   "name": "IMG_4128.jpg",
+   "taken": "2026-09-06T11:20:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#e07a5f"
+  },
+  {
+   "id": "ph-030",
+   "album": "al-misc",
+   "name": "IMG_4129.jpg",
+   "taken": "2026-06-13T16:51:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#457b9d"
+  },
+  {
+   "id": "ph-031",
+   "album": "al-misc",
+   "name": "IMG_4130.jpg",
+   "taken": "2026-06-26T17:11:00Z",
+   "width": 1600,
+   "height": 1200,
+   "color": "#2f6f8f"
+  }
+ ]
+}

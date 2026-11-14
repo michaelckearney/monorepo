@@ -1,0 +1,8 @@
+{{define "content"}}
+<p><a href="/">← All mail</a></p>
+<div class="card">
+<h1>{{.Data.Subject}}</h1>
+<p class="muted">From {{.Data.From}} to {{.Data.To}}, at {{.Data.Sent.Format "15:04:05"}}</p>
+<pre style="white-space: pre-wrap; font: inherit">{{linkify .Data.Text}}</pre>
+</div>
+{{end}}

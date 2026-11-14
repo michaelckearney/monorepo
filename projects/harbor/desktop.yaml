@@ -1,0 +1,17 @@
+name: Harbor
+id: com.michaelckearney.harbor
+# prod is what users get. dev adds the developer bar (Tools and
+# Benchmarks), starts from the services in database/dev/, and serves the
+# fixture sites they use (backend/fixture).
+default_mode: prod
+modes:
+  prod:
+  dev:
+    name: Harbor Dev
+    id: com.michaelckearney.harbor.dev
+window:
+  width: 1280
+  height: 820
+# The desktop framework's headless Chromium, which runs services' tools (its
+# package browser).
+browser: true

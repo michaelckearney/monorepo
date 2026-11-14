@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Desktop",
+  "description": "Gives sites the app's answers when they ask the browser for an HTTP password or a passkey.",
+  "version": "1",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA34TNsVpbl0hnDb0IZKqU1qweRJZhABFVskZdJ4waEH9XkUHwBKyiOuTfvytKwpMGbleqDn/JifvvEUXqzbQmT5g+6mRW1zSz899ukb6CKW/m2taGdb/0g48w6zrF+GYG8mNbX669y1npWzbBXC442118nFCxHIfJ/WNj7jjKK1FYo3fvBHGU9yXnqZ/Jb8xfDRqo89qmZXwUQgN2LfoVc73uaW/4OypekfrSkLMoOQ6RTMIHjjQtHSO2O2ymtO9xgiiA4GNZk3agb4XDNHxSJFJgGoNqtmMAziKMq6S9vDRA+bmaDWvNIyNndP9MDK/+ddhsnfxRBjlidw8ACEdjDwIDAQAB",
+  "permissions": ["webAuthenticationProxy", "webRequest", "webRequestAuthProvider"],
+  "host_permissions": ["<all_urls>"]
+}

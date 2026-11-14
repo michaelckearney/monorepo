@@ -1,0 +1,11 @@
+{{define "header"}}{{end}}
+{{define "content"}}
+<h2>{{.Data.Student.Name}}: current grades</h2>
+<table>
+<tr><th>Course</th><th>Teacher</th><th class="num">Grade</th><th>Recent scores</th></tr>
+{{range .Data.Courses}}
+<tr><td>{{.Course}}</td><td>{{.Teacher}}</td><td class="num">{{.Letter}} ({{printf "%.1f" .Percent}}%)</td>
+<td class="muted">{{range $i, $s := .Scores}}{{if $i}}; {{end}}{{$s.Title}}: {{$s.Score}}/{{$s.Max}}{{end}}</td></tr>
+{{end}}
+</table>
+{{end}}

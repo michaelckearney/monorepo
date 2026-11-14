@@ -1,0 +1,7 @@
+{{define "content"}}
+<h1>Events</h1>
+<div class="card"><table>
+<tr><th>Date</th><th>Event</th><th>School</th></tr>
+{{range .Data.Events}}<tr><td>{{date .Date}}</td><td>{{.Title}}</td><td>{{.School}}</td></tr>{{end}}
+</table></div>
+{{end}}

@@ -1,0 +1,12 @@
+{{define "content"}}
+{{template "flash" .}}
+<h1>Accounts</h1>
+<div class="card">
+<table>
+<tr><th>Account</th><th>Number</th><th class="num">Balance</th></tr>
+{{range .Data.Accounts}}
+<tr><td><a href="/accounts/{{.ID}}">{{.Name}}</a></td><td class="muted">{{.Number}}</td><td class="num">{{money .Balance}}</td></tr>
+{{end}}
+</table>
+</div>
+{{end}}

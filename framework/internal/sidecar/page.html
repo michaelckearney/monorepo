@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Branches</title>
+<style>
+  :root {
+    --bg: #f6f6f4; --panel: #ffffff; --text: #1d1d1b; --muted: #6b6b66;
+    --line: #e3e2de; --accent: #2f6fdb; --accent-bg: #e8f0fd;
+    --ok: #2e8a4a; --bad: #c8382e; --wait: #b7791f; --warn-bg: #fdf3e1;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1b1a; --panel: #242423; --text: #ecebe7; --muted: #9a9993;
+      --line: #353533; --accent: #6ea0f5; --accent-bg: #23324c;
+      --ok: #5cbf7a; --bad: #ef6b60; --wait: #e0a94a; --warn-bg: #3a3020;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg); color: var(--text);
+    font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    display: flex; flex-direction: column; -webkit-user-select: none; user-select: none;
+  }
+  header { padding: 12px 12px 8px; border-bottom: 1px solid var(--line); }
+  .top { display: flex; align-items: center; gap: 8px; }
+  h1 { font-size: 14px; margin: 0; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mode { color: var(--muted); font-weight: 400; }
+  button {
+    font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 6px; padding: 3px 9px; cursor: pointer;
+  }
+  button:hover { border-color: var(--muted); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button:disabled { opacity: .5; cursor: default; }
+  input[type=search] {
+    width: 100%; margin-top: 8px; font: inherit; color: inherit; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; outline: none;
+  }
+  input[type=search]:focus { border-color: var(--accent); }
+  .note { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .status { margin: 8px 12px 0; padding: 8px 10px; border-radius: 6px; background: var(--panel); border: 1px solid var(--line); font-size: 12px; }
+  .status.failed { border-color: var(--bad); }
+  .status .what { font-weight: 600; }
+  .status .msg { color: var(--muted); margin-top: 2px; word-break: break-word; -webkit-user-select: text; user-select: text; }
+  .status.failed .what { color: var(--bad); }
+  main { flex: 1; overflow-y: auto; padding: 8px 8px 12px; }
+  .section { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; margin: 10px 6px 4px; }
+  .row {
+    display: block; width: 100%; text-align: left; padding: 7px 8px; margin: 2px 0;
+    border: 1px solid transparent; border-radius: 7px; background: none; cursor: pointer;
+  }
+  .row:hover { background: var(--panel); border-color: var(--line); }
+  .row.current { background: var(--accent-bg); border-color: var(--accent); }
+  .row.busy { cursor: progress; }
+  .line1 { display: flex; align-items: center; gap: 6px; min-width: 0; }
+  .name { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .title { margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .meta { color: var(--muted); font-size: 11.5px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .badge { font-size: 10.5px; padding: 0 6px; border-radius: 9px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+  .badge.fork { border-color: var(--wait); color: var(--wait); }
+  .badge.here { border-color: var(--accent); color: var(--accent); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .dot.pass { background: var(--ok); } .dot.fail { background: var(--bad); } .dot.pending { background: var(--wait); }
+  .confirm { margin-top: 6px; padding: 8px; border-radius: 6px; background: var(--warn-bg); font-size: 12px; cursor: default; }
+  .confirm .buttons { display: flex; gap: 6px; margin-top: 6px; }
+  a.pr { color: var(--accent); text-decoration: none; }
+  a.pr:hover { text-decoration: underline; }
+  .empty { color: var(--muted); text-align: center; margin-top: 24px; }
+  [hidden] { display: none !important; }
+  footer { border-top: 1px solid var(--line); padding: 8px 12px; display: flex; gap: 8px; align-items: center; }
+  footer .note { margin: 0; flex: 1; }
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1 id="title">Branches</h1>
+    <button id="refresh" title="Fetch branches and pull requests">Refresh</button>
+  </div>
+  <input id="filter" type="search" placeholder="Filter branches" autocomplete="off" spellcheck="false">
+  <div class="note" id="note"></div>
+</header>
+<div id="status"></div>
+<main id="list"></main>
+<footer id="footer" hidden>
+  <div class="note">This branch has its own data, copied from your checkout's.</div>
+  <button id="reset">Reset data</button>
+</footer>
+<script>
+"use strict";
+const token = new URLSearchParams(location.search).get("token") || "";
+let state = null;
+let confirming = null;
+let filter = "";
+
+async function api(path, body) {
+  const res = await fetch(path, {
+    method: body === undefined ? "GET" : "POST",
+    headers: { "X-Desktop-Token": token, "Content-Type": "application/json" },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error((await res.text()) || res.statusText);
+  return res.status === 204 ? null : res.json();
+}
+
+function el(tag, props, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (k === "class") e.className = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v);
+  }
+  for (const k of kids) if (k != null && k !== false) e.append(k);
+  return e;
+}
+
+function ago(t) {
+  if (!t) return "";
+  const s = Date.now() / 1000 - t;
+  if (s < 60) return "just now";
+  const units = [["year", 31536000], ["month", 2592000], ["week", 604800], ["day", 86400], ["hour", 3600], ["minute", 60]];
+  for (const [u, n] of units) if (s >= n) { const v = Math.floor(s / n); return `${v} ${u}${v > 1 ? "s" : ""} ago`; }
+}
+
+const checkText = { pass: "Checks passed", fail: "Checks failed", pending: "Checks running" };
+
+function row(b) {
+  const busy = state.status.state === "building";
+  const current = b.key === state.current;
+  const pr = b.pr;
+  const line1 = el("div", { class: "line1" },
+    pr && pr.checks ? el("span", { class: `dot ${pr.checks}`, title: checkText[pr.checks] }) : null,
+    el("span", { class: "name", title: b.name }, b.name),
+    b.home ? el("span", { class: "badge here" }, "your checkout") : null,
+    pr && pr.draft ? el("span", { class: "badge" }, "draft") : null,
+    pr && pr.fork ? el("span", { class: "badge fork" }, "fork") : null,
+  );
+  const meta = [];
+  if (pr) meta.push(`#${pr.number}`, pr.author);
+  if (b.time) meta.push(ago(b.time));
+  const r = el("div", {
+    class: `row${current ? " current" : ""}${busy ? " busy" : ""}`, role: "button", tabindex: "0",
+    onclick: () => choose(b),
+    onkeydown: (e) => { if (e.key === "Enter") choose(b); },
+  },
+    line1,
+    el("div", { class: "title", title: pr ? pr.title : b.subject }, pr ? pr.title : (b.subject || "")),
+    el("div", { class: "meta" },
+      pr ? el("a", { class: "pr", href: "#", title: "Open on GitHub", onclick: (e) => { e.preventDefault(); e.stopPropagation(); api("/api/open", { key: b.key }).catch(() => {}); } }, `#${pr.number}`) : null,
+      pr ? " · " : null,
+      meta.slice(pr ? 1 : 0).join(" · ")),
+  );
+  if (confirming === b.key) {
+    r.append(el("div", { class: "confirm", onclick: (e) => e.stopPropagation() },
+      "This pull request is from a fork. Running it runs its Go code and npm install scripts on this computer.",
+      el("div", { class: "buttons" },
+        el("button", { class: "primary", onclick: () => { confirming = null; go(b, true); } }, "Run it"),
+        el("button", { onclick: () => { confirming = null; render(); } }, "Cancel"))));
+  }
+  return r;
+}
+
+function choose(b) {
+  if (state.status.state === "building") return;
+  if (b.pr && b.pr.fork && b.key !== state.current) { confirming = b.key; render(); return; }
+  go(b, false);
+}
+
+async function go(b, trust) {
+  try {
+    await api("/api/switch", { key: b.key, trust });
+  } catch (e) {
+    state.status = { state: "failed", target: b.name, message: e.message };
+  }
+  poll();
+}
+
+function render() {
+  if (!state) return;
+  document.getElementById("title").replaceChildren(state.app, el("span", { class: "mode" }, ` · ${state.mode}`));
+  document.getElementById("note").textContent =
+    state.prsError ? `Branches only: ${state.prsError}` : (state.fetching ? "Fetching…" : "");
+  document.getElementById("refresh").disabled = state.fetching;
+
+  const s = state.status;
+  const box = document.getElementById("status");
+  if (s.state === "building" || s.state === "failed" || s.state === "stopped") {
+    const what = { building: `Switching to ${s.target}…`, failed: `Could not run ${s.target}`, stopped: "The app is not running" }[s.state];
+    box.replaceChildren(el("div", { class: `status ${s.state}` },
+      el("div", { class: "what" }, what),
+      s.message ? el("div", { class: "msg" }, s.message) : null,
+      s.state === "failed" ? el("div", { class: "msg" }, "What was running still is. Details are in the harness run terminal.") : null));
+  } else if (s.note) {
+    box.replaceChildren(el("div", { class: "status" }, el("div", { class: "msg" }, s.note)));
+  } else {
+    box.replaceChildren();
+  }
+
+  const f = filter.toLowerCase();
+  const match = (b) => !f || b.name.toLowerCase().includes(f) ||
+    (b.pr && (b.pr.title.toLowerCase().includes(f) || String(b.pr.number) === f.replace("#", "") || b.pr.author.toLowerCase().includes(f)));
+  const list = state.branches.filter(match);
+  const groups = [
+    ["", list.filter((b) => b.home)],
+    ["Pull requests", list.filter((b) => !b.home && b.pr)],
+    ["Branches", list.filter((b) => !b.home && !b.pr)],
+  ];
+  const kids = [];
+  for (const [name, items] of groups) {
+    if (!items.length) continue;
+    if (name) kids.push(el("div", { class: "section" }, name));
+    for (const b of items) kids.push(row(b));
+  }
+  if (!kids.length) kids.push(el("div", { class: "empty" }, "No branches match."));
+  const main = document.getElementById("list");
+  const top = main.scrollTop;
+  main.replaceChildren(...kids);
+  main.scrollTop = top;
+
+  document.getElementById("footer").hidden = state.current === "";
+  document.getElementById("reset").disabled = s.state === "building";
+}
+
+let timer = null;
+async function poll() {
+  clearTimeout(timer);
+  try {
+    const next = await api("/api/state");
+    const same = state && JSON.stringify(next) === JSON.stringify(state);
+    state = next;
+    if (!same) render();
+  } catch (e) {
+    document.getElementById("note").textContent = "harness run has stopped.";
+    return;
+  }
+  timer = setTimeout(poll, state.status.state === "building" || state.fetching ? 400 : 1500);
+}
+
+document.getElementById("refresh").addEventListener("click", () => api("/api/refresh", {}).then(poll, () => {}));
+document.getElementById("reset").addEventListener("click", () => api("/api/reset", {}).then(poll, (e) => { state.status = { state: "failed", target: "the reset", message: e.message }; render(); }));
+document.getElementById("filter").addEventListener("input", (e) => { filter = e.target.value; render(); });
+poll();
+</script>
+</body>
+</html>

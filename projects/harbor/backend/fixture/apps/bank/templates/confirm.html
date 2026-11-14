@@ -1,0 +1,13 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>Confirm it's you</h1>
+<p>For your security, enter your password again to continue.</p>
+{{if .Data.Error}}<p class="error" role="alert">{{.Data.Error}}</p>{{end}}
+<form method="post" action="/confirm-password">
+  <input type="hidden" name="authenticity_token" value="{{.Data.CSRF}}">
+  <input type="hidden" name="next" value="{{.Data.Next}}">
+  <label>Password <input type="password" name="password" autocomplete="current-password" autofocus required></label>
+  <button>Continue</button>
+</form>
+</div>
+{{end}}

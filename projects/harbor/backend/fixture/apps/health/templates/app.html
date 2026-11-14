@@ -1,0 +1,73 @@
+{{define "header"}}<header class="top"><a class="name" href="/app/">MyClearwater</a>
+<nav><a href="#appointments">Appointments</a><a href="#results">Test results</a><a href="#messages">Messages</a></nav>
+<select id="patient" aria-label="Whose record"></select>
+<form method="post" action="/logout"><button>Sign out</button></form></header>{{end}}
+{{define "content"}}
+<div id="view" class="card"><p class="muted">Loading…</p></div>
+<script>
+// The API needs its client header, and puts a prefix before every reply.
+async function api(path, options = {}) {
+  const r = await fetch("/api/v2" + path, { ...options, headers: { "X-Clearwater-Client": "portal-web/3.2", "Content-Type": "application/json", ...(options.headers || {}) } });
+  const text = await r.text();
+  const body = JSON.parse(text.replace(/^\)\]\}'\n/, ""));
+  if (r.status === 401) { location.href = "/?ended=1"; }
+  if (!r.ok) throw new Error(body.message);
+  return body;
+}
+const view = document.getElementById("view");
+const el = (tag, text, cls) => Object.assign(document.createElement(tag), { textContent: text ?? "", className: cls || "" });
+
+const pages = {
+  async appointments() {
+    const { appointments } = await api("/appointments");
+    view.replaceChildren(el("h1", "Appointments"));
+    for (const a of appointments.sort((x, y) => y.start.localeCompare(x.start))) {
+      const when = new Date(a.start).toLocaleString("en-US", { dateStyle: "full", timeStyle: "short" });
+      const d = el("div", "", "card");
+      d.append(el("h2", `${a.reason} · ${a.status}`), el("p", when), el("p", `${a.clinician}, ${a.department}`), el("p", a.location, "muted"));
+      view.append(d);
+    }
+  },
+  async results() {
+    const { results } = await api("/results");
+    view.replaceChildren(el("h1", "Test results"));
+    for (const r of results) {
+      const d = el("div", "", "card");
+      d.append(el("h2", `${r.name} · ${r.status}`), el("p", `Collected ${r.collected}, ordered by ${r.orderedBy}`, "muted"));
+      const link = el("a", "Details"); link.href = "#result/" + r.id; d.append(link);
+      view.append(d);
+    }
+  },
+  async result(id) {
+    const r = await api("/results/" + id);
+    view.replaceChildren(el("h1", r.name), el("p", `Collected ${r.collected} · ${r.status}`, "muted"));
+    const t = el("table");
+    t.insertRow().append(el("th", "Test"), el("th", "Value"), el("th", "Range"), el("th", "Flag"));
+    for (const c of r.components) t.insertRow().append(el("td", c.name), el("td", `${c.value} ${c.unit}`), el("td", c.range), el("td", c.flag, c.flag ? "error" : ""));
+    view.append(r.components.length ? t : el("p", "Results are not ready yet."));
+  },
+  async messages() {
+    const { messages } = await api("/messages");
+    view.replaceChildren(el("h1", "Messages"));
+    for (const m of messages) {
+      const d = el("div", "", "card");
+      d.append(el("h2", (m.read ? "" : "● ") + m.subject), el("p", `From ${m.from}, ${new Date(m.sent).toLocaleString()}`, "muted"), el("p", m.body));
+      if (!m.read) api(`/messages/${m.id}/read`, { method: "POST" });
+      view.append(d);
+    }
+  },
+};
+async function route() {
+  const [page, arg] = (location.hash.slice(1) || "appointments").split("/");
+  try { await (pages[page] || pages.appointments)(arg); } catch (e) { view.replaceChildren(el("p", e.message, "error")); }
+}
+window.onhashchange = route;
+(async () => {
+  const me = await api("/me");
+  const select = document.getElementById("patient");
+  for (const p of me.patients) select.append(new Option(`${p.name} (${p.relationship})`, p.id, false, p.id === me.patient.id));
+  select.onchange = async () => { await api("/patient", { method: "POST", body: JSON.stringify({ patient: select.value }) }); route(); };
+  route();
+})();
+</script>
+{{end}}

@@ -1,0 +1,6 @@
+{{define "content"}}
+<h1>Your students</h1>
+{{range .Data.Students}}
+<div class="card"><h2><a href="/students/{{.ID}}">{{.Name}}</a></h2><p>Grade {{.Grade}} · {{.School}} · {{.Teacher}}, {{.Homeroom}}</p></div>
+{{end}}
+{{end}}

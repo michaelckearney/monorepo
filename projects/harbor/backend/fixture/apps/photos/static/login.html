@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · Shoebox</title>
+<link rel="icon" href="/static/icon-512.png" sizes="512x512">
+<link rel="icon" href="/static/icon.svg" sizes="any" type="image/svg+xml">
+<link rel="stylesheet" href="/static/shoebox.css">
+</head>
+<body>
+<main class="narrow">
+  <h1>Shoebox</h1>
+  <p class="muted">Every photo, in one place.</p>
+  <button id="passkey" class="primary">Sign in with a passkey</button>
+  <p id="error" class="error" role="alert"></p>
+  <details id="password-box"><summary>Use your password instead</summary>
+    <form id="password">
+      <label>Email <input type="email" name="email" autocomplete="username" required></label>
+      <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+      <button>Sign in</button>
+    </form>
+  </details>
+</main>
+<script>
+const error = document.getElementById("error");
+document.getElementById("passkey").onclick = async () => {
+  error.textContent = "";
+  try {
+    const options = await fetch("/api/passkeys/login/begin", { method: "POST" }).then((r) => r.json());
+    const credential = await navigator.credentials.get({ publicKey: PublicKeyCredential.parseRequestOptionsFromJSON(options.publicKey) });
+    const r = await fetch("/api/passkeys/login/finish", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(credential.toJSON()) });
+    const body = await r.json();
+    if (!r.ok) throw new Error(body.message);
+    location.href = "/";
+  } catch (e) {
+    error.textContent = e.name === "NotAllowedError" ? "No passkey was used. Use your password, then add a passkey." : e.message;
+    document.getElementById("password-box").open = true;
+  }
+};
+document.getElementById("password").onsubmit = async (e) => {
+  e.preventDefault();
+  const r = await fetch("/api/login/password", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(new FormData(e.target))) });
+  const body = await r.json();
+  if (!r.ok) { error.textContent = body.message; return; }
+  location.href = "/";
+};
+</script>
+</body>
+</html>

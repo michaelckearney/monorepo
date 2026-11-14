@@ -1,0 +1,2178 @@
+{
+ "customer": {
+  "email": "alex@example.localhost",
+  "name": "Alex Morgan"
+ },
+ "orders": [
+  {
+   "id": "P1364274-046",
+   "placed": "2026-09-21",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1019",
+     "name": "Yoga mat",
+     "quantity": 1,
+     "priceCents": 2899
+    }
+   ],
+   "subtotalCents": 2899,
+   "shippingCents": 599,
+   "taxCents": 210,
+   "totalCents": 3708,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP247085149609",
+    "events": [
+     {
+      "time": "2026-09-21T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-09-22T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-09-23T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-09-24T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1356355-045",
+   "placed": "2026-09-08",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1006",
+     "name": "LED desk lamp",
+     "quantity": 2,
+     "priceCents": 4499
+    },
+    {
+     "sku": "PRC-1002",
+     "name": "Stainless water bottle",
+     "quantity": 1,
+     "priceCents": 2450
+    }
+   ],
+   "subtotalCents": 11448,
+   "shippingCents": 0,
+   "taxCents": 830,
+   "totalCents": 12278,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP782314747587",
+    "events": [
+     {
+      "time": "2026-09-08T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-09-09T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-09-10T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-09-11T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1348436-044",
+   "placed": "2026-09-03",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1015",
+     "name": "Sunscreen SPF 50",
+     "quantity": 2,
+     "priceCents": 1299
+    }
+   ],
+   "subtotalCents": 2598,
+   "shippingCents": 599,
+   "taxCents": 188,
+   "totalCents": 3385,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE179764048266",
+    "events": [
+     {
+      "time": "2026-09-03T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-09-04T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-09-05T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-09-06T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1340517-043",
+   "placed": "2026-08-29",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1004",
+     "name": "Coffee beans, 1 kg",
+     "quantity": 1,
+     "priceCents": 2799
+    }
+   ],
+   "subtotalCents": 2799,
+   "shippingCents": 599,
+   "taxCents": 203,
+   "totalCents": 3601,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US176840372088",
+    "events": [
+     {
+      "time": "2026-08-29T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-08-30T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-08-31T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-09-01T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1332598-042",
+   "placed": "2026-08-16",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1010",
+     "name": "Board game: Lighthouse Keepers",
+     "quantity": 1,
+     "priceCents": 3499
+    },
+    {
+     "sku": "PRC-1018",
+     "name": "Blender",
+     "quantity": 2,
+     "priceCents": 8999
+    }
+   ],
+   "subtotalCents": 21497,
+   "shippingCents": 0,
+   "taxCents": 1559,
+   "totalCents": 23056,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE289434005900",
+    "events": [
+     {
+      "time": "2026-08-16T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-08-17T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-08-18T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-08-19T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1324679-041",
+   "placed": "2026-08-05",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1010",
+     "name": "Board game: Lighthouse Keepers",
+     "quantity": 1,
+     "priceCents": 3499
+    }
+   ],
+   "subtotalCents": 3499,
+   "shippingCents": 599,
+   "taxCents": 254,
+   "totalCents": 4352,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE852350236946",
+    "events": [
+     {
+      "time": "2026-08-05T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-08-06T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-08-07T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-08-08T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1316760-040",
+   "placed": "2026-07-28",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1006",
+     "name": "LED desk lamp",
+     "quantity": 1,
+     "priceCents": 4499
+    },
+    {
+     "sku": "PRC-1019",
+     "name": "Yoga mat",
+     "quantity": 1,
+     "priceCents": 2899
+    },
+    {
+     "sku": "PRC-1004",
+     "name": "Coffee beans, 1 kg",
+     "quantity": 1,
+     "priceCents": 2799
+    }
+   ],
+   "subtotalCents": 10197,
+   "shippingCents": 0,
+   "taxCents": 739,
+   "totalCents": 10936,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP459902702691",
+    "events": [
+     {
+      "time": "2026-07-28T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-07-29T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-07-30T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-07-31T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1308841-039",
+   "placed": "2026-07-20",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1001",
+     "name": "USB-C charging cable, 2 m",
+     "quantity": 1,
+     "priceCents": 1299
+    }
+   ],
+   "subtotalCents": 1299,
+   "shippingCents": 599,
+   "taxCents": 94,
+   "totalCents": 1992,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP317373827826",
+    "events": [
+     {
+      "time": "2026-07-20T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-07-21T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-07-22T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-07-23T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1300922-038",
+   "placed": "2026-07-07",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1016",
+     "name": "HDMI cable",
+     "quantity": 2,
+     "priceCents": 999
+    }
+   ],
+   "subtotalCents": 1998,
+   "shippingCents": 599,
+   "taxCents": 145,
+   "totalCents": 2742,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US217489685600",
+    "events": [
+     {
+      "time": "2026-07-07T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-07-08T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-07-09T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-07-10T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1293003-037",
+   "placed": "2026-06-30",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1019",
+     "name": "Yoga mat",
+     "quantity": 1,
+     "priceCents": 2899
+    },
+    {
+     "sku": "PRC-1001",
+     "name": "USB-C charging cable, 2 m",
+     "quantity": 1,
+     "priceCents": 1299
+    }
+   ],
+   "subtotalCents": 4198,
+   "shippingCents": 0,
+   "taxCents": 304,
+   "totalCents": 4502,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US357116188754",
+    "events": [
+     {
+      "time": "2026-06-30T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-07-01T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-07-02T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-07-03T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1285084-036",
+   "placed": "2026-06-23",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1010",
+     "name": "Board game: Lighthouse Keepers",
+     "quantity": 2,
+     "priceCents": 3499
+    },
+    {
+     "sku": "PRC-1013",
+     "name": "Toothbrush heads, 4 pack",
+     "quantity": 1,
+     "priceCents": 2199
+    },
+    {
+     "sku": "PRC-1020",
+     "name": "Headphones",
+     "quantity": 1,
+     "priceCents": 12900
+    }
+   ],
+   "subtotalCents": 22097,
+   "shippingCents": 0,
+   "taxCents": 1602,
+   "totalCents": 23699,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE635984494207",
+    "events": [
+     {
+      "time": "2026-06-23T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-06-24T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-06-25T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-06-26T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1277165-035",
+   "placed": "2026-06-14",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    },
+    {
+     "sku": "PRC-1007",
+     "name": "Backpack, 22 L",
+     "quantity": 1,
+     "priceCents": 6200
+    }
+   ],
+   "subtotalCents": 9550,
+   "shippingCents": 0,
+   "taxCents": 692,
+   "totalCents": 10242,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE212185511245",
+    "events": [
+     {
+      "time": "2026-06-14T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-06-15T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-06-16T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-06-17T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1269246-034",
+   "placed": "2026-06-07",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1003",
+     "name": "Kids' rain jacket",
+     "quantity": 1,
+     "priceCents": 3899
+    }
+   ],
+   "subtotalCents": 3899,
+   "shippingCents": 0,
+   "taxCents": 283,
+   "totalCents": 4182,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US211412746003",
+    "events": [
+     {
+      "time": "2026-06-07T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-06-08T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-06-09T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-06-10T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1261327-033",
+   "placed": "2026-05-31",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1012",
+     "name": "Notebook set",
+     "quantity": 1,
+     "priceCents": 1450
+    },
+    {
+     "sku": "PRC-1017",
+     "name": "Kids' sneakers",
+     "quantity": 1,
+     "priceCents": 4599
+    }
+   ],
+   "subtotalCents": 6049,
+   "shippingCents": 0,
+   "taxCents": 439,
+   "totalCents": 6488,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE978954387583",
+    "events": [
+     {
+      "time": "2026-05-31T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-06-01T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-06-02T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-06-03T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1253408-032",
+   "placed": "2026-05-18",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    },
+    {
+     "sku": "PRC-1001",
+     "name": "USB-C charging cable, 2 m",
+     "quantity": 1,
+     "priceCents": 1299
+    }
+   ],
+   "subtotalCents": 4649,
+   "shippingCents": 0,
+   "taxCents": 337,
+   "totalCents": 4986,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE855763962458",
+    "events": [
+     {
+      "time": "2026-05-18T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-05-19T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-05-20T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-05-21T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1245489-031",
+   "placed": "2026-05-07",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1016",
+     "name": "HDMI cable",
+     "quantity": 1,
+     "priceCents": 999
+    },
+    {
+     "sku": "PRC-1007",
+     "name": "Backpack, 22 L",
+     "quantity": 1,
+     "priceCents": 6200
+    }
+   ],
+   "subtotalCents": 7199,
+   "shippingCents": 0,
+   "taxCents": 522,
+   "totalCents": 7721,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP770457369493",
+    "events": [
+     {
+      "time": "2026-05-07T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-05-08T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-05-09T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-05-10T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1237570-030",
+   "placed": "2026-04-24",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1004",
+     "name": "Coffee beans, 1 kg",
+     "quantity": 1,
+     "priceCents": 2799
+    },
+    {
+     "sku": "PRC-1010",
+     "name": "Board game: Lighthouse Keepers",
+     "quantity": 2,
+     "priceCents": 3499
+    }
+   ],
+   "subtotalCents": 9797,
+   "shippingCents": 0,
+   "taxCents": 710,
+   "totalCents": 10507,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP238534577578",
+    "events": [
+     {
+      "time": "2026-04-24T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-04-25T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-04-26T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-04-27T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1229651-029",
+   "placed": "2026-04-13",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    }
+   ],
+   "subtotalCents": 3350,
+   "shippingCents": 599,
+   "taxCents": 243,
+   "totalCents": 4192,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP101469244355",
+    "events": [
+     {
+      "time": "2026-04-13T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-04-14T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-04-15T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-04-16T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1221732-028",
+   "placed": "2026-04-06",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1013",
+     "name": "Toothbrush heads, 4 pack",
+     "quantity": 1,
+     "priceCents": 2199
+    },
+    {
+     "sku": "PRC-1009",
+     "name": "Running socks, 3 pairs",
+     "quantity": 1,
+     "priceCents": 1800
+    }
+   ],
+   "subtotalCents": 3999,
+   "shippingCents": 0,
+   "taxCents": 290,
+   "totalCents": 4289,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP940258595280",
+    "events": [
+     {
+      "time": "2026-04-06T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-04-07T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-04-08T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-04-09T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1213813-027",
+   "placed": "2026-03-28",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1020",
+     "name": "Headphones",
+     "quantity": 1,
+     "priceCents": 12900
+    }
+   ],
+   "subtotalCents": 12900,
+   "shippingCents": 0,
+   "taxCents": 935,
+   "totalCents": 13835,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP252766424199",
+    "events": [
+     {
+      "time": "2026-03-28T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-03-29T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-03-30T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-03-31T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1205894-026",
+   "placed": "2026-03-22",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1016",
+     "name": "HDMI cable",
+     "quantity": 1,
+     "priceCents": 999
+    }
+   ],
+   "subtotalCents": 999,
+   "shippingCents": 599,
+   "taxCents": 72,
+   "totalCents": 1670,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE733364293573",
+    "events": [
+     {
+      "time": "2026-03-22T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-03-23T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-03-24T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-03-25T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1197975-025",
+   "placed": "2026-03-16",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    },
+    {
+     "sku": "PRC-1002",
+     "name": "Stainless water bottle",
+     "quantity": 2,
+     "priceCents": 2450
+    }
+   ],
+   "subtotalCents": 8250,
+   "shippingCents": 0,
+   "taxCents": 598,
+   "totalCents": 8848,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP736625348847",
+    "events": [
+     {
+      "time": "2026-03-16T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-03-17T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-03-18T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-03-19T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1190056-024",
+   "placed": "2026-03-05",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1017",
+     "name": "Kids' sneakers",
+     "quantity": 1,
+     "priceCents": 4599
+    },
+    {
+     "sku": "PRC-1015",
+     "name": "Sunscreen SPF 50",
+     "quantity": 1,
+     "priceCents": 1299
+    }
+   ],
+   "subtotalCents": 5898,
+   "shippingCents": 0,
+   "taxCents": 428,
+   "totalCents": 6326,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE550726287370",
+    "events": [
+     {
+      "time": "2026-03-05T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-03-06T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-03-07T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-03-08T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1182137-023",
+   "placed": "2026-02-27",
+   "status": "cancelled",
+   "items": [
+    {
+     "sku": "PRC-1001",
+     "name": "USB-C charging cable, 2 m",
+     "quantity": 1,
+     "priceCents": 1299
+    },
+    {
+     "sku": "PRC-1016",
+     "name": "HDMI cable",
+     "quantity": 1,
+     "priceCents": 999
+    }
+   ],
+   "subtotalCents": 2298,
+   "shippingCents": 599,
+   "taxCents": 167,
+   "totalCents": 3064,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000"
+  },
+  {
+   "id": "P1174218-022",
+   "placed": "2026-02-22",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    },
+    {
+     "sku": "PRC-1018",
+     "name": "Blender",
+     "quantity": 1,
+     "priceCents": 8999
+    }
+   ],
+   "subtotalCents": 12349,
+   "shippingCents": 0,
+   "taxCents": 895,
+   "totalCents": 13244,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE822071310903",
+    "events": [
+     {
+      "time": "2026-02-22T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-02-23T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-02-24T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-02-25T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1166299-021",
+   "placed": "2026-02-18",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1004",
+     "name": "Coffee beans, 1 kg",
+     "quantity": 2,
+     "priceCents": 2799
+    }
+   ],
+   "subtotalCents": 5598,
+   "shippingCents": 0,
+   "taxCents": 406,
+   "totalCents": 6004,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE772517724971",
+    "events": [
+     {
+      "time": "2026-02-18T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-02-19T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-02-20T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-02-21T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1158380-020",
+   "placed": "2026-02-11",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1018",
+     "name": "Blender",
+     "quantity": 1,
+     "priceCents": 8999
+    },
+    {
+     "sku": "PRC-1011",
+     "name": "Phone case",
+     "quantity": 2,
+     "priceCents": 1999
+    }
+   ],
+   "subtotalCents": 12997,
+   "shippingCents": 0,
+   "taxCents": 942,
+   "totalCents": 13939,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US802739320812",
+    "events": [
+     {
+      "time": "2026-02-11T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-02-12T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-02-13T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-02-14T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1150461-019",
+   "placed": "2026-01-31",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1008",
+     "name": "Wireless mouse",
+     "quantity": 1,
+     "priceCents": 2999
+    },
+    {
+     "sku": "PRC-1001",
+     "name": "USB-C charging cable, 2 m",
+     "quantity": 1,
+     "priceCents": 1299
+    }
+   ],
+   "subtotalCents": 4298,
+   "shippingCents": 0,
+   "taxCents": 312,
+   "totalCents": 4610,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE286104256971",
+    "events": [
+     {
+      "time": "2026-01-31T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-02-01T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-02-02T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-02-03T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1142542-018",
+   "placed": "2026-01-26",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1002",
+     "name": "Stainless water bottle",
+     "quantity": 1,
+     "priceCents": 2450
+    },
+    {
+     "sku": "PRC-1006",
+     "name": "LED desk lamp",
+     "quantity": 1,
+     "priceCents": 4499
+    }
+   ],
+   "subtotalCents": 6949,
+   "shippingCents": 0,
+   "taxCents": 504,
+   "totalCents": 7453,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP943315872962",
+    "events": [
+     {
+      "time": "2026-01-26T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-01-27T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-01-28T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-01-29T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1134623-017",
+   "placed": "2026-01-21",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1016",
+     "name": "HDMI cable",
+     "quantity": 1,
+     "priceCents": 999
+    },
+    {
+     "sku": "PRC-1006",
+     "name": "LED desk lamp",
+     "quantity": 1,
+     "priceCents": 4499
+    }
+   ],
+   "subtotalCents": 5498,
+   "shippingCents": 0,
+   "taxCents": 399,
+   "totalCents": 5897,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US876632494573",
+    "events": [
+     {
+      "time": "2026-01-21T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-01-22T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-01-23T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-01-24T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1126704-016",
+   "placed": "2026-01-16",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1004",
+     "name": "Coffee beans, 1 kg",
+     "quantity": 1,
+     "priceCents": 2799
+    },
+    {
+     "sku": "PRC-1003",
+     "name": "Kids' rain jacket",
+     "quantity": 1,
+     "priceCents": 3899
+    }
+   ],
+   "subtotalCents": 6698,
+   "shippingCents": 0,
+   "taxCents": 486,
+   "totalCents": 7184,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE820551289981",
+    "events": [
+     {
+      "time": "2026-01-16T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-01-17T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-01-18T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-01-19T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1118785-015",
+   "placed": "2026-01-09",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1020",
+     "name": "Headphones",
+     "quantity": 1,
+     "priceCents": 12900
+    },
+    {
+     "sku": "PRC-1018",
+     "name": "Blender",
+     "quantity": 1,
+     "priceCents": 8999
+    }
+   ],
+   "subtotalCents": 21899,
+   "shippingCents": 0,
+   "taxCents": 1588,
+   "totalCents": 23487,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE678186517915",
+    "events": [
+     {
+      "time": "2026-01-09T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-01-10T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-01-11T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-01-12T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1110866-014",
+   "placed": "2026-01-04",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1012",
+     "name": "Notebook set",
+     "quantity": 1,
+     "priceCents": 1450
+    },
+    {
+     "sku": "PRC-1020",
+     "name": "Headphones",
+     "quantity": 1,
+     "priceCents": 12900
+    }
+   ],
+   "subtotalCents": 14350,
+   "shippingCents": 0,
+   "taxCents": 1040,
+   "totalCents": 15390,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE383958170358",
+    "events": [
+     {
+      "time": "2026-01-04T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-01-05T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-01-06T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-01-07T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1102947-013",
+   "placed": "2025-12-31",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1019",
+     "name": "Yoga mat",
+     "quantity": 1,
+     "priceCents": 2899
+    },
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    }
+   ],
+   "subtotalCents": 6249,
+   "shippingCents": 0,
+   "taxCents": 453,
+   "totalCents": 6702,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US918906081415",
+    "events": [
+     {
+      "time": "2025-12-31T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2026-01-01T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2026-01-02T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2026-01-03T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1095028-012",
+   "placed": "2025-12-20",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1007",
+     "name": "Backpack, 22 L",
+     "quantity": 1,
+     "priceCents": 6200
+    }
+   ],
+   "subtotalCents": 6200,
+   "shippingCents": 0,
+   "taxCents": 449,
+   "totalCents": 6649,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE525559548315",
+    "events": [
+     {
+      "time": "2025-12-20T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-12-21T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-12-22T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-12-23T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1087109-011",
+   "placed": "2025-12-16",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1002",
+     "name": "Stainless water bottle",
+     "quantity": 1,
+     "priceCents": 2450
+    },
+    {
+     "sku": "PRC-1020",
+     "name": "Headphones",
+     "quantity": 1,
+     "priceCents": 12900
+    }
+   ],
+   "subtotalCents": 15350,
+   "shippingCents": 0,
+   "taxCents": 1113,
+   "totalCents": 16463,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE500847230212",
+    "events": [
+     {
+      "time": "2025-12-16T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-12-17T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-12-18T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-12-19T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1079190-010",
+   "placed": "2025-12-05",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1010",
+     "name": "Board game: Lighthouse Keepers",
+     "quantity": 1,
+     "priceCents": 3499
+    },
+    {
+     "sku": "PRC-1009",
+     "name": "Running socks, 3 pairs",
+     "quantity": 1,
+     "priceCents": 1800
+    }
+   ],
+   "subtotalCents": 5299,
+   "shippingCents": 0,
+   "taxCents": 384,
+   "totalCents": 5683,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US938690905498",
+    "events": [
+     {
+      "time": "2025-12-05T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-12-06T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-12-07T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-12-08T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1071271-009",
+   "placed": "2025-12-01",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1009",
+     "name": "Running socks, 3 pairs",
+     "quantity": 2,
+     "priceCents": 1800
+    },
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    }
+   ],
+   "subtotalCents": 6950,
+   "shippingCents": 0,
+   "taxCents": 504,
+   "totalCents": 7454,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US797839895242",
+    "events": [
+     {
+      "time": "2025-12-01T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-12-02T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-12-03T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-12-04T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1063352-008",
+   "placed": "2025-11-22",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1009",
+     "name": "Running socks, 3 pairs",
+     "quantity": 1,
+     "priceCents": 1800
+    }
+   ],
+   "subtotalCents": 1800,
+   "shippingCents": 599,
+   "taxCents": 130,
+   "totalCents": 2529,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP246315605210",
+    "events": [
+     {
+      "time": "2025-11-22T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-11-23T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-11-24T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-11-25T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1055433-007",
+   "placed": "2025-11-15",
+   "status": "cancelled",
+   "items": [
+    {
+     "sku": "PRC-1001",
+     "name": "USB-C charging cable, 2 m",
+     "quantity": 1,
+     "priceCents": 1299
+    }
+   ],
+   "subtotalCents": 1299,
+   "shippingCents": 599,
+   "taxCents": 94,
+   "totalCents": 1992,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000"
+  },
+  {
+   "id": "P1047514-006",
+   "placed": "2025-11-07",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1009",
+     "name": "Running socks, 3 pairs",
+     "quantity": 1,
+     "priceCents": 1800
+    },
+    {
+     "sku": "PRC-1005",
+     "name": "Paperback: The Quiet Harbor",
+     "quantity": 1,
+     "priceCents": 1650
+    }
+   ],
+   "subtotalCents": 3450,
+   "shippingCents": 599,
+   "taxCents": 250,
+   "totalCents": 4299,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US641338508486",
+    "events": [
+     {
+      "time": "2025-11-07T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-11-08T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-11-09T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-11-10T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1039595-005",
+   "placed": "2025-10-27",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1020",
+     "name": "Headphones",
+     "quantity": 1,
+     "priceCents": 12900
+    }
+   ],
+   "subtotalCents": 12900,
+   "shippingCents": 0,
+   "taxCents": 935,
+   "totalCents": 13835,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US485480859263",
+    "events": [
+     {
+      "time": "2025-10-27T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-10-28T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-10-29T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-10-30T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1031676-004",
+   "placed": "2025-10-22",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1002",
+     "name": "Stainless water bottle",
+     "quantity": 1,
+     "priceCents": 2450
+    },
+    {
+     "sku": "PRC-1008",
+     "name": "Wireless mouse",
+     "quantity": 1,
+     "priceCents": 2999
+    }
+   ],
+   "subtotalCents": 5449,
+   "shippingCents": 0,
+   "taxCents": 395,
+   "totalCents": 5844,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US974077091061",
+    "events": [
+     {
+      "time": "2025-10-22T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-10-23T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-10-24T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-10-25T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1023757-003",
+   "placed": "2025-10-17",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1018",
+     "name": "Blender",
+     "quantity": 1,
+     "priceCents": 8999
+    },
+    {
+     "sku": "PRC-1012",
+     "name": "Notebook set",
+     "quantity": 2,
+     "priceCents": 1450
+    }
+   ],
+   "subtotalCents": 11899,
+   "shippingCents": 0,
+   "taxCents": 863,
+   "totalCents": 12762,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "FedEx",
+    "number": "FE968967273307",
+    "events": [
+     {
+      "time": "2025-10-17T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-10-18T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-10-19T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-10-20T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1015838-002",
+   "placed": "2025-10-11",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1019",
+     "name": "Yoga mat",
+     "quantity": 1,
+     "priceCents": 2899
+    },
+    {
+     "sku": "PRC-1014",
+     "name": "Garden hose, 15 m",
+     "quantity": 1,
+     "priceCents": 3350
+    }
+   ],
+   "subtotalCents": 6249,
+   "shippingCents": 0,
+   "taxCents": 453,
+   "totalCents": 6702,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "USPS",
+    "number": "US193914678472",
+    "events": [
+     {
+      "time": "2025-10-11T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-10-12T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-10-13T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-10-14T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  },
+  {
+   "id": "P1007919-001",
+   "placed": "2025-10-03",
+   "status": "delivered",
+   "items": [
+    {
+     "sku": "PRC-1013",
+     "name": "Toothbrush heads, 4 pack",
+     "quantity": 1,
+     "priceCents": 2199
+    },
+    {
+     "sku": "PRC-1008",
+     "name": "Wireless mouse",
+     "quantity": 2,
+     "priceCents": 2999
+    }
+   ],
+   "subtotalCents": 8197,
+   "shippingCents": 0,
+   "taxCents": 594,
+   "totalCents": 8791,
+   "shipTo": "Alex Morgan, 48 Harbor View Rd, Maple Grove, OR 97000",
+   "tracking": {
+    "carrier": "UPS",
+    "number": "UP722984337910",
+    "events": [
+     {
+      "time": "2025-10-03T18:20:00Z",
+      "place": "Portland, OR",
+      "status": "Label created"
+     },
+     {
+      "time": "2025-10-04T07:45:00Z",
+      "place": "Portland, OR",
+      "status": "Picked up"
+     },
+     {
+      "time": "2025-10-05T05:10:00Z",
+      "place": "Salem, OR",
+      "status": "In transit"
+     },
+     {
+      "time": "2025-10-06T15:32:00Z",
+      "place": "Maple Grove, OR",
+      "status": "Delivered, front porch"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homebase</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.5 system-ui, -apple-system, sans-serif; background: #111418; color: #e5e7eb; }
+  header { padding: 0.8rem 1.5rem; background: #1b1f26; display: flex; gap: 1rem; }
+  header strong { flex: 1; color: #34d399; }
+  header a { color: #9ca3af; }
+  main { max-width: 64rem; margin: 1.5rem auto; padding: 0 1rem; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); }
+  section { background: #1b1f26; border: 1px solid #2a303a; border-radius: 8px; padding: 1rem 1.25rem; }
+  h2 { margin: 0 0 0.75rem; font-size: 1rem; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { text-align: left; padding: 0.35rem 0.3rem; border-bottom: 1px solid #2a303a; }
+  th { color: #9ca3af; font-size: 0.75rem; text-transform: uppercase; }
+  .bar { height: 6px; background: #2a303a; border-radius: 3px; } .bar div { height: 6px; background: #34d399; border-radius: 3px; }
+  .off { color: #6b7280; }
+  .error { color: #f87171; }
+</style>
+</head>
+<body>
+<header><strong>Homebase</strong><span id="who"></span><a href="https://login.home.localhost:8443/logout?rd=https%3A%2F%2Fhome.localhost%3A8443%2F">Sign out</a></header>
+<main>
+  <section><h2>Devices</h2><table id="devices"><tr><th>Name</th><th>IP</th><th>Connection</th></tr></table></section>
+  <section><h2>Storage</h2><div id="storage"></div></section>
+  <section><h2>Sensors <small class="off">live</small></h2><table id="sensors"></table></section>
+</main>
+<script>
+const el = (tag, text, cls) => Object.assign(document.createElement(tag), { textContent: text ?? "", className: cls || "" });
+async function get(path) {
+  const r = await fetch(path);
+  const body = await r.json();
+  if (!r.ok) throw new Error(body.message);
+  return body;
+}
+(async () => {
+  try {
+    const me = await get("/api/me");
+    document.getElementById("who").textContent = me.name || me.username;
+    const { devices } = await get("/api/devices");
+    const t = document.getElementById("devices");
+    for (const d of devices) {
+      const tr = t.insertRow();
+      tr.className = d.online ? "" : "off";
+      tr.append(el("td", d.name), el("td", d.ip), el("td", d.online ? d.band : "offline"));
+    }
+    const { volumes } = await get("/api/storage");
+    for (const v of volumes) {
+      const box = el("div");
+      const bar = el("div", "", "bar"), fill = el("div");
+      fill.style.width = (100 * v.usedGB / v.sizeGB).toFixed(1) + "%";
+      bar.append(fill);
+      box.append(el("p", `${v.name}: ${(v.usedGB / 1000).toFixed(2)} of ${(v.sizeGB / 1000).toFixed(0)} TB used`), bar);
+      document.getElementById("storage").append(box);
+    }
+    const rows = {};
+    const stream = new EventSource("/api/sensors/stream");
+    stream.addEventListener("reading", (e) => {
+      const r = JSON.parse(e.data);
+      if (!rows[r.id]) { rows[r.id] = document.getElementById("sensors").insertRow(); rows[r.id].append(el("td", r.id), el("td")); }
+      rows[r.id].cells[1].textContent = `${r.value} ${r.unit}`;
+    });
+  } catch (e) { document.querySelector("main").replaceChildren(el("p", e.message, "error")); }
+})();
+</script>
+</body>
+</html>

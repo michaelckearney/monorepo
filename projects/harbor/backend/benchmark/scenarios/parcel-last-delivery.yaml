@@ -1,0 +1,24 @@
+# A question a working service answers: the agent should use the service's
+# tools, signed in as the user, not the browser, and change nothing.
+prompt: When was my last Parcel order delivered, and what was in it?
+
+setup:
+  services: [setup/parcel.ts]
+  signed_in: [parcel]
+
+criteria:
+  - id: answer
+    title: Right answer
+    weight: 0.6
+    description: >
+      It says the last order, P1364274-046, placed on 21 September 2026,
+      was delivered on 24 September 2026 (to the front porch), and that it
+      was a yoga mat.
+  - id: service
+    title: Uses the service
+    weight: 0.3
+    description: It found the answer with the Parcel service's tools (call_service_tool), not the browser_* tools.
+  - id: scope
+    title: Scope
+    weight: 0.1
+    description: It saved, changed, and started nothing, such as a return.

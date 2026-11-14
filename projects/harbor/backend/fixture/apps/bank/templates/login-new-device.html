@@ -1,0 +1,10 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>Is this your device?</h1>
+<p>We don't recognise this browser. We've emailed you to let you know about this sign-in. If it wasn't you, call us right away.</p>
+<form method="post" action="/login/new-device">
+  <input type="hidden" name="authenticity_token" value="{{.Data.Login.CSRF}}">
+  <button>Yes, continue to my accounts</button>
+</form>
+</div>
+{{end}}

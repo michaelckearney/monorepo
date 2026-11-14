@@ -1,0 +1,11 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>We've updated our terms</h1>
+<p>We changed how we share records with other providers who treat you. Read the <a href="#">updated terms of use</a> and <a href="#">privacy notice</a>.</p>
+{{if .Data}}{{if .Data.Error}}<p class="error" role="alert">{{.Data.Error}}</p>{{end}}{{end}}
+<form method="post" action="/terms">
+  <label class="check"><input type="checkbox" name="agree" value="yes"> I agree to the terms of use and privacy notice</label>
+  <button>Continue</button>
+</form>
+</div>
+{{end}}

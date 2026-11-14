@@ -1,0 +1,36 @@
+{{define "head"}}<script id="__PARCEL_STATE__" type="application/json">{{.Data.State}}</script>{{end}}
+{{define "content"}}
+<h1>Your orders</h1>
+<div id="orders"></div>
+<p id="more" class="muted">Loading more…</p>
+<script>
+const state = JSON.parse(document.getElementById("__PARCEL_STATE__").textContent);
+const list = document.getElementById("orders"), more = document.getElementById("more");
+const money = (c) => (c / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
+function add(orders) {
+  for (const o of orders) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<h2><a></a></h2><p></p><p class="muted"></p>`;
+    card.querySelector("a").href = "/orders/" + o.id;
+    card.querySelector("a").textContent = o.firstItem + (o.itemCount > 1 ? ` and ${o.itemCount - 1} more` : "");
+    card.querySelector("p").textContent = `Placed ${o.placed} · ${money(o.totalCents)} · ${o.status}`;
+    card.querySelector(".muted").textContent = "Order " + o.id;
+    list.append(card);
+  }
+}
+let cursor = state.nextCursor, loading = false;
+add(state.orders);
+// More orders load as you scroll to the bottom.
+new IntersectionObserver(async ([e]) => {
+  if (!e.isIntersecting || loading || !cursor) return;
+  loading = true;
+  const page = await fetch("/api/orders?cursor=" + encodeURIComponent(cursor)).then((r) => r.json());
+  add(page.orders);
+  cursor = page.nextCursor;
+  loading = false;
+  if (!cursor) more.textContent = "That's everything.";
+}).observe(more);
+if (!cursor) more.textContent = "That's everything.";
+</script>
+{{end}}

@@ -1,0 +1,10 @@
+{{define "header"}}<header class="top">
+  <a class="name" href="/">Tidewater Bank</a>
+  {{if .Data}}{{if .Data.CSRF}}
+  <nav><a href="/accounts">Accounts</a><a href="/statements">Statements</a><a href="/transfer">Transfer</a></nav>
+  <span>{{.Data.Name}}</span>
+  <form method="post" action="/logout"><input type="hidden" name="authenticity_token" value="{{.Data.CSRF}}"><button>Sign out</button></form>
+  {{end}}{{end}}
+</header>{{end}}
+{{define "head"}}{{if .Data}}{{if .Data.CSRF}}<meta name="csrf-token" content="{{.Data.CSRF}}">{{end}}{{end}}{{end}}
+{{define "flash"}}{{if .Data.Flash}}<p class="notice" role="status">{{.Data.Flash}}</p>{{end}}{{end}}

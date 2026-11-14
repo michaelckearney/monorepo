@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HB-AX3000 · Router</title>
+<style>
+  body { margin: 0; font: 13px/1.4 Verdana, sans-serif; background: #e8eef3; color: #222; }
+  header { background: #2d4b66; color: #fff; padding: 0.6rem 1rem; font-weight: bold; }
+  main { padding: 1rem; max-width: 52rem; }
+  fieldset { background: #fff; border: 1px solid #b8c6d3; margin-bottom: 1rem; }
+  legend { font-weight: bold; color: #2d4b66; }
+  table { border-collapse: collapse; width: 100%; }
+  td, th { border: 1px solid #d5dee6; padding: 4px 6px; text-align: left; }
+  th { background: #f1f5f8; }
+</style>
+</head>
+<body>
+<header>HB-AX3000 Wireless Router · Administration</header>
+<main>
+  <fieldset><legend>Status</legend><table id="status"></table></fieldset>
+  <fieldset><legend>Connected clients</legend><table id="clients"><tr><th>Host name</th><th>IP address</th><th>MAC address</th><th>Interface</th><th>State</th></tr></table></fieldset>
+</main>
+<script>
+(async () => {
+  const status = await fetch("/admin/api/status").then((r) => r.json());
+  const s = document.getElementById("status");
+  for (const [k, v] of [["Model", status.model], ["Firmware", status.firmware], ["WAN IP", status.wan.ip], ["WAN", status.wan.status], ["Uptime", Math.round(status.uptimeSeconds / 86400) + " days"], ["Clients online", status.clientsOnline]]) {
+    const tr = s.insertRow(); tr.insertCell().textContent = k; tr.insertCell().textContent = v;
+  }
+  const { clients } = await fetch("/admin/api/clients").then((r) => r.json());
+  const t = document.getElementById("clients");
+  for (const c of clients) {
+    const tr = t.insertRow();
+    for (const v of [c.name, c.ip, c.mac, c.band, c.online ? "Online" : "Offline"]) tr.insertCell().textContent = v;
+  }
+})();
+</script>
+</body>
+</html>

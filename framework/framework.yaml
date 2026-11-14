@@ -1,0 +1,10 @@
+# The desktop framework: Wails v3 apps with a Go backend and a Vue +
+# TypeScript frontend. See README.md.
+command: [go, run, ./cmd/desktop]
+verbs:
+  test: lint, unit tests, then e2e tests, in every mode
+  build: build the app in every mode for every platform
+  run: "start the app for development; -mode=<mode> picks a mode"
+  record: { help: "drive the app and record it, as evidence: record start, record <step>, record stop", turn: true }
+  cli: "run the project's own command-line program; -mode=<mode> first picks a mode"
+  modes: { help: "the project's modes, as JSON: the default first", turn: true }

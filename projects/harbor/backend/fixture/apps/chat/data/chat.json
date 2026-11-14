@@ -1,0 +1,1313 @@
+{
+ "me": {
+  "username": "alex",
+  "email": "alex@example.localhost",
+  "name": "Alex Morgan"
+ },
+ "users": [
+  {
+   "username": "alex",
+   "name": "Alex Morgan"
+  },
+  {
+   "username": "jordan",
+   "name": "Jordan Lee"
+  },
+  {
+   "username": "sam.k",
+   "name": "Sam Kowalski"
+  },
+  {
+   "username": "priya",
+   "name": "Priya Nair"
+  },
+  {
+   "username": "tomas",
+   "name": "Tom\u00e1s Rivera"
+  }
+ ],
+ "channels": [
+  {
+   "id": "c-general",
+   "name": "general",
+   "topic": "Company-wide announcements"
+  },
+  {
+   "id": "c-design",
+   "name": "design-team",
+   "topic": "Design crit and reviews"
+  },
+  {
+   "id": "c-eng",
+   "name": "eng",
+   "topic": "Engineering"
+  },
+  {
+   "id": "c-random",
+   "name": "random",
+   "topic": "Anything else"
+  }
+ ],
+ "messages": [
+  {
+   "id": "m0001",
+   "channel": "c-design",
+   "user": "priya",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-28T08:10:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0002",
+   "channel": "c-random",
+   "user": "jordan",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-28T08:26:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0003",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-28T08:47:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0004",
+   "channel": "c-random",
+   "user": "jordan",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-28T09:02:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0005",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-28T09:05:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0006",
+   "channel": "c-design",
+   "user": "priya",
+   "text": "Retro is moved to Thursday.",
+   "sent": "2026-09-28T09:31:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0007",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-28T09:43:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0008",
+   "channel": "c-general",
+   "user": "jordan",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-28T10:00:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0009",
+   "channel": "c-design",
+   "user": "tomas",
+   "text": "Great demo today.",
+   "sent": "2026-09-28T10:36:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0010",
+   "channel": "c-general",
+   "user": "jordan",
+   "text": "Retro is moved to Thursday.",
+   "sent": "2026-09-28T10:47:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0011",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-28T10:53:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0012",
+   "channel": "c-design",
+   "user": "priya",
+   "text": "Has anyone seen the latest numbers?",
+   "sent": "2026-09-28T11:13:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0013",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-28T11:30:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0014",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-28T12:04:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0015",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-28T12:08:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0016",
+   "channel": "c-eng",
+   "user": "sam.k",
+   "text": "Can someone review my PR when they get a chance?",
+   "sent": "2026-09-28T12:30:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0017",
+   "channel": "c-random",
+   "user": "jordan",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-28T12:37:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0018",
+   "channel": "c-random",
+   "user": "sam.k",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-28T12:46:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0019",
+   "channel": "c-eng",
+   "user": "priya",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-28T12:50:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0020",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-28T13:20:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0021",
+   "channel": "c-design",
+   "user": "sam.k",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-28T13:32:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0022",
+   "channel": "c-eng",
+   "user": "tomas",
+   "text": "Can someone review my PR when they get a chance?",
+   "sent": "2026-09-28T14:05:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0023",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-28T14:41:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0024",
+   "channel": "c-eng",
+   "user": "jordan",
+   "text": "@alex quick question about the empty state copy",
+   "sent": "2026-09-28T14:45:00Z",
+   "mentionsMe": true,
+   "read": true
+  },
+  {
+   "id": "m0025",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "Morning all!",
+   "sent": "2026-09-28T15:10:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0026",
+   "channel": "c-eng",
+   "user": "priya",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-28T15:46:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0027",
+   "channel": "c-design",
+   "user": "sam.k",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-28T15:55:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0028",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-28T16:26:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0029",
+   "channel": "c-general",
+   "user": "sam.k",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-28T16:38:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0030",
+   "channel": "c-general",
+   "user": "sam.k",
+   "text": "Retro is moved to Thursday.",
+   "sent": "2026-09-28T16:44:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0031",
+   "channel": "c-random",
+   "user": "priya",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-28T17:11:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0032",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "Great demo today.",
+   "sent": "2026-09-28T17:48:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0033",
+   "channel": "c-general",
+   "user": "jordan",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-28T18:14:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0034",
+   "channel": "c-eng",
+   "user": "jordan",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-28T18:46:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0035",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-28T19:07:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0036",
+   "channel": "c-eng",
+   "user": "jordan",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-28T19:10:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0037",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-28T19:45:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0038",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-28T20:08:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0039",
+   "channel": "c-eng",
+   "user": "jordan",
+   "text": "Great demo today.",
+   "sent": "2026-09-28T20:22:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0040",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-28T20:31:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0041",
+   "channel": "c-general",
+   "user": "jordan",
+   "text": "Morning all!",
+   "sent": "2026-09-28T20:58:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0042",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "Morning all!",
+   "sent": "2026-09-28T21:12:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0043",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-28T21:44:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0044",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-28T22:05:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0045",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "Retro is moved to Thursday.",
+   "sent": "2026-09-28T22:32:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0046",
+   "channel": "c-eng",
+   "user": "priya",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-28T22:50:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0047",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-28T23:25:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0048",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-28T23:41:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0049",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "Morning all!",
+   "sent": "2026-09-28T23:58:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0050",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-29T00:16:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0051",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-29T00:32:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0052",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-29T01:03:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0053",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-29T01:27:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0054",
+   "channel": "c-eng",
+   "user": "jordan",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-29T01:41:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0055",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-29T02:09:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0056",
+   "channel": "c-eng",
+   "user": "jordan",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-29T02:48:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0057",
+   "channel": "c-eng",
+   "user": "jordan",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-29T03:16:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0058",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-29T03:39:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0059",
+   "channel": "c-eng",
+   "user": "sam.k",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-29T04:00:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0060",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-29T04:30:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0061",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Retro is moved to Thursday.",
+   "sent": "2026-09-29T04:50:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0062",
+   "channel": "c-random",
+   "user": "sam.k",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-29T05:29:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0063",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-29T05:49:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0064",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-29T05:58:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0065",
+   "channel": "c-random",
+   "user": "jordan",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-29T06:24:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0066",
+   "channel": "c-eng",
+   "user": "tomas",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-29T06:31:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0067",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-29T06:44:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0068",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-29T06:50:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0069",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-29T07:12:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0070",
+   "channel": "c-design",
+   "user": "sam.k",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-29T07:46:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0071",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-29T08:01:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0072",
+   "channel": "c-design",
+   "user": "tomas",
+   "text": "Morning all!",
+   "sent": "2026-09-29T08:34:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0073",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "Great demo today.",
+   "sent": "2026-09-29T08:53:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0074",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "Retro is moved to Thursday.",
+   "sent": "2026-09-29T09:02:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0075",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-29T09:33:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0076",
+   "channel": "c-random",
+   "user": "jordan",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-29T09:39:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0077",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Has anyone seen the latest numbers?",
+   "sent": "2026-09-29T09:52:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0078",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-29T10:24:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0079",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-29T10:55:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0080",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Can someone review my PR when they get a chance?",
+   "sent": "2026-09-29T11:29:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0081",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "Has anyone seen the latest numbers?",
+   "sent": "2026-09-29T11:42:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0082",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-29T12:00:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0083",
+   "channel": "c-random",
+   "user": "sam.k",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-29T12:27:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0084",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-29T12:35:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0085",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-29T12:53:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0086",
+   "channel": "c-general",
+   "user": "sam.k",
+   "text": "@alex the dark mode spec is approved \ud83c\udf89",
+   "sent": "2026-09-29T13:00:00Z",
+   "mentionsMe": true,
+   "read": true
+  },
+  {
+   "id": "m0087",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Great demo today.",
+   "sent": "2026-09-29T13:15:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0088",
+   "channel": "c-eng",
+   "user": "tomas",
+   "text": "@alex quick question about the empty state copy",
+   "sent": "2026-09-29T13:30:00Z",
+   "mentionsMe": true,
+   "read": true
+  },
+  {
+   "id": "m0089",
+   "channel": "c-general",
+   "user": "priya",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-29T13:38:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0090",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "I'm out tomorrow, ping Jordan for anything urgent.",
+   "sent": "2026-09-29T14:01:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0091",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-29T14:07:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0092",
+   "channel": "c-eng",
+   "user": "tomas",
+   "text": "Can someone review my PR when they get a chance?",
+   "sent": "2026-09-29T14:12:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0093",
+   "channel": "c-random",
+   "user": "priya",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-29T14:26:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0094",
+   "channel": "c-random",
+   "user": "jordan",
+   "text": "Has anyone seen the latest numbers?",
+   "sent": "2026-09-29T14:40:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0095",
+   "channel": "c-random",
+   "user": "jordan",
+   "text": "Can someone review my PR when they get a chance?",
+   "sent": "2026-09-29T14:48:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0096",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Great demo today.",
+   "sent": "2026-09-29T15:03:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0097",
+   "channel": "c-eng",
+   "user": "tomas",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-29T15:25:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0098",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-29T15:41:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0099",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "Can someone review my PR when they get a chance?",
+   "sent": "2026-09-29T16:01:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0100",
+   "channel": "c-random",
+   "user": "priya",
+   "text": "Morning all!",
+   "sent": "2026-09-29T16:04:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0101",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-29T16:38:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0102",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-29T16:43:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0103",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-29T17:17:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0104",
+   "channel": "c-random",
+   "user": "sam.k",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-29T17:52:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0105",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-29T17:56:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0106",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-29T18:35:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0107",
+   "channel": "c-general",
+   "user": "sam.k",
+   "text": "@alex quick question about the empty state copy",
+   "sent": "2026-09-29T19:13:00Z",
+   "mentionsMe": true,
+   "read": false
+  },
+  {
+   "id": "m0108",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-29T19:32:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0109",
+   "channel": "c-design",
+   "user": "tomas",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-29T20:10:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0110",
+   "channel": "c-random",
+   "user": "tomas",
+   "text": "Thanks for the quick fix!",
+   "sent": "2026-09-29T20:20:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0111",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "Morning all!",
+   "sent": "2026-09-29T20:41:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0112",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-29T20:58:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0113",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Has anyone seen the latest numbers?",
+   "sent": "2026-09-29T21:14:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0114",
+   "channel": "c-eng",
+   "user": "tomas",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-29T21:21:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0115",
+   "channel": "c-eng",
+   "user": "tomas",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-29T21:54:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0116",
+   "channel": "c-general",
+   "user": "tomas",
+   "text": "Morning all!",
+   "sent": "2026-09-29T22:02:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0117",
+   "channel": "c-random",
+   "user": "priya",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-29T22:16:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0118",
+   "channel": "c-design",
+   "user": "tomas",
+   "text": "@alex do you have the Figma link for settings?",
+   "sent": "2026-09-29T22:47:00Z",
+   "mentionsMe": true,
+   "read": false
+  },
+  {
+   "id": "m0119",
+   "channel": "c-random",
+   "user": "priya",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-29T23:23:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0120",
+   "channel": "c-eng",
+   "user": "priya",
+   "text": "Retro is moved to Thursday.",
+   "sent": "2026-09-30T00:00:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0121",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "New hire starting next week: say hi to Priya!",
+   "sent": "2026-09-30T00:06:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0122",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-30T00:38:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0123",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "Great demo today.",
+   "sent": "2026-09-30T01:04:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0124",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-30T01:30:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0125",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-30T01:35:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0126",
+   "channel": "c-random",
+   "user": "alex",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-30T02:01:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0127",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "I pushed the new icons to the shared drive.",
+   "sent": "2026-09-30T02:35:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0128",
+   "channel": "c-general",
+   "user": "alex",
+   "text": "Morning all!",
+   "sent": "2026-09-30T03:02:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0129",
+   "channel": "c-design",
+   "user": "priya",
+   "text": "The staging deploy is done.",
+   "sent": "2026-09-30T03:26:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0130",
+   "channel": "c-random",
+   "user": "sam.k",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-30T04:00:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0131",
+   "channel": "c-eng",
+   "user": "alex",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-30T04:24:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0132",
+   "channel": "c-design",
+   "user": "sam.k",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-30T04:27:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0133",
+   "channel": "c-random",
+   "user": "priya",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-30T04:46:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0134",
+   "channel": "c-design",
+   "user": "priya",
+   "text": "Lunch at Pier 9 today?",
+   "sent": "2026-09-30T04:57:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0135",
+   "channel": "c-random",
+   "user": "sam.k",
+   "text": "Can we push the release to Monday?",
+   "sent": "2026-09-30T05:19:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0136",
+   "channel": "c-design",
+   "user": "alex",
+   "text": "Great demo today.",
+   "sent": "2026-09-30T05:29:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0137",
+   "channel": "c-eng",
+   "user": "priya",
+   "text": "Coffee machine is fixed \u2615",
+   "sent": "2026-09-30T06:01:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0138",
+   "channel": "c-eng",
+   "user": "priya",
+   "text": "Heads up: the office Wi-Fi restarts at 6 pm.",
+   "sent": "2026-09-30T06:04:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0139",
+   "channel": "c-random",
+   "user": "priya",
+   "text": "Has anyone seen the latest numbers?",
+   "sent": "2026-09-30T06:26:00Z",
+   "mentionsMe": false,
+   "read": true
+  },
+  {
+   "id": "m0140",
+   "channel": "c-design",
+   "user": "jordan",
+   "text": "Who owns the onboarding emails?",
+   "sent": "2026-09-30T07:01:00Z",
+   "mentionsMe": false,
+   "read": true
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{{define "header"}}<header class="top"><a class="name" href="/">Brightline Energy</a><nav></nav>
+<form method="post" action="/logout"><button>Sign out</button></form></header>{{end}}
+{{define "content"}}
+<h1>Your account</h1>
+<div class="card" id="summary"><p class="muted">Loading…</p></div>
+<div class="card">
+  <h2>Usage, last 12 months</h2>
+  <canvas id="usage" width="860" height="260" aria-label="Monthly usage chart" role="img"></canvas>
+  <p><button class="plain" id="export">Export daily usage (CSV)</button> <span id="export-status" class="muted"></span></p>
+</div>
+<div class="card">
+  <h2>Bills</h2>
+  <table id="bills"><tr><th>Period</th><th>Due</th><th class="num">kWh</th><th class="num">Amount</th><th>Status</th></tr></table>
+</div>
+<script>
+const API = {{.Data.API}};
+const get = (path) => fetch(API + path, { credentials: "include" }).then((r) => {
+  if (r.status === 401) { location.href = "/login"; throw new Error("signed out"); }
+  return r.json();
+});
+const money = (c) => (c / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
+
+async function load() {
+  const [account, bills, usage] = await Promise.all([get("/v1/account"), get("/v1/bills"), get("/v1/usage?by=month")]);
+  const due = bills.bills.find((b) => b.status === "due");
+  document.getElementById("summary").innerHTML = "";
+  const s = document.getElementById("summary");
+  s.append(Object.assign(document.createElement("p"), { textContent: `${account.name} · Account ${account.accountNumber} · ${account.serviceAddress}` }));
+  s.append(Object.assign(document.createElement("p"), { textContent: due ? `Amount due: ${money(due.amountCents)} by ${due.due}` : "Nothing due." }));
+  s.append(Object.assign(document.createElement("p"), { className: "muted", textContent: `Autopay is ${account.autopay ? "on" : "off"}. Plan: ${account.plan}.` }));
+  const table = document.getElementById("bills");
+  for (const b of bills.bills) {
+    const tr = table.insertRow();
+    for (const [v, cls] of [[b.period], [b.due], [b.kwh, "num"], [money(b.amountCents), "num"], [b.status]]) {
+      const td = tr.insertCell(); td.textContent = v; if (cls) td.className = cls;
+    }
+  }
+  draw(usage.points.slice(-12));
+}
+
+// The chart is only pixels: its numbers are not in the page.
+function draw(points) {
+  const c = document.getElementById("usage"), g = c.getContext("2d");
+  const top = Math.max(...points.map((p) => p.kwh)) * 1.1, w = c.width / points.length;
+  g.font = "12px system-ui"; g.fillStyle = "#d97706";
+  points.forEach((p, i) => {
+    const h = (p.kwh / top) * (c.height - 30);
+    g.fillRect(i * w + 8, c.height - 20 - h, w - 16, h);
+    g.fillStyle = "#5f6774"; g.fillText(p.period.slice(5) + "/" + p.period.slice(2, 4), i * w + 10, c.height - 5); g.fillStyle = "#d97706";
+  });
+}
+
+document.getElementById("export").onclick = async () => {
+  const status = document.getElementById("export-status");
+  const to = new Date().toISOString().slice(0, 10), from = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+  let job = await fetch(API + "/v1/exports", { method: "POST", credentials: "include", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ from, to }) }).then((r) => r.json());
+  status.textContent = "Preparing your file…";
+  while (job.status !== "ready") {
+    await new Promise((r) => setTimeout(r, 1000));
+    job = await get("/v1/exports/" + job.id);
+  }
+  const blob = await fetch(job.fileUrl, { credentials: "include" }).then((r) => r.blob());
+  const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: "brightline-usage.csv" });
+  a.click();
+  status.textContent = "Downloaded.";
+};
+load();
+</script>
+{{end}}

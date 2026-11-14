@@ -1,0 +1,5 @@
+{{define "header"}}<header class="top"><a class="name" href="/">parcel</a><nav></nav>{{if .Data.SignedIn}}<a href="/orders">Your orders</a>{{else}}<a href="/signin">Sign in</a>{{end}}</header>{{end}}
+{{define "content"}}
+<div class="card narrow"><h1>Everything, delivered.</h1><p>Track your orders and start returns.</p>
+<p><a class="button" href="/orders">Your orders</a></p></div>
+{{end}}

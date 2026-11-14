@@ -1,0 +1,256 @@
+{
+ "parent": {
+  "username": "alex@example.localhost",
+  "name": "Alex Morgan",
+  "email": "alex@example.localhost"
+ },
+ "students": [
+  {
+   "id": "s-sam",
+   "name": "Sam Morgan",
+   "grade": 4,
+   "school": "Maple Grove Elementary",
+   "teacher": "Ms. Hannah Cole",
+   "homeroom": "Room 12"
+  },
+  {
+   "id": "s-riley",
+   "name": "Riley Morgan",
+   "grade": 8,
+   "school": "Maple Grove Middle School",
+   "teacher": "Mr. David Osei",
+   "homeroom": "Room 204"
+  }
+ ],
+ "assignments": [
+  {
+   "id": "AS-11",
+   "student": "s-sam",
+   "course": "Math",
+   "title": "Multiplication facts, set 3",
+   "due": "2026-10-02",
+   "status": "assigned"
+  },
+  {
+   "id": "AS-12",
+   "student": "s-sam",
+   "course": "Reading",
+   "title": "Book report: Charlotte's Web",
+   "due": "2026-10-09",
+   "status": "assigned"
+  },
+  {
+   "id": "AS-13",
+   "student": "s-sam",
+   "course": "Science",
+   "title": "Leaf collection",
+   "due": "2026-09-25",
+   "status": "missing"
+  },
+  {
+   "id": "AS-14",
+   "student": "s-sam",
+   "course": "Math",
+   "title": "Place value worksheet",
+   "due": "2026-09-18",
+   "status": "graded"
+  },
+  {
+   "id": "AS-21",
+   "student": "s-riley",
+   "course": "Algebra I",
+   "title": "Linear equations problem set",
+   "due": "2026-10-01",
+   "status": "submitted"
+  },
+  {
+   "id": "AS-22",
+   "student": "s-riley",
+   "course": "English 8",
+   "title": "Persuasive essay draft",
+   "due": "2026-10-06",
+   "status": "assigned"
+  },
+  {
+   "id": "AS-23",
+   "student": "s-riley",
+   "course": "Earth Science",
+   "title": "Plate tectonics lab report",
+   "due": "2026-09-29",
+   "status": "missing"
+  },
+  {
+   "id": "AS-24",
+   "student": "s-riley",
+   "course": "US History",
+   "title": "Chapter 3 reading quiz",
+   "due": "2026-10-03",
+   "status": "assigned"
+  },
+  {
+   "id": "AS-25",
+   "student": "s-riley",
+   "course": "Spanish I",
+   "title": "Vocabulary unit 2",
+   "due": "2026-09-24",
+   "status": "graded"
+  }
+ ],
+ "events": [
+  {
+   "date": "2026-10-05",
+   "title": "Picture day",
+   "school": "Maple Grove Elementary"
+  },
+  {
+   "date": "2026-10-09",
+   "title": "No school: teacher planning day",
+   "school": "All schools"
+  },
+  {
+   "date": "2026-10-15",
+   "title": "Parent-teacher conferences",
+   "school": "All schools"
+  },
+  {
+   "date": "2026-10-22",
+   "title": "Fall concert, 6:30 pm",
+   "school": "Maple Grove Middle School"
+  },
+  {
+   "date": "2026-10-30",
+   "title": "Harvest parade",
+   "school": "Maple Grove Elementary"
+  }
+ ],
+ "grades": {
+  "s-sam": [
+   {
+    "course": "Math",
+    "teacher": "Ms. Hannah Cole",
+    "percent": 91.5,
+    "letter": "A-",
+    "scores": [
+     {
+      "title": "Place value worksheet",
+      "score": 18,
+      "max": 20
+     },
+     {
+      "title": "Addition quiz",
+      "score": 10,
+      "max": 10
+     }
+    ]
+   },
+   {
+    "course": "Reading",
+    "teacher": "Ms. Hannah Cole",
+    "percent": 88.0,
+    "letter": "B+",
+    "scores": [
+     {
+      "title": "Reading log, September",
+      "score": 22,
+      "max": 25
+     }
+    ]
+   },
+   {
+    "course": "Science",
+    "teacher": "Mr. Felix Grant",
+    "percent": 74.0,
+    "letter": "C",
+    "scores": [
+     {
+      "title": "Leaf collection",
+      "score": 0,
+      "max": 20
+     },
+     {
+      "title": "Weather journal",
+      "score": 17,
+      "max": 20
+     }
+    ]
+   }
+  ],
+  "s-riley": [
+   {
+    "course": "Algebra I",
+    "teacher": "Ms. Ana Lima",
+    "percent": 94.2,
+    "letter": "A",
+    "scores": [
+     {
+      "title": "Unit 1 test",
+      "score": 47,
+      "max": 50
+     },
+     {
+      "title": "Homework 1-4",
+      "score": 38,
+      "max": 40
+     }
+    ]
+   },
+   {
+    "course": "English 8",
+    "teacher": "Mr. David Osei",
+    "percent": 86.4,
+    "letter": "B",
+    "scores": [
+     {
+      "title": "Narrative essay",
+      "score": 43,
+      "max": 50
+     }
+    ]
+   },
+   {
+    "course": "Earth Science",
+    "teacher": "Dr. Ruth Park",
+    "percent": 71.8,
+    "letter": "C-",
+    "scores": [
+     {
+      "title": "Plate tectonics lab report",
+      "score": 0,
+      "max": 30
+     },
+     {
+      "title": "Minerals quiz",
+      "score": 18,
+      "max": 20
+     }
+    ]
+   },
+   {
+    "course": "US History",
+    "teacher": "Mr. Leon Hart",
+    "percent": 89.0,
+    "letter": "B+",
+    "scores": [
+     {
+      "title": "Chapter 2 quiz",
+      "score": 17,
+      "max": 20
+     }
+    ]
+   },
+   {
+    "course": "Spanish I",
+    "teacher": "Sra. Isabel Cruz",
+    "percent": 96.0,
+    "letter": "A",
+    "scores": [
+     {
+      "title": "Vocabulary unit 2",
+      "score": 24,
+      "max": 25
+     }
+    ]
+   }
+  ]
+ }
+}

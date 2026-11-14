@@ -1,0 +1,14 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>Sign in</h1>
+{{if .Data.Reauth}}<p class="notice">Enter your password again to continue.</p>{{end}}
+{{if .Data.Error}}<p class="error" role="alert">{{.Data.Error}}</p>{{end}}
+<form method="post" action="/">
+  <input type="hidden" name="rd" value="{{.Data.RD}}">
+  {{if .Data.Reauth}}<input type="hidden" name="reauth" value="1">{{end}}
+  <label>Username <input name="username" autocomplete="username" autofocus required></label>
+  <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+  <button>Sign in</button>
+</form>
+</div>
+{{end}}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{if .Title}}{{.Title}} · {{end}}{{.Brand.Name}}</title>
+{{.Brand.Icons}}
+<style>
+  :root { --accent: {{.Brand.Color}}; --bg: {{if .Brand.Dark}}#15171c{{else}}#f6f7f9{{end}}; --card: {{if .Brand.Dark}}#1f232b{{else}}#fff{{end}}; --text: {{if .Brand.Dark}}#e8eaee{{else}}#1d2129{{end}}; --muted: {{if .Brand.Dark}}#9aa1ad{{else}}#5f6774{{end}}; --border: {{if .Brand.Dark}}#2e3440{{else}}#dde1e6{{end}}; --danger: #c93c3c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  header.top { background: var(--accent); color: #fff; padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; }
+  header.top a { color: #fff; text-decoration: none; }
+  header.top .name { font-weight: 700; font-size: 1.1rem; }
+  header.top nav { display: flex; gap: 1rem; flex: 1; }
+  header.top form { margin: 0; }
+  header.top button { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.6); }
+  main { max-width: 60rem; margin: 2rem auto; padding: 0 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+  .narrow { max-width: 26rem; margin: 3rem auto; }
+  h1 { font-size: 1.5rem; margin: 0 0 1rem; }
+  h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+  label { display: block; margin: 0 0 0.75rem; font-weight: 500; }
+  label input, label select, label textarea { display: block; width: 100%; margin-top: 0.25rem; font-weight: 400; }
+  label.check { display: flex; gap: 0.5rem; align-items: center; font-weight: 400; }
+  label.check input { width: auto; margin: 0; }
+  input, select, textarea { font: inherit; padding: 0.45rem 0.6rem; border: 1px solid var(--border); border-radius: 6px; background: var(--card); color: var(--text); }
+  button, .button { font: inherit; padding: 0.45rem 1rem; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; text-decoration: none; display: inline-block; }
+  button.plain { background: transparent; color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 0.5rem 0.4rem; border-bottom: 1px solid var(--border); }
+  th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  a { color: var(--accent); }
+  .muted { color: var(--muted); }
+  .error { color: var(--danger); }
+  .notice { background: color-mix(in srgb, var(--accent) 12%, var(--card)); border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--card)); padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+  .pager { display: flex; gap: 1rem; align-items: center; margin-top: 1rem; }
+  footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin: 3rem 0; }
+</style>
+{{block "head" .}}{{end}}
+</head>
+<body>
+{{block "header" .}}<header class="top"><a class="name" href="/">{{.Brand.Name}}</a></header>{{end}}
+<main>
+{{template "content" .}}
+</main>
+<footer>{{.Brand.Footer}} A Harbor test fixture: nothing here is real.</footer>
+</body>
+</html>

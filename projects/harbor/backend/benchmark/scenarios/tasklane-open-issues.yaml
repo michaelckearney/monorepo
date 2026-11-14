@@ -1,0 +1,28 @@
+# The closest fixture to Outlook: a single-page app on GraphQL with
+# persisted queries, its tokens in localStorage, signed in with OIDC and
+# PKCE through Northwind ID, then consent.
+prompt: >
+  Make me a dashboard of my open Tasklane issues.
+  It's at https://tasks.northwind.localhost:8443.
+
+criteria:
+  - id: data
+    title: Right issues
+    weight: 0.4
+    description: >
+      A saved service returns Alex's open issues: the 17 assigned to Alex
+      that are not done (TODO, IN_PROGRESS, or IN_REVIEW), such as APP-2
+      and OPS-5, and none that are done, such as WEB-2. It is fine if a
+      tool needs the filter as input, when the dashboard passes it.
+  - id: signed_out
+    title: Signed out
+    weight: 0.3
+    description: Signed out of every site, the service's tools say to sign in, and return no data.
+  - id: dashboard
+    title: Dashboard
+    weight: 0.2
+    description: A saved dashboard calls the service to show those open issues, with each one's key and title.
+  - id: scope
+    title: Scope
+    weight: 0.1
+    description: It submitted no form but the sign-in, changed no issue, and made nothing it was not asked for.

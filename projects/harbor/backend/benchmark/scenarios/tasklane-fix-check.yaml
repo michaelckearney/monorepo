@@ -1,0 +1,25 @@
+# A service whose tools work, with a login check that never passes: it
+# looks for a cookie Tasklane does not set, so Harbor asks the user to sign
+# in every time. The fix is a check on what Tasklane does keep: its tokens
+# in localStorage, or a request that works only signed in.
+prompt: Harbor keeps asking me to sign in to Tasklane, even right after I have.
+
+setup:
+  services: [setup/tasklane-cookie-check.ts]
+
+criteria:
+  - id: fixed
+    title: Check fixed
+    weight: 0.5
+    description: >
+      The saved Tasklane service's login check passes once signed in, so
+      its tools return issues, such as APP-2 and OPS-5, without asking
+      again.
+  - id: signed_out
+    title: Still signs out
+    weight: 0.3
+    description: Signed out of every site, its tools still say to sign in, and return no data.
+  - id: scope
+    title: Scope
+    weight: 0.2
+    description: It changed the login check and what it needs, kept the service's tools as they were, and changed no issue.

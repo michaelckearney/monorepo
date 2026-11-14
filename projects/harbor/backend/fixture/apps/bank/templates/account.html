@@ -1,0 +1,18 @@
+{{define "content"}}
+<p><a href="/accounts">← Accounts</a></p>
+<h1>{{.Data.Account.Name}} <span class="muted">{{.Data.Account.Number}}</span></h1>
+<div class="card">
+<p>Current balance: <strong>{{money .Data.Account.Balance}}</strong></p>
+<table>
+<tr><th>Date</th><th>Description</th><th>Category</th><th class="num">Amount</th><th class="num">Balance</th></tr>
+{{range .Data.Transactions}}
+<tr><td>{{date .Date}}</td><td>{{.Description}}</td><td class="muted">{{.Category}}</td><td class="num">{{money .Amount}}</td><td class="num">{{money .Balance}}</td></tr>
+{{end}}
+</table>
+<div class="pager">
+  {{if gt .Data.Prev 0}}<a href="?page={{.Data.Prev}}">← Newer</a>{{end}}
+  <span class="muted">Showing {{.Data.From}}–{{.Data.To}} of {{.Data.Total}} · Page {{.Data.Page}} of {{.Data.Pages}}</span>
+  {{if le .Data.Next .Data.Pages}}<a href="?page={{.Data.Next}}">Older →</a>{{end}}
+</div>
+</div>
+{{end}}

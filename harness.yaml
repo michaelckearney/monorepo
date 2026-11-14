@@ -1,0 +1,21 @@
+# The monorepo, for the harness: see https://github.com/michaelckearney/harness
+schema: 1
+# The harness this monorepo uses: what its pipelines install, and what its
+# servers update themselves to when this changes on main.
+harness: v0.7.1
+repo: michaelckearney/monorepo
+# Who can give the bots work: only their issues, comments, reviews, and labels count.
+triggers: [michaelckearney]
+agents:
+  default: opencode
+  # An agent that sends the code to a third party belongs here only if whoever
+  # owns the code agreed to it. claude-code runs on the Claude subscription,
+  # openai-codex on the ChatGPT one.
+  allowed: [opencode, claude-code, openai-codex]
+# The servers the bots run on, the model, the GitHub App and the keys are
+# each server's own: see harness deploy -h, and dgx-spark's harness role.
+# The projects, each a folder the framework builds. The framework, the code
+# and tooling every project shares, is in framework/.
+projects:
+  harbor: projects/harbor
+  slipway: projects/slipway

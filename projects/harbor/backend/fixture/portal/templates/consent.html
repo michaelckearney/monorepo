@@ -1,0 +1,12 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>Consent request</h1>
+<p>Hi {{.Data.User.Name}}. <strong>{{.Data.Client}}</strong> is asking for access to:</p>
+<ul>{{range .Data.Scopes}}<li>{{.}}</li>{{end}}</ul>
+<form method="post" action="/consent">
+  <input type="hidden" name="flow" value="{{.Data.Flow}}">
+  <button name="decision" value="accept">Accept</button>
+  <button class="plain" name="decision" value="deny">Deny</button>
+</form>
+</div>
+{{end}}

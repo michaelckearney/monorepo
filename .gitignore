@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+# The desktop framework's generated files, downloads, and recordings, in
+# each project: a bot's harness commit commits everything else.
+.desktop/

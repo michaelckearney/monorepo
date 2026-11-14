@@ -1,0 +1,14 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>District sign-in</h1>
+<p class="muted">One account for every Maple Grove school app.</p>
+{{if .Data.Error}}<p class="error" role="alert">{{.Data.Error}}</p>{{end}}
+<form method="post" action="/sso">
+  <input type="hidden" name="SAMLRequest" value="{{.Data.SAMLRequest}}">
+  <input type="hidden" name="RelayState" value="{{.Data.RelayState}}">
+  <label>Username <input name="username" autocomplete="username" autofocus required></label>
+  <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+  <button>Sign in</button>
+</form>
+</div>
+{{end}}

@@ -1,0 +1,13 @@
+# A request that names no site: the agent must ask which one before it
+# browses or saves anything (mcp.md, "Which site").
+prompt: Make me a dashboard of my emails.
+
+criteria:
+  - id: asks
+    title: Asks which site
+    weight: 0.6
+    description: Its reply asks which email site or service the user means, or for its address, before it does anything else.
+  - id: waits
+    title: Waits for the answer
+    weight: 0.4
+    description: It browses nothing and saves no service or dashboard, since it does not yet know the site.

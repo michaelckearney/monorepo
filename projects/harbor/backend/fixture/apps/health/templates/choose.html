@@ -1,0 +1,11 @@
+{{define "content"}}
+<div class="card narrow">
+<h1>Whose record?</h1>
+<p>You have access to these records. You can switch later.</p>
+<form method="post" action="/choose">
+{{range .Data.Patients}}
+  <p><button name="patient" value="{{.ID}}" class="plain" style="width: 100%; text-align: left">{{.Name}} <span class="muted">· {{.Relationship}}</span></button></p>
+{{end}}
+</form>
+</div>
+{{end}}

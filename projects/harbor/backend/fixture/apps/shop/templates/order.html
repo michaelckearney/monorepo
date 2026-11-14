@@ -1,0 +1,71 @@
+{{define "content"}}
+<p><a href="/orders">← Your orders</a></p>
+<h1>Order {{.Data.ID}}</h1>
+<div id="order" class="card"><p class="muted">Loading…</p></div>
+<div id="tracking" class="card" hidden><h2>Tracking</h2><p id="carrier"></p><table id="events"></table></div>
+<div id="return" class="card" hidden>
+  <h2>Return items</h2>
+  <form id="return-form"><div id="return-items"></div>
+  <label>Reason <select name="reason"><option>Changed my mind</option><option>Arrived damaged</option><option>Wrong item</option><option>Doesn't fit</option></select></label>
+  <button>Start return</button></form>
+  <p id="return-result" role="status"></p>
+</div>
+<script>
+const id = {{.Data.ID}};
+const money = (c) => (c / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
+// Rails-style CSRF: the cookie, copied into a header.
+const xsrf = () => decodeURIComponent((document.cookie.match(/(?:^|; )XSRF-TOKEN=([^;]*)/) || [])[1] || "");
+(async () => {
+  const r = await fetch("/api/orders/" + encodeURIComponent(id));
+  const o = await r.json();
+  const box = document.getElementById("order");
+  if (!r.ok) { box.textContent = o.message; return; }
+  box.innerHTML = "";
+  const p = (t, cls) => box.append(Object.assign(document.createElement("p"), { textContent: t, className: cls || "" }));
+  p(`Placed ${o.placed} · ${o.status}`);
+  const table = document.createElement("table");
+  for (const it of o.items) {
+    const tr = table.insertRow();
+    tr.insertCell().textContent = it.name;
+    tr.insertCell().textContent = "× " + it.quantity;
+    const c = tr.insertCell(); c.textContent = money(it.priceCents * it.quantity); c.className = "num";
+  }
+  box.append(table);
+  p(`Subtotal ${money(o.subtotalCents)} · Shipping ${money(o.shippingCents)} · Tax ${money(o.taxCents)} · Total ${money(o.totalCents)}`);
+  p("Ship to: " + o.shipTo, "muted");
+  if (o.tracking) {
+    document.getElementById("tracking").hidden = false;
+    document.getElementById("carrier").textContent = `${o.tracking.carrier} ${o.tracking.number}`;
+    const ev = document.getElementById("events");
+    for (const e of [...o.tracking.events].reverse()) {
+      const tr = ev.insertRow();
+      tr.insertCell().textContent = new Date(e.time).toLocaleString();
+      tr.insertCell().textContent = e.status;
+      tr.insertCell().textContent = e.place;
+    }
+  }
+  if (o.status === "delivered") {
+    document.getElementById("return").hidden = false;
+    const items = document.getElementById("return-items");
+    for (const it of o.items) {
+      const l = document.createElement("label"); l.className = "check";
+      l.innerHTML = `<input type="checkbox" name="sku">`;
+      l.querySelector("input").value = it.sku;
+      l.append(it.name);
+      items.append(l);
+    }
+  }
+})();
+document.getElementById("return-form").onsubmit = async (ev) => {
+  ev.preventDefault();
+  const form = new FormData(ev.target);
+  const r = await fetch(`/api/orders/${encodeURIComponent(id)}/returns`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-XSRF-TOKEN": xsrf() },
+    body: JSON.stringify({ skus: form.getAll("sku"), reason: form.get("reason") }),
+  });
+  const body = await r.json();
+  document.getElementById("return-result").textContent = r.ok ? `Return ${body.id} started. Print your label: ${body.labelUrl}` : body.message;
+};
+</script>
+{{end}}

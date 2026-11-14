@@ -1,0 +1,224 @@
+{
+ "user": {
+  "username": "alex@example.localhost",
+  "name": "Alex Morgan"
+ },
+ "patients": [
+  {
+   "id": "p-alex",
+   "name": "Alex Morgan",
+   "relationship": "You",
+   "born": "1989-05-14",
+   "mrn": "CW-448210"
+  },
+  {
+   "id": "p-sam",
+   "name": "Sam Morgan",
+   "relationship": "Child",
+   "born": "2017-02-03",
+   "mrn": "CW-512077"
+  },
+  {
+   "id": "p-riley",
+   "name": "Riley Morgan",
+   "relationship": "Child",
+   "born": "2013-11-21",
+   "mrn": "CW-498833"
+  }
+ ],
+ "appointments": [
+  {
+   "id": "A-1001",
+   "patient": "p-alex",
+   "start": "2026-10-14T09:30:00-07:00",
+   "minutes": 30,
+   "clinician": "Dr. Priya Raman",
+   "department": "Orthopedics",
+   "location": "Clearwater Medical Center, Building B, Floor 2",
+   "reason": "Follow-up: knee",
+   "status": "scheduled",
+   "telehealth": false
+  },
+  {
+   "id": "A-1002",
+   "patient": "p-alex",
+   "start": "2026-11-03T16:00:00-08:00",
+   "minutes": 20,
+   "clinician": "Dr. Marcus Webb",
+   "department": "Family Medicine",
+   "location": "Video visit",
+   "reason": "Annual check-in",
+   "status": "scheduled",
+   "telehealth": true
+  },
+  {
+   "id": "A-0990",
+   "patient": "p-alex",
+   "start": "2026-09-22T10:00:00-07:00",
+   "minutes": 45,
+   "clinician": "Dr. Priya Raman",
+   "department": "Orthopedics",
+   "location": "Clearwater Medical Center, Building B, Floor 2",
+   "reason": "Knee pain",
+   "status": "completed",
+   "telehealth": false
+  },
+  {
+   "id": "A-1003",
+   "patient": "p-sam",
+   "start": "2026-10-08T15:15:00-07:00",
+   "minutes": 30,
+   "clinician": "Dr. Elena Ortiz",
+   "department": "Pediatrics",
+   "location": "Clearwater Kids Clinic",
+   "reason": "Well-child visit",
+   "status": "scheduled",
+   "telehealth": false
+  },
+  {
+   "id": "A-1004",
+   "patient": "p-riley",
+   "start": "2026-10-21T08:00:00-07:00",
+   "minutes": 30,
+   "clinician": "Dr. Elena Ortiz",
+   "department": "Pediatrics",
+   "location": "Clearwater Kids Clinic",
+   "reason": "Sports physical",
+   "status": "scheduled",
+   "telehealth": false
+  },
+  {
+   "id": "A-0981",
+   "patient": "p-riley",
+   "start": "2026-08-30T11:00:00-07:00",
+   "minutes": 15,
+   "clinician": "Nurse Tom Becker",
+   "department": "Immunizations",
+   "location": "Clearwater Kids Clinic",
+   "reason": "Flu shot",
+   "status": "completed",
+   "telehealth": false
+  }
+ ],
+ "results": [
+  {
+   "id": "R-7710",
+   "patient": "p-alex",
+   "name": "Lipid panel",
+   "collected": "2026-09-22",
+   "status": "final",
+   "orderedBy": "Dr. Marcus Webb",
+   "components": [
+    {
+     "name": "Total cholesterol",
+     "value": "212",
+     "unit": "mg/dL",
+     "range": "< 200",
+     "flag": "high"
+    },
+    {
+     "name": "LDL",
+     "value": "138",
+     "unit": "mg/dL",
+     "range": "< 100",
+     "flag": "high"
+    },
+    {
+     "name": "HDL",
+     "value": "52",
+     "unit": "mg/dL",
+     "range": "> 40",
+     "flag": ""
+    },
+    {
+     "name": "Triglycerides",
+     "value": "110",
+     "unit": "mg/dL",
+     "range": "< 150",
+     "flag": ""
+    }
+   ]
+  },
+  {
+   "id": "R-7711",
+   "patient": "p-alex",
+   "name": "Knee X-ray, left",
+   "collected": "2026-09-22",
+   "status": "final",
+   "orderedBy": "Dr. Priya Raman",
+   "components": [
+    {
+     "name": "Impression",
+     "value": "No fracture. Mild joint-space narrowing.",
+     "unit": "",
+     "range": "",
+     "flag": ""
+    }
+   ]
+  },
+  {
+   "id": "R-7712",
+   "patient": "p-alex",
+   "name": "Vitamin D",
+   "collected": "2026-09-22",
+   "status": "pending",
+   "orderedBy": "Dr. Marcus Webb",
+   "components": []
+  },
+  {
+   "id": "R-7650",
+   "patient": "p-sam",
+   "name": "Strep test, rapid",
+   "collected": "2026-06-11",
+   "status": "final",
+   "orderedBy": "Dr. Elena Ortiz",
+   "components": [
+    {
+     "name": "Group A strep",
+     "value": "Negative",
+     "unit": "",
+     "range": "Negative",
+     "flag": ""
+    }
+   ]
+  }
+ ],
+ "messages": [
+  {
+   "id": "M-301",
+   "patient": "p-alex",
+   "from": "Dr. Priya Raman",
+   "subject": "Your X-ray results",
+   "sent": "2026-09-23T14:05:00-07:00",
+   "read": false,
+   "body": "Hi Alex, your X-ray shows no fracture. Let's keep the follow-up on October 14 and talk about physical therapy then."
+  },
+  {
+   "id": "M-298",
+   "patient": "p-alex",
+   "from": "Clearwater Billing",
+   "subject": "Statement ready",
+   "sent": "2026-09-25T09:00:00-07:00",
+   "read": false,
+   "body": "Your statement for the September 22 visit is ready. Amount due: $1,240.00."
+  },
+  {
+   "id": "M-280",
+   "patient": "p-alex",
+   "from": "Dr. Marcus Webb",
+   "subject": "Cholesterol",
+   "sent": "2026-08-02T11:30:00-07:00",
+   "read": true,
+   "body": "Your numbers were a little high last year. We'll recheck at your next visit."
+  },
+  {
+   "id": "M-305",
+   "patient": "p-sam",
+   "from": "Clearwater Kids Clinic",
+   "subject": "Bring the vaccine card",
+   "sent": "2026-09-28T10:00:00-07:00",
+   "read": false,
+   "body": "Please bring Sam's vaccine card to the October 8 visit."
+  }
+ ]
+}

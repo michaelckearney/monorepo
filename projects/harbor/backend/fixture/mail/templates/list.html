@@ -1,0 +1,14 @@
+{{define "content"}}
+<h1>Mail</h1>
+<p class="muted">Every message the fixture sites have sent since the container started.{{if .Data.To}} Showing mail to {{.Data.To}}. <a href="/">Show all</a>{{end}}</p>
+<div class="card">
+{{if .Data.Messages}}
+<table>
+<tr><th>To</th><th>From</th><th>Subject</th><th>Sent</th></tr>
+{{range .Data.Messages}}
+<tr><td>{{.To}}</td><td>{{.From}}</td><td><a href="/messages/{{.ID}}">{{.Subject}}</a></td><td class="muted">{{.Sent.Format "15:04:05"}}</td></tr>
+{{end}}
+</table>
+{{else}}<p class="muted">No mail yet.</p>{{end}}
+</div>
+{{end}}

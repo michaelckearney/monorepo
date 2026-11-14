@@ -1,0 +1,13 @@
+{{define "header"}}<header class="top"><a class="name" href="/">parcel</a></header>{{end}}
+{{define "content"}}
+<div class="card narrow">
+<h1>Verify it's you</h1>
+<p>We emailed a 6-digit code to <strong>{{.Data.Login.Email}}</strong>.</p>
+{{if .Data.Error}}<p class="error" role="alert">{{.Data.Error}}</p>{{end}}
+<form method="post" action="/signin/verify">
+  <input type="hidden" name="authenticity_token" value="{{.Data.Login.CSRF}}">
+  <label>Code <input name="otp" inputmode="numeric" autocomplete="one-time-code" autofocus required></label>
+  <button>Verify</button>
+</form>
+</div>
+{{end}}

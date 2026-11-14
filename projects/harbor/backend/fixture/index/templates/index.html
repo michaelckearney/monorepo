@@ -1,0 +1,18 @@
+{{define "content"}}
+<h1>Harbor fixtures</h1>
+<p>Made-up web apps for testing Harbor, all about one made-up person, Alex Morgan. Every password is <code>{{.Data.Password}}</code>.</p>
+<div class="card">
+<table>
+<tr><th>Site</th><th>What it is</th><th>Signing in</th></tr>
+{{range .Data.Sites}}
+<tr><td><a href="{{url .Host}}/">{{.Name}}</a><br><span class="muted">{{.Host}}</span></td><td>{{.What}}</td><td>{{.SignIn}}</td></tr>
+{{end}}
+</table>
+</div>
+<div class="card">
+<h2>Certificates</h2>
+<p>Every site uses a certificate from the fixtures' own CA: <a href="/ca.pem">ca.pem</a>. It can sign only names under localhost, and it stays the same until you delete Harbor's dev data. Harbor's browsers trust it; in a browser of your own, click through the warning, or trust ca.pem.</p>
+<h2>Tidewater Bank's TOTP secret</h2>
+<p><code>{{.Data.TOTP}}</code> (SHA-1, 6 digits, 30 seconds). Add it to an authenticator app, or make codes from it in a test.</p>
+</div>
+{{end}}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huddle</title>
+<link rel="icon" type="image/webp" href="/static/favicon.webp">
+<link rel="stylesheet" href="/static/huddle.css">
+</head>
+<body>
+<div id="app" hidden>
+  <aside><h1>Huddle</h1><button id="mentions" class="link">Mentions <span id="mention-count"></span></button><nav id="channels"></nav>
+    <form id="search"><input name="q" placeholder="Search messages" aria-label="Search messages"></form>
+    <div class="me"><span id="who"></span> <button id="signout" class="link">Sign out everywhere</button></div></aside>
+  <main><header id="title"></header><div id="messages" aria-live="polite"></div>
+    <form id="compose" hidden><input name="text" placeholder="Message" aria-label="Message" autocomplete="off"><button>Send</button></form></main>
+</div>
+<div id="signin" hidden><h1>Huddle</h1><p>Chat with your team.</p><button id="open-signin">Sign in</button><p id="signin-error" class="error"></p></div>
+<script src="/static/huddle.js"></script>
+</body>
+</html>

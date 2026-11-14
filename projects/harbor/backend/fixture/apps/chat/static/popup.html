@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sign in to Huddle</title>
+<link rel="icon" type="image/webp" href="/static/favicon.webp">
+<link rel="stylesheet" href="/static/huddle.css">
+</head>
+<body class="popup">
+<form id="form"><h1>Sign in to Huddle</h1>
+<label>Email <input type="email" name="email" autocomplete="username" autofocus required></label>
+<label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+<button>Sign in</button><p id="error" class="error" role="alert"></p></form>
+<script>
+// Signs in, hands the token to the window that opened this one, and closes.
+document.getElementById("form").onsubmit = async (e) => {
+  e.preventDefault();
+  const r = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(new FormData(e.target))) });
+  const body = await r.json();
+  if (!r.ok) { document.getElementById("error").textContent = body.message; return; }
+  if (!window.opener) { document.getElementById("error").textContent = "Open this from Huddle's Sign in button."; return; }
+  window.opener.postMessage({ type: "huddle-auth", token: body.token }, location.origin);
+  window.close();
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{{define "content"}}
+<h1>Transfer money</h1>
+<div class="card narrow" style="margin: 0">
+{{if .Data.Error}}<p class="error" role="alert">{{.Data.Error}}</p>{{end}}
+<form method="post" action="/transfer">
+  <input type="hidden" name="authenticity_token" value="{{.Data.CSRF}}">
+  <label>From <select name="from">{{range .Data.Accounts}}<option value="{{.ID}}">{{.Name}} {{.Number}} ({{money .Balance}})</option>{{end}}</select></label>
+  <label>To <select name="to">{{range .Data.Accounts}}<option value="{{.ID}}">{{.Name}} {{.Number}}</option>{{end}}</select></label>
+  <label>Amount <input name="amount" inputmode="decimal" placeholder="0.00" required></label>
+  <label>Memo (optional) <input name="memo" maxlength="30"></label>
+  <button>Transfer</button>
+</form>
+</div>
+{{end}}

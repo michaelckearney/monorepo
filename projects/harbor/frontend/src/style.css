@@ -1,0 +1,3 @@
+/* Harbor's look is the design system every app shares: framework/ui's,
+   which desktop copies to .desktop/ui. */
+@import "../../.desktop/ui/style.css";

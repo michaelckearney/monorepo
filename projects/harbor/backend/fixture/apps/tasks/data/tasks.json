@@ -1,0 +1,925 @@
+{
+ "users": [
+  {
+   "username": "alex",
+   "name": "Alex Morgan"
+  },
+  {
+   "username": "jordan",
+   "name": "Jordan Lee"
+  },
+  {
+   "username": "sam.k",
+   "name": "Sam Kowalski"
+  },
+  {
+   "username": "priya",
+   "name": "Priya Nair"
+  },
+  {
+   "username": "tomas",
+   "name": "Tom\u00e1s Rivera"
+  }
+ ],
+ "projects": [
+  {
+   "key": "WEB",
+   "name": "Website"
+  },
+  {
+   "key": "APP",
+   "name": "Mobile app"
+  },
+  {
+   "key": "OPS",
+   "name": "Operations"
+  }
+ ],
+ "issues": [
+  {
+   "key": "WEB-1",
+   "project": "WEB",
+   "title": "Reduce image sizes on the home page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "LOW",
+   "assignee": "sam.k",
+   "labels": [
+    "a11y",
+    "infra"
+   ],
+   "created": "2026-06-19T10:00:00Z",
+   "updated": "2026-06-27T16:30:00Z"
+  },
+  {
+   "key": "OPS-1",
+   "project": "OPS",
+   "title": "Export reports as CSV",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_PROGRESS",
+   "priority": "MEDIUM",
+   "assignee": "tomas",
+   "labels": [
+    "backend",
+    "design"
+   ],
+   "created": "2026-08-29T10:00:00Z",
+   "updated": "2026-09-11T16:30:00Z"
+  },
+  {
+   "key": "OPS-2",
+   "project": "OPS",
+   "title": "Update the privacy policy page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "sam.k",
+   "labels": [],
+   "created": "2026-07-30T10:00:00Z",
+   "updated": "2026-08-14T16:30:00Z"
+  },
+  {
+   "key": "APP-1",
+   "project": "APP",
+   "title": "Add SSO to the admin console",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "jordan",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-07-29T10:00:00Z",
+   "updated": "2026-08-11T16:30:00Z"
+  },
+  {
+   "key": "WEB-2",
+   "project": "WEB",
+   "title": "Accessibility pass on forms",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "LOW",
+   "assignee": "alex",
+   "labels": [],
+   "created": "2026-08-15T10:00:00Z",
+   "updated": "2026-08-16T16:30:00Z"
+  },
+  {
+   "key": "OPS-3",
+   "project": "OPS",
+   "title": "Rotate the staging certificates",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "MEDIUM",
+   "assignee": "jordan",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-06-29T10:00:00Z",
+   "updated": "2026-07-04T16:30:00Z"
+  },
+  {
+   "key": "WEB-3",
+   "project": "WEB",
+   "title": "Export reports as CSV",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "LOW",
+   "assignee": "sam.k",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-06-27T10:00:00Z",
+   "updated": "2026-07-11T16:30:00Z"
+  },
+  {
+   "key": "OPS-4",
+   "project": "OPS",
+   "title": "Add SSO to the admin console",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "LOW",
+   "assignee": "tomas",
+   "labels": [],
+   "created": "2026-09-17T10:00:00Z",
+   "updated": "2026-09-28T16:30:00Z"
+  },
+  {
+   "key": "APP-2",
+   "project": "APP",
+   "title": "Onboarding checklist copy",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "LOW",
+   "assignee": "alex",
+   "labels": [],
+   "created": "2026-06-29T10:00:00Z",
+   "updated": "2026-06-30T16:30:00Z"
+  },
+  {
+   "key": "OPS-5",
+   "project": "OPS",
+   "title": "Accessibility pass on forms",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_PROGRESS",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "design",
+    "frontend"
+   ],
+   "created": "2026-07-25T10:00:00Z",
+   "updated": "2026-08-02T16:30:00Z"
+  },
+  {
+   "key": "WEB-4",
+   "project": "WEB",
+   "title": "Empty state for the inbox",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "URGENT",
+   "assignee": "sam.k",
+   "labels": [
+    "infra"
+   ],
+   "created": "2026-06-12T10:00:00Z",
+   "updated": "2026-06-15T16:30:00Z"
+  },
+  {
+   "key": "WEB-5",
+   "project": "WEB",
+   "title": "Notification preferences",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-09-07T10:00:00Z",
+   "updated": "2026-09-23T16:30:00Z"
+  },
+  {
+   "key": "APP-3",
+   "project": "APP",
+   "title": "Update the privacy policy page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "alex",
+   "labels": [
+    "copy"
+   ],
+   "created": "2026-08-21T10:00:00Z",
+   "updated": "2026-09-08T16:30:00Z"
+  },
+  {
+   "key": "APP-4",
+   "project": "APP",
+   "title": "Crash when uploading a large photo",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-06-28T10:00:00Z",
+   "updated": "2026-07-08T16:30:00Z"
+  },
+  {
+   "key": "APP-5",
+   "project": "APP",
+   "title": "Notification preferences",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "priya",
+   "labels": [
+    "bug"
+   ],
+   "created": "2026-09-12T10:00:00Z",
+   "updated": "2026-09-29T16:30:00Z"
+  },
+  {
+   "key": "OPS-6",
+   "project": "OPS",
+   "title": "Rotate the staging certificates",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "URGENT",
+   "assignee": "tomas",
+   "labels": [
+    "frontend",
+    "infra"
+   ],
+   "created": "2026-09-03T10:00:00Z",
+   "updated": "2026-09-13T16:30:00Z"
+  },
+  {
+   "key": "APP-6",
+   "project": "APP",
+   "title": "Broken link in the footer",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "MEDIUM",
+   "assignee": "alex",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-07-30T10:00:00Z",
+   "updated": "2026-08-06T16:30:00Z"
+  },
+  {
+   "key": "WEB-6",
+   "project": "WEB",
+   "title": "Onboarding checklist copy",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "tomas",
+   "labels": [
+    "copy"
+   ],
+   "created": "2026-07-06T10:00:00Z",
+   "updated": "2026-07-25T16:30:00Z"
+  },
+  {
+   "key": "OPS-7",
+   "project": "OPS",
+   "title": "Audit unused feature flags",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "MEDIUM",
+   "assignee": "alex",
+   "labels": [
+    "bug"
+   ],
+   "created": "2026-09-15T10:00:00Z",
+   "updated": "2026-09-23T16:30:00Z"
+  },
+  {
+   "key": "OPS-8",
+   "project": "OPS",
+   "title": "Alerts for disk usage",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "tomas",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-06-17T10:00:00Z",
+   "updated": "2026-07-06T16:30:00Z"
+  },
+  {
+   "key": "OPS-9",
+   "project": "OPS",
+   "title": "Update the privacy policy page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_REVIEW",
+   "priority": "MEDIUM",
+   "assignee": "jordan",
+   "labels": [],
+   "created": "2026-06-24T10:00:00Z",
+   "updated": "2026-07-05T16:30:00Z"
+  },
+  {
+   "key": "WEB-7",
+   "project": "WEB",
+   "title": "Redesign the pricing page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "jordan",
+   "labels": [
+    "backend",
+    "copy"
+   ],
+   "created": "2026-09-17T10:00:00Z",
+   "updated": "2026-09-30T16:30:00Z"
+  },
+  {
+   "key": "WEB-8",
+   "project": "WEB",
+   "title": "Audit unused feature flags",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "LOW",
+   "assignee": "tomas",
+   "labels": [
+    "backend"
+   ],
+   "created": "2026-07-28T10:00:00Z",
+   "updated": "2026-07-29T16:30:00Z"
+  },
+  {
+   "key": "APP-7",
+   "project": "APP",
+   "title": "Audit unused feature flags",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "LOW",
+   "assignee": "alex",
+   "labels": [],
+   "created": "2026-06-07T10:00:00Z",
+   "updated": "2026-06-25T16:30:00Z"
+  },
+  {
+   "key": "OPS-10",
+   "project": "OPS",
+   "title": "Empty state for the inbox",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "a11y"
+   ],
+   "created": "2026-06-19T10:00:00Z",
+   "updated": "2026-06-27T16:30:00Z"
+  },
+  {
+   "key": "OPS-11",
+   "project": "OPS",
+   "title": "Reduce image sizes on the home page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "MEDIUM",
+   "assignee": "alex",
+   "labels": [
+    "bug"
+   ],
+   "created": "2026-08-24T10:00:00Z",
+   "updated": "2026-09-07T16:30:00Z"
+  },
+  {
+   "key": "WEB-9",
+   "project": "WEB",
+   "title": "Speed up the search results",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "priya",
+   "labels": [
+    "a11y"
+   ],
+   "created": "2026-07-03T10:00:00Z",
+   "updated": "2026-07-16T16:30:00Z"
+  },
+  {
+   "key": "OPS-12",
+   "project": "OPS",
+   "title": "Audit unused feature flags",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [],
+   "created": "2026-07-06T10:00:00Z",
+   "updated": "2026-07-21T16:30:00Z"
+  },
+  {
+   "key": "APP-8",
+   "project": "APP",
+   "title": "Broken link in the footer",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_REVIEW",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "backend"
+   ],
+   "created": "2026-08-22T10:00:00Z",
+   "updated": "2026-08-25T16:30:00Z"
+  },
+  {
+   "key": "WEB-10",
+   "project": "WEB",
+   "title": "Onboarding checklist copy",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_REVIEW",
+   "priority": "URGENT",
+   "assignee": "priya",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-06-15T10:00:00Z",
+   "updated": "2026-06-21T16:30:00Z"
+  },
+  {
+   "key": "WEB-11",
+   "project": "WEB",
+   "title": "Add dark mode to settings",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "priya",
+   "labels": [],
+   "created": "2026-09-03T10:00:00Z",
+   "updated": "2026-09-16T16:30:00Z"
+  },
+  {
+   "key": "APP-9",
+   "project": "APP",
+   "title": "Export reports as CSV",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_REVIEW",
+   "priority": "HIGH",
+   "assignee": "jordan",
+   "labels": [],
+   "created": "2026-09-08T10:00:00Z",
+   "updated": "2026-09-20T16:30:00Z"
+  },
+  {
+   "key": "WEB-12",
+   "project": "WEB",
+   "title": "Notification preferences",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_PROGRESS",
+   "priority": "LOW",
+   "assignee": "alex",
+   "labels": [
+    "copy",
+    "frontend"
+   ],
+   "created": "2026-06-13T10:00:00Z",
+   "updated": "2026-06-29T16:30:00Z"
+  },
+  {
+   "key": "WEB-13",
+   "project": "WEB",
+   "title": "Fix flaky checkout test",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "URGENT",
+   "assignee": "alex",
+   "labels": [
+    "infra"
+   ],
+   "created": "2026-09-15T10:00:00Z",
+   "updated": "2026-09-15T16:30:00Z"
+  },
+  {
+   "key": "WEB-14",
+   "project": "WEB",
+   "title": "Empty state for the inbox",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "LOW",
+   "assignee": "priya",
+   "labels": [
+    "a11y",
+    "design"
+   ],
+   "created": "2026-06-30T10:00:00Z",
+   "updated": "2026-07-15T16:30:00Z"
+  },
+  {
+   "key": "WEB-15",
+   "project": "WEB",
+   "title": "Add SSO to the admin console",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "priya",
+   "labels": [],
+   "created": "2026-06-24T10:00:00Z",
+   "updated": "2026-07-04T16:30:00Z"
+  },
+  {
+   "key": "APP-10",
+   "project": "APP",
+   "title": "Speed up the search results",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "LOW",
+   "assignee": "sam.k",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-09-04T10:00:00Z",
+   "updated": "2026-09-17T16:30:00Z"
+  },
+  {
+   "key": "OPS-13",
+   "project": "OPS",
+   "title": "Speed up the search results",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "copy"
+   ],
+   "created": "2026-08-17T10:00:00Z",
+   "updated": "2026-09-05T16:30:00Z"
+  },
+  {
+   "key": "WEB-16",
+   "project": "WEB",
+   "title": "Fix flaky checkout test",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-08-23T10:00:00Z",
+   "updated": "2026-08-23T16:30:00Z"
+  },
+  {
+   "key": "OPS-14",
+   "project": "OPS",
+   "title": "Empty state for the inbox",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_PROGRESS",
+   "priority": "URGENT",
+   "assignee": "alex",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-09-14T10:00:00Z",
+   "updated": "2026-09-30T16:30:00Z"
+  },
+  {
+   "key": "APP-11",
+   "project": "APP",
+   "title": "Team invites expire too soon",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "jordan",
+   "labels": [
+    "backend"
+   ],
+   "created": "2026-09-05T10:00:00Z",
+   "updated": "2026-09-05T16:30:00Z"
+  },
+  {
+   "key": "OPS-15",
+   "project": "OPS",
+   "title": "Migrate the build to the new runners",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "sam.k",
+   "labels": [
+    "a11y"
+   ],
+   "created": "2026-07-10T10:00:00Z",
+   "updated": "2026-07-28T16:30:00Z"
+  },
+  {
+   "key": "APP-12",
+   "project": "APP",
+   "title": "Add SSO to the admin console",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_PROGRESS",
+   "priority": "URGENT",
+   "assignee": "jordan",
+   "labels": [
+    "backend",
+    "design"
+   ],
+   "created": "2026-08-30T10:00:00Z",
+   "updated": "2026-09-09T16:30:00Z"
+  },
+  {
+   "key": "WEB-17",
+   "project": "WEB",
+   "title": "Redesign the pricing page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "sam.k",
+   "labels": [],
+   "created": "2026-08-14T10:00:00Z",
+   "updated": "2026-08-31T16:30:00Z"
+  },
+  {
+   "key": "OPS-16",
+   "project": "OPS",
+   "title": "Rotate the staging certificates",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "tomas",
+   "labels": [
+    "copy",
+    "frontend"
+   ],
+   "created": "2026-07-08T10:00:00Z",
+   "updated": "2026-07-26T16:30:00Z"
+  },
+  {
+   "key": "APP-13",
+   "project": "APP",
+   "title": "Reduce image sizes on the home page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "infra"
+   ],
+   "created": "2026-07-03T10:00:00Z",
+   "updated": "2026-07-04T16:30:00Z"
+  },
+  {
+   "key": "OPS-17",
+   "project": "OPS",
+   "title": "Migrate the build to the new runners",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [
+    "bug",
+    "copy"
+   ],
+   "created": "2026-08-02T10:00:00Z",
+   "updated": "2026-08-18T16:30:00Z"
+  },
+  {
+   "key": "APP-14",
+   "project": "APP",
+   "title": "Billing page shows the wrong currency",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "jordan",
+   "labels": [
+    "a11y"
+   ],
+   "created": "2026-06-08T10:00:00Z",
+   "updated": "2026-06-21T16:30:00Z"
+  },
+  {
+   "key": "APP-15",
+   "project": "APP",
+   "title": "Fix the date picker on Safari",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "MEDIUM",
+   "assignee": "tomas",
+   "labels": [
+    "backend",
+    "bug"
+   ],
+   "created": "2026-09-05T10:00:00Z",
+   "updated": "2026-09-17T16:30:00Z"
+  },
+  {
+   "key": "APP-16",
+   "project": "APP",
+   "title": "Retry failed webhooks",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "jordan",
+   "labels": [
+    "backend"
+   ],
+   "created": "2026-07-12T10:00:00Z",
+   "updated": "2026-07-14T16:30:00Z"
+  },
+  {
+   "key": "WEB-18",
+   "project": "WEB",
+   "title": "Reduce image sizes on the home page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_PROGRESS",
+   "priority": "LOW",
+   "assignee": "alex",
+   "labels": [
+    "a11y",
+    "design"
+   ],
+   "created": "2026-07-14T10:00:00Z",
+   "updated": "2026-07-20T16:30:00Z"
+  },
+  {
+   "key": "WEB-19",
+   "project": "WEB",
+   "title": "Notification preferences",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "tomas",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-08-13T10:00:00Z",
+   "updated": "2026-08-24T16:30:00Z"
+  },
+  {
+   "key": "OPS-18",
+   "project": "OPS",
+   "title": "Broken link in the footer",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "MEDIUM",
+   "assignee": "sam.k",
+   "labels": [
+    "backend",
+    "infra"
+   ],
+   "created": "2026-07-05T10:00:00Z",
+   "updated": "2026-07-24T16:30:00Z"
+  },
+  {
+   "key": "APP-17",
+   "project": "APP",
+   "title": "Crash when uploading a large photo",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "IN_PROGRESS",
+   "priority": "MEDIUM",
+   "assignee": "jordan",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-09-15T10:00:00Z",
+   "updated": "2026-09-30T16:30:00Z"
+  },
+  {
+   "key": "OPS-19",
+   "project": "OPS",
+   "title": "Keyboard shortcuts help",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "LOW",
+   "assignee": "sam.k",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-07-28T10:00:00Z",
+   "updated": "2026-08-11T16:30:00Z"
+  },
+  {
+   "key": "APP-18",
+   "project": "APP",
+   "title": "Weekly digest email",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "sam.k",
+   "labels": [
+    "design"
+   ],
+   "created": "2026-08-27T10:00:00Z",
+   "updated": "2026-09-06T16:30:00Z"
+  },
+  {
+   "key": "WEB-20",
+   "project": "WEB",
+   "title": "Accessibility pass on forms",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "alex",
+   "labels": [],
+   "created": "2026-07-07T10:00:00Z",
+   "updated": "2026-07-09T16:30:00Z"
+  },
+  {
+   "key": "WEB-21",
+   "project": "WEB",
+   "title": "Add dark mode to settings",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "tomas",
+   "labels": [
+    "backend"
+   ],
+   "created": "2026-09-12T10:00:00Z",
+   "updated": "2026-09-15T16:30:00Z"
+  },
+  {
+   "key": "APP-19",
+   "project": "APP",
+   "title": "Keyboard shortcuts help",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "MEDIUM",
+   "assignee": "priya",
+   "labels": [
+    "frontend"
+   ],
+   "created": "2026-06-27T10:00:00Z",
+   "updated": "2026-07-04T16:30:00Z"
+  },
+  {
+   "key": "APP-20",
+   "project": "APP",
+   "title": "Add dark mode to settings",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "MEDIUM",
+   "assignee": "alex",
+   "labels": [
+    "a11y",
+    "bug"
+   ],
+   "created": "2026-07-20T10:00:00Z",
+   "updated": "2026-07-26T16:30:00Z"
+  },
+  {
+   "key": "WEB-22",
+   "project": "WEB",
+   "title": "Update the privacy policy page",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "priya",
+   "labels": [
+    "backend"
+   ],
+   "created": "2026-07-16T10:00:00Z",
+   "updated": "2026-07-30T16:30:00Z"
+  },
+  {
+   "key": "APP-21",
+   "project": "APP",
+   "title": "Design tokens for spacing",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "LOW",
+   "assignee": "tomas",
+   "labels": [
+    "backend"
+   ],
+   "created": "2026-06-14T10:00:00Z",
+   "updated": "2026-07-01T16:30:00Z"
+  },
+  {
+   "key": "APP-22",
+   "project": "APP",
+   "title": "Export reports as CSV",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "TODO",
+   "priority": "HIGH",
+   "assignee": "jordan",
+   "labels": [
+    "backend",
+    "copy"
+   ],
+   "created": "2026-07-24T10:00:00Z",
+   "updated": "2026-07-28T16:30:00Z"
+  },
+  {
+   "key": "WEB-23",
+   "project": "WEB",
+   "title": "Onboarding checklist copy",
+   "description": "Details are in the linked doc. Reach out in #design-team or #eng with questions.",
+   "state": "DONE",
+   "priority": "HIGH",
+   "assignee": "jordan",
+   "labels": [],
+   "created": "2026-06-24T10:00:00Z",
+   "updated": "2026-07-06T16:30:00Z"
+  }
+ ]
+}
