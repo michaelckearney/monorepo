@@ -9,6 +9,10 @@ import { useThemes } from "../themes";
 // shared Appearance part; Harbor keeps the themes in its database and does
 // what the part asks. The window wears the editor's draft as you make it.
 const { themes, current, mode } = useThemes();
+
+function saveTheme(original: string, name: string, tokens: string) {
+  return Preferences.SaveTheme(original, name, tokens);
+}
 </script>
 
 <template>
@@ -18,7 +22,7 @@ const { themes, current, mode } = useThemes();
       :current="current"
       :mode="mode"
       app-name="Harbor"
-      :save="(original, name, tokens) => Preferences.SaveTheme(original, name, tokens)"
+      :save="saveTheme"
       @mode="Preferences.SetMode"
       @use="Preferences.UseTheme"
       @remove="Preferences.DeleteTheme"

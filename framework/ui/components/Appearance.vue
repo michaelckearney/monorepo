@@ -25,7 +25,7 @@ const props = defineProps<{
   current: Theme;
   mode: Mode;
   appName: string;
-  save: (original: string, name: string, tokens: string) => Promise<unknown>;
+  save: (original: string, name: string, tokens: string) => PromiseLike<unknown>;
 }>();
 const emit = defineEmits<{
   mode: [mode: Mode];

@@ -60,6 +60,16 @@ const saveToken = () =>
     await Settings.SetToken(token.value);
     token.value = "";
   });
+
+// The shared Appearance part asks for these; the theme in use and the mode go
+// through setTheme and setMode, and a theme's colours are kept and removed here.
+function saveTheme(original: string, name: string, tokens: string) {
+  return Settings.SaveTheme(original, name, tokens);
+}
+
+function deleteTheme(name: string) {
+  return Settings.DeleteTheme(name);
+}
 </script>
 
 <template>
@@ -121,10 +131,10 @@ const saveToken = () =>
           :current="preferences.theme"
           :mode="preferences.mode"
           app-name="Slipway"
-          :save="(original, name, tokens) => Settings.SaveTheme(original, name, tokens)"
+          :save="saveTheme"
           @mode="setMode"
           @use="setTheme"
-          @remove="(name) => Settings.DeleteTheme(name)"
+          @remove="deleteTheme"
         />
       </SettingsPane>
     </template>

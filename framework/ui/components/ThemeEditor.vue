@@ -29,7 +29,7 @@ const props = defineProps<{
   /** The app's name, for a clash with one of its built-in themes. */
   appName: string;
   /** Keeps the theme, given its colours as JSON; resolves once it is kept. */
-  save: (original: string, name: string, tokens: string) => Promise<unknown>;
+  save: (original: string, name: string, tokens: string) => PromiseLike<unknown>;
 }>();
 const emit = defineEmits<{ close: [] }>();
 
