@@ -1,4 +1,4 @@
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { sql, useQuery } from "@desktop";
 import { applyTheme as apply, builtInThemes, type Mode, type Theme, type Tokens } from "@ui/themes";
 
@@ -24,15 +24,8 @@ export function useThemes() {
   return { themes, current, mode };
 }
 
-/**
- * The theme being edited, before it is saved: while it has a value the
- * window wears it instead of the theme in use (ThemeEditor.vue sets and
- * clears it).
- */
-export const draft = ref<{ light: Tokens; dark: Tokens } | null>(null);
-
-/** Keeps the window in the theme and mode you chose, or the draft while you edit one. */
+/** Keeps the window in the theme and mode you chose, or the editor's draft while you edit one. */
 export function applyTheme() {
   const { current, mode } = useThemes();
-  apply(() => draft.value ?? current.value, () => mode.value);
+  apply(() => current.value, () => mode.value);
 }

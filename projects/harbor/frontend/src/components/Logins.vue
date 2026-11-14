@@ -6,7 +6,7 @@ import { Tools } from "@backend";
 import { Badge } from "@ui/components/badge";
 import { Button } from "@ui/components/button";
 import { Input } from "@ui/components/input";
-import DeleteButton from "./DeleteButton.vue";
+import DeleteButton from "@ui/components/DeleteButton.vue";
 import IconButton from "@ui/components/IconButton.vue";
 import SettingsList from "./SettingsList.vue";
 import SettingsPane from "@ui/components/SettingsPane.vue";

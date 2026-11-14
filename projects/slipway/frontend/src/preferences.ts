@@ -1,13 +1,14 @@
 import { computed, effectScope, type ComputedRef } from "vue";
 import { sql, useQuery } from "@desktop";
 import { Settings } from "@backend";
-import { applyTheme as apply, builtInThemes, type Mode, type Theme } from "@ui/themes";
+import { applyTheme as apply, builtInThemes, type Mode, type Theme, type Tokens } from "@ui/themes";
 import type { Panel } from "@ui/panels";
 
 // What the window keeps of its own, in the app's database: the theme and
 // mode, the side panels' widths, and which of the sidebar's sections are
-// folded. Settings.SetPreference writes them, and the live query brings
-// them back.
+// folded. Settings.SetPreference writes them, and the live query brings them
+// back. Themes you add are kept too, each as a `theme:<name>` row that
+// Settings.SaveTheme writes; the built-in themes are in @ui/themes.
 
 export type Side = "left" | "right";
 
@@ -19,6 +20,8 @@ export const defaultPanels: Record<Side, Panel> = {
 
 export interface Preferences {
   theme: Theme;
+  /** The built-in themes and the ones you added, for the picker. */
+  themes: Theme[];
   mode: Mode;
   panels: Record<Side, Panel>;
   folded: string[];
@@ -30,7 +33,9 @@ let preferences: ComputedRef<Preferences> | undefined;
 export function usePreferences(): ComputedRef<Preferences> {
   preferences ??= effectScope(true).run(() => {
     const rows = useQuery<{ key: string; value: string }>(
-      () => sql`SELECT key, value FROM settings WHERE key IN ('theme', 'mode', 'left_panel', 'right_panel', 'folded')`,
+      () =>
+        sql`SELECT key, value FROM settings
+          WHERE key IN ('theme', 'mode', 'left_panel', 'right_panel', 'folded') OR key LIKE 'theme:%'`,
     );
     const value = (key: string) => rows.value.find((r) => r.key === key)?.value;
     const json = <T>(key: string, fallback: T): T => {
@@ -40,12 +45,27 @@ export function usePreferences(): ComputedRef<Preferences> {
         return fallback;
       }
     };
-    return computed(() => ({
-      theme: builtInThemes.find((t) => t.name === value("theme")) ?? builtInThemes[0],
-      mode: (value("mode") ?? "system") as Mode,
-      panels: { left: json("left_panel", defaultPanels.left), right: json("right_panel", defaultPanels.right) },
-      folded: json<string[]>("folded", []),
-    }));
+    return computed(() => {
+      const yours: Theme[] = [];
+      for (const r of rows.value) {
+        if (!r.key.startsWith("theme:")) continue;
+        try {
+          const t = JSON.parse(r.value) as { light: Tokens; dark: Tokens };
+          yours.push({ name: r.key.slice("theme:".length), light: t.light, dark: t.dark, builtIn: false });
+        } catch {
+          // A row that is not a theme cannot be worn, so it is skipped.
+        }
+      }
+      yours.sort((a, b) => a.name.localeCompare(b.name));
+      const themes = [...builtInThemes, ...yours];
+      return {
+        themes,
+        theme: themes.find((t) => t.name === value("theme")) ?? builtInThemes[0],
+        mode: (value("mode") ?? "system") as Mode,
+        panels: { left: json("left_panel", defaultPanels.left), right: json("right_panel", defaultPanels.right) },
+        folded: json<string[]>("folded", []),
+      };
+    });
   })!;
   return preferences;
 }

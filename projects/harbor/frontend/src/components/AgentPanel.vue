@@ -5,7 +5,7 @@ import { sql, useQuery } from "@desktop";
 import { Chats } from "@backend";
 import { chat, defaultPanels, openChat, place, setPanel, sidePanels } from "../navigation";
 import ChatPage from "./ChatPage.vue";
-import DeleteButton from "./DeleteButton.vue";
+import DeleteButton from "@ui/components/DeleteButton.vue";
 import IconButton from "@ui/components/IconButton.vue";
 import SidePanel from "@ui/components/SidePanel.vue";
 

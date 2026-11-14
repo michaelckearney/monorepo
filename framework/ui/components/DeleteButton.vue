@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { Trash2 } from "lucide-vue-next";
-import { Button } from "@ui/components/button";
-import IconButton from "@ui/components/IconButton.vue";
+import { Button } from "./button";
+import IconButton from "./IconButton.vue";
 
 // Delete asks once more, in place: deleting cannot be undone. It is quiet
 // until then, and red only where you confirm. As an icon, it is a small
