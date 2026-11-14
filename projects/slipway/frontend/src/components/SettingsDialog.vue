@@ -7,8 +7,7 @@ import { Button } from "@ui/components/button";
 import { Input } from "@ui/components/input";
 import SettingsDialog from "@ui/components/SettingsDialog.vue";
 import SettingsPane from "@ui/components/SettingsPane.vue";
-import ThemePicker from "@ui/components/ThemePicker.vue";
-import { builtInThemes } from "@ui/themes";
+import Appearance from "@ui/components/Appearance.vue";
 import { message } from "../poll";
 import { setMode, setTheme, usePreferences } from "../preferences";
 
@@ -61,6 +60,16 @@ const saveToken = () =>
     await Settings.SetToken(token.value);
     token.value = "";
   });
+
+// The shared Appearance part asks for these; the theme in use and the mode go
+// through setTheme and setMode, and a theme's colours are kept and removed here.
+function saveTheme(original: string, name: string, tokens: string) {
+  return Settings.SaveTheme(original, name, tokens);
+}
+
+function deleteTheme(name: string) {
+  return Settings.DeleteTheme(name);
+}
 </script>
 
 <template>
@@ -117,15 +126,16 @@ const saveToken = () =>
 
     <template #appearance>
       <SettingsPane title="Appearance">
-        <div class="grid max-w-xs gap-4">
-          <ThemePicker
-            :themes="builtInThemes"
-            :current="preferences.theme.name"
-            :mode="preferences.mode"
-            @mode="setMode"
-            @use="setTheme"
-          />
-        </div>
+        <Appearance
+          :themes="preferences.themes"
+          :current="preferences.theme"
+          :mode="preferences.mode"
+          app-name="Slipway"
+          :save="saveTheme"
+          @mode="setMode"
+          @use="setTheme"
+          @remove="deleteTheme"
+        />
       </SettingsPane>
     </template>
   </SettingsDialog>

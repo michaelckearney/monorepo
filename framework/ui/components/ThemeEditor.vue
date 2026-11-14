@@ -1,28 +1,38 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watchEffect } from "vue";
 import { ChevronDown, X } from "lucide-vue-next";
-import { Preferences } from "@backend";
-import { Button } from "@ui/components/button";
-import { Input } from "@ui/components/input";
-import { Popover, PopoverContent, PopoverTrigger } from "@ui/components/popover";
-import { Textarea } from "@ui/components/textarea";
-import { builtInThemes, colourVariables, complete, draft, parseThemeCSS, useThemes, type Theme, type Tokens, type Variable } from "../themes";
-import IconButton from "@ui/components/IconButton.vue";
+import { Button } from "./button";
+import { Input } from "./input";
+import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+import { Textarea } from "./textarea";
+import IconButton from "./IconButton.vue";
+import { builtInThemes, colourVariables, complete, draft, parseThemeCSS, type Theme, type Tokens, type Variable } from "../themes";
 
 // The theme editor: one field for each colour variable, in its group, for
 // each mode. You start from a theme (Start from, or Import CSS for one from
 // a theme maker such as tweakcn), and the window wears what you have typed
 // until you save or cancel. The values you leave empty are calculated
 // (complete) or fixed; their fields show the colour they will have.
+//
+// The themes are the app's (built-in and its own), for "Start from" and for
+// checking a new name against the app's built-ins by name (appName). Saving is
+// the app's: it passes a save function that stores the theme's colours (given
+// as JSON) and resolves when they are kept. The editor calls it and, only on
+// success, closes itself, so a rejected save leaves what you typed.
 const props = defineProps<{
+  /** Every theme the app has, built-in and its own. */
+  themes: Theme[];
   /** The saved theme this editor changes, or "" when adding one. */
   original: string;
   /** The theme the fields start with. */
   initial: Theme;
+  /** The app's name, for a clash with one of its built-in themes. */
+  appName: string;
+  /** Keeps the theme, given its colours as JSON; resolves once it is kept. */
+  save: (original: string, name: string, tokens: string) => PromiseLike<unknown>;
 }>();
 const emit = defineEmits<{ close: [] }>();
 
-const { themes } = useThemes();
 const name = ref(props.initial.name);
 const modes = [
   { key: "light", label: "Light" },
@@ -90,7 +100,7 @@ function picked(e: Event) {
 }
 
 function startFrom(themeName: string) {
-  const t = themes.value.find((t) => t.name === themeName);
+  const t = props.themes.find((t) => t.name === themeName);
   if (t) values.value = { light: fields(t.light), dark: fields(t.dark) };
 }
 
@@ -109,9 +119,8 @@ function importCSS() {
 
 function check(): string {
   if (!name.value.trim()) return "A theme needs a name.";
-  if (builtInThemes.some((t) => t.name === name.value)) return "Harbor has a theme with this name.";
-  if (themes.value.some((t) => !t.builtIn && t.name === name.value && t.name !== props.original))
-    return "A theme with this name exists.";
+  if (builtInThemes.some((t) => t.name === name.value)) return `${props.appName} has a theme with this name.`;
+  if (props.themes.some((t) => !t.builtIn && t.name === name.value && t.name !== props.original)) return "A theme with this name exists.";
   for (const v of colourVariables) {
     if (v.kind !== "required") continue;
     for (const m of modes) if (!values.value[m.key][v.name]) return `Set ${v.name} in ${m.label}.`;
@@ -128,7 +137,7 @@ function check(): string {
 async function save() {
   problem.value = check();
   if (problem.value) return;
-  await Preferences.SaveTheme(props.original, name.value, JSON.stringify({ light: set(values.value.light), dark: set(values.value.dark) }));
+  await props.save(props.original, name.value, JSON.stringify({ light: set(values.value.light), dark: set(values.value.dark) }));
   emit("close");
 }
 </script>

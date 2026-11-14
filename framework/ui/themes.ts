@@ -211,9 +211,17 @@ export function parseThemeCSS(css: string): { light: Tokens; dark: Tokens } {
 export const dark = ref(false);
 
 /**
+ * The theme being edited, before it is saved: while it has a value the window
+ * wears it instead of the theme in use (ThemeEditor.vue sets and clears it).
+ * Apps read it in applyTheme, and the editor writes it, so it lives here.
+ */
+export const draft = ref<{ light: Tokens; dark: Tokens } | null>(null);
+
+/**
  * Keeps the window in a theme and mode: the theme's variables on <html>, and
  * .dark on it when it is dark. theme and mode are read again whenever what
- * they read changes, as computed's are.
+ * they read changes, as computed's are. While the editor has a draft, the
+ * window wears that instead of the theme in use.
  */
 export function applyTheme(theme: () => { light: Tokens; dark: Tokens }, mode: () => Mode) {
   const media = window.matchMedia("(prefers-color-scheme: dark)");
@@ -229,7 +237,7 @@ export function applyTheme(theme: () => { light: Tokens; dark: Tokens }, mode: (
     for (const name of set) {
       root.style.removeProperty(`--${name}`);
     }
-    const shown = theme();
+    const shown = draft.value ?? theme();
     const tokens = complete(isDark ? shown.dark : shown.light);
     set = Object.keys(tokens);
     for (const [name, value] of Object.entries(tokens)) {

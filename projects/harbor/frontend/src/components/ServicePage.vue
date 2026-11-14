@@ -6,7 +6,7 @@ import { sql, useQuery } from "@desktop";
 import { Documents, Tools } from "@backend";
 import { effect, type Manifest } from "../manifest";
 import { askAgent, open, openServices } from "../navigation";
-import DeleteButton from "./DeleteButton.vue";
+import DeleteButton from "@ui/components/DeleteButton.vue";
 import SignInStatus from "./SignInStatus.vue";
 import ToolRunner from "./ToolRunner.vue";
 import PageHeader from "./PageHeader.vue";

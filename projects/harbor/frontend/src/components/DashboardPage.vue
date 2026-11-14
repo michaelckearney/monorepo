@@ -9,7 +9,7 @@ import { viewKey } from "../kit/grid";
 import { WriteFailed } from "../kit/runtime";
 import { askAgent, close, open } from "../navigation";
 import { signIn as signInTo, signingIn, signInProblem } from "../services";
-import DeleteButton from "./DeleteButton.vue";
+import DeleteButton from "@ui/components/DeleteButton.vue";
 import IconButton from "@ui/components/IconButton.vue";
 import PageHeader from "./PageHeader.vue";
 

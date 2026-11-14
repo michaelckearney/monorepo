@@ -14,6 +14,8 @@ package backend
 import (
 	"database/sql"
 	"encoding/base64"
+	"encoding/json"
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -100,6 +102,78 @@ func (s *Settings) SetPreference(key, value string) error {
 		return fmt.Errorf("%q is not a preference", key)
 	}
 	return s.set(key, value)
+}
+
+// A theme you added is kept in settings as a row "theme:<name>" holding its
+// colours, beside the window's other preferences; the built-in themes are in
+// the frontend (@ui/themes). The frontend reads them and the theme in use with
+// a live query, and the shared Appearance part asks the app to set the mode,
+// use a theme, and add or delete one — the mode and the theme in use are kept
+// by SetPreference, and the two below keep and remove a theme's colours.
+
+// SaveTheme saves a theme of yours, and uses it. original is the saved theme
+// you are changing, or "" when adding one; renaming moves its row. tokens is
+// JSON: {"light": {...}, "dark": {...}}, each CSS variables by name without
+// the dashes, such as "primary": "#0e5e6f". It is an error if the name belongs
+// to another theme of yours.
+func (s *Settings) SaveTheme(original, name, tokens string) error {
+	name = strings.TrimSpace(name)
+	if name == "" {
+		return errors.New("a theme needs a name")
+	}
+	var t struct{ Light, Dark map[string]string }
+	if err := json.Unmarshal([]byte(tokens), &t); err != nil {
+		return fmt.Errorf("the theme's colours are not JSON: %w", err)
+	}
+	if len(t.Light) == 0 || len(t.Dark) == 0 {
+		return errors.New("a theme has light and dark colours")
+	}
+	tx, err := s.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+	key := "theme:" + name
+	var exists int
+	if err := tx.QueryRow(`SELECT count(*) FROM settings WHERE key = ?`, key).Scan(&exists); err != nil {
+		return err
+	}
+	if exists > 0 && name != original {
+		return errors.New("A theme with this name exists.")
+	}
+	if original != "" && original != name {
+		if _, err := tx.Exec(`DELETE FROM settings WHERE key = ?`, "theme:"+original); err != nil {
+			return err
+		}
+		if _, err := tx.Exec(`DELETE FROM settings WHERE key = 'theme' AND value = ?`, original); err != nil {
+			return err
+		}
+	}
+	if _, err := tx.Exec(`INSERT INTO settings (key, value) VALUES (?, ?)
+		ON CONFLICT (key) DO UPDATE SET value = excluded.value`, key, tokens); err != nil {
+		return err
+	}
+	if _, err := tx.Exec(`INSERT INTO settings (key, value) VALUES ('theme', ?)
+		ON CONFLICT (key) DO UPDATE SET value = excluded.value`, name); err != nil {
+		return err
+	}
+	return tx.Commit()
+}
+
+// DeleteTheme deletes a theme of yours. If it was in use, Slipway's own is.
+func (s *Settings) DeleteTheme(name string) error {
+	tx, err := s.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+	if _, err := tx.Exec(`DELETE FROM settings WHERE key = ?`, "theme:"+name); err != nil {
+		return err
+	}
+	if _, err := tx.Exec(`DELETE FROM settings WHERE key = 'theme' AND value = ?`, name); err != nil {
+		return err
+	}
+	return tx.Commit()
 }
 
 // token is the GitHub token, or "".
