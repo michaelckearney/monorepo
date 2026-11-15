@@ -37,6 +37,9 @@ const (
 	EnvE2EViewport = "DESKTOP_E2E_VIEWPORT"
 	// EnvE2EResults is where a failed test's trace and screenshot go.
 	EnvE2EResults = "DESKTOP_E2E_RESULTS"
+	// EnvE2EGallery is the mode's gallery folder, .desktop/gallery/<mode>:
+	// every test that opens the app leaves a screenshot of its page there.
+	EnvE2EGallery = "DESKTOP_E2E_GALLERY"
 )
 
 // DBFile is the database's file name in the data folder.

@@ -727,6 +727,14 @@ func TestGreeting(t *testing.T) {
   locale, and time zone are pinned.
 - A failed test keeps a trace and a screenshot in
   `.desktop/test-results/<test>/`.
+- Every test and subtest that opened the app also leaves a screenshot of the
+  page it ended on in the gallery,
+  `.desktop/gallery/<mode>/<test>.png`, each subtest separator an underscore
+  (`TestSettings/empty` → `TestSettings_empty.png`). `harness test -e2e`
+  empties the mode's folder before its tests run, so the gallery holds one
+  picture per test of the last run and nothing from earlier ones; its path
+  never changes, so a design task or a review can find the pictures again.
+  It is light mode only, the scheme every screenshot is pinned to.
 
 The Playwright driver and WebKit are installed into `~/.desktop` the first
 time. An e2e test can also skip the browser and test the backend's own code

@@ -10,6 +10,8 @@
 //	  vite.config.mjs
 //	  vitest.config.mjs, vitest.setup.mjs
 //	  test-results/     Playwright traces and screenshots
+//	  gallery/<mode>/   one screenshot per e2e test and subtest, the last
+//	                    harness test -e2e run's
 //	  tsconfig.json, env.d.ts
 //	  desktop.ts        the frontend's @desktop module: sql, useQuery, onMenu
 //	  deps/             links into ~/.desktop/deps, one per dependency
@@ -63,6 +65,11 @@ type Paths struct {
 
 	VitestConfig   string
 	TestResultsDir string
+	// GalleryDir holds one folder per mode, emptied by each harness test
+	// -e2e, which leaves a screenshot of the page every e2e test and
+	// subtest that opened the app ended on. Its path does not change
+	// between runs, so a design task can find the pictures again.
+	GalleryDir string
 
 	MigrationsDir string
 	// EmbeddedDepsDir is what the app embeds of its dependencies: nothing,
@@ -90,6 +97,7 @@ func PathsFor(p *project.Project) Paths {
 
 		VitestConfig:   filepath.Join(p.DesktopDir, "vitest.config.mjs"),
 		TestResultsDir: filepath.Join(p.DesktopDir, "test-results"),
+		GalleryDir:     filepath.Join(p.DesktopDir, "gallery"),
 
 		MigrationsDir:   filepath.Join(p.DesktopDir, "app", "migrations"),
 		EmbeddedDepsDir: filepath.Join(p.DesktopDir, "app", "deps"),
