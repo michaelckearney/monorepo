@@ -353,6 +353,24 @@ describe("a service", () => {
     expect(place.value).toEqual({ kind: "services" });
   });
 
+  it("goes back to the services list", async () => {
+    open("service", 1);
+    const app = mountApp();
+    await flushPromises();
+    await app.get('main button[aria-label="Back"]').trigger("click");
+    expect(place.value).toEqual({ kind: "services" });
+  });
+
+  it("goes back from a service whose file it could not read", async () => {
+    tables.services = [{ id: 1, name: "gitea", title: "Gitea", manifest: null, error: "no such file" }];
+    open("service", 1);
+    const app = mountApp();
+    await flushPromises();
+    expect(app.text()).toContain("Couldn't read this service's file");
+    await app.get('main button[aria-label="Back"]').trigger("click");
+    expect(place.value).toEqual({ kind: "services" });
+  });
+
   it("edits the saved file and shows it after saving", async () => {
     open("service", 1, true);
     const app = mountApp();

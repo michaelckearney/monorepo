@@ -55,7 +55,7 @@ async function remove() {
 
 <template>
   <template v-if="service">
-    <PageHeader :title="service.title">
+    <PageHeader :title="service.title" back @back="openServices">
       <template #icon><ServiceIcon :url="service.url" /></template>
       <Button size="sm" variant="ghost" @click="browse">Open in Harbor's browser</Button>
       <IconButton label="Edit" @click="open('service', id, true)"><Pencil /></IconButton>
@@ -109,7 +109,7 @@ async function remove() {
     </div>
   </template>
   <template v-else-if="unread">
-    <PageHeader :title="unread.name">
+    <PageHeader :title="unread.name" back @back="openServices">
       <IconButton label="Edit" @click="open('service', id, true)"><Pencil /></IconButton>
       <DeleteButton :what="unread.name" size="icon" @confirm="remove" />
     </PageHeader>
