@@ -3,6 +3,8 @@
 Desktop apps with a Go backend and a Vue + TypeScript frontend, on Wails v3.
 The README is the reference for a project's layout and what each verb does.
 The projects that use it are in `projects/`: see `harness.yaml`.
+[DESIGN.md](DESIGN.md) is the design philosophy every app shares: read it
+before any change to UI, in `ui/` or in a project's frontend.
 
 ## Layout
 
