@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/michaelckearney/monorepo/framework/internal/generate"
 	"github.com/michaelckearney/monorepo/framework/internal/project"
 )
 
@@ -60,6 +61,37 @@ func TestTestFileGetsItsDirectory(t *testing.T) {
 	got := testFile.ReplaceAllString("    greeter_test.go:8: first greeting\n", "${1}backend/${2}")
 	if want := "    backend/greeter_test.go:8: first greeting\n"; got != want {
 		t.Errorf("got %q, want %q", got, want)
+	}
+}
+
+// The gallery is one run's at a time: harness test -e2e empties the mode's
+// folder first, so a deleted test leaves no stale picture, and the path,
+// unlike test-results, does not change between runs.
+func TestE2EEmptiesTheGalleryOfTheMode(t *testing.T) {
+	root := t.TempDir()
+	gallery := filepath.Join(generate.PathsFor(&project.Project{DesktopDir: filepath.Join(root, ".desktop")}).GalleryDir, "dev")
+	if want := filepath.Join(root, ".desktop", "gallery", "dev"); gallery != want {
+		t.Fatalf("gallery is at %s, want %s", gallery, want)
+	}
+	write(t, filepath.Join(gallery, "TestGone.png"))
+	write(t, filepath.Join(gallery, "TestGone_too", "shot.png"))
+	if err := emptyGallery(gallery); err != nil {
+		t.Fatal(err)
+	}
+	entries, err := os.ReadDir(gallery)
+	if err != nil {
+		t.Fatalf("the folder is gone: %v", err)
+	}
+	if len(entries) != 0 {
+		t.Errorf("the folder still holds %d entries from the last run", len(entries))
+	}
+	// The folder need not exist before the run that empties it.
+	os.RemoveAll(gallery)
+	if err := emptyGallery(gallery); err != nil {
+		t.Errorf("emptying a folder that was never there: %v", err)
+	}
+	if _, err := os.Stat(gallery); err != nil {
+		t.Errorf("emptyGallery left no folder: %v", err)
 	}
 }
 

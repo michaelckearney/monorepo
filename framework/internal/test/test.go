@@ -607,6 +607,16 @@ func (t *tester) e2e(ctx context.Context) (string, bool) {
 	return fmt.Sprintf("%d tests: %s", total, strings.Join(counts, ", ")), true
 }
 
+// emptyGallery leaves the mode's gallery folder, .desktop/gallery/<mode>/,
+// existing and empty. harness test -e2e runs it before the mode's tests, so
+// the gallery is one run's at a time: a deleted test leaves no stale picture.
+func emptyGallery(dir string) error {
+	if err := os.RemoveAll(dir); err != nil {
+		return err
+	}
+	return os.MkdirAll(dir, 0o755)
+}
+
 // e2ePackages are the e2e tests of a mode to run: all of tests/<mode>/, or
 // the parts of it Paths names.
 func (t *tester) e2ePackages(mode string) []string {
@@ -629,6 +639,13 @@ func (t *tester) e2ePackages(mode string) []string {
 // e2eMode builds the app in mode, starts it, and runs tests/<mode>/...
 // against it.
 func (t *tester) e2eMode(ctx context.Context, mode project.Mode, browsers []string, driver string) (string, int, bool) {
+	// The gallery is the last run's: empty the mode's folder first, so a
+	// test that no longer exists leaves no stale picture behind.
+	gallery := filepath.Join(t.paths.GalleryDir, mode.Mode)
+	if err := emptyGallery(gallery); err != nil {
+		steps.Logf("%v", err)
+		return "gallery", 0, false
+	}
 	bin, err := steps.BuildServer(ctx, t.p, t.paths, mode)
 	if err != nil {
 		steps.Logf("%v", err)
@@ -668,6 +685,7 @@ func (t *tester) e2eMode(ctx context.Context, mode project.Mode, browsers []stri
 		appstate.EnvE2EURL+"=http://127.0.0.1:"+strconv.Itoa(port),
 		fmt.Sprintf("%s=%dx%d", appstate.EnvE2EViewport, t.p.Config.Window.Width, t.p.Config.Window.Height),
 		appstate.EnvE2EResults+"="+t.paths.TestResultsDir,
+		appstate.EnvE2EGallery+"="+gallery,
 	)
 	// -count=1: go test would otherwise reuse a passing result from an
 	// earlier run, against an earlier build of the app.

@@ -60,8 +60,11 @@ func start() (playwright.Browser, error) {
 }
 
 // Open opens the app's first page in a new browser context, for this test
-// alone. The context is closed when the test ends. If the test failed, its
-// trace and a screenshot are kept in .desktop/test-results/<test>/.
+// alone. The context is closed when the test ends. Every test and subtest
+// that called Open leaves a screenshot of the page it ended on in the
+// gallery, .desktop/gallery/<mode>/<test>.png, where harness test -e2e
+// points the run; with no gallery set, none is taken. If the test failed,
+// its trace and a screenshot are kept in .desktop/test-results/<test>/ too.
 func Open(t testing.TB) playwright.Page {
 	t.Helper()
 	url := os.Getenv(appstate.EnvE2EURL)
@@ -108,6 +111,10 @@ func Open(t testing.TB) playwright.Page {
 func finish(t testing.TB, ctx playwright.BrowserContext, page playwright.Page) {
 	t.Helper()
 	defer ctx.Close()
+	if gallery := os.Getenv(appstate.EnvE2EGallery); gallery != "" && os.MkdirAll(gallery, 0o755) == nil {
+		png := filepath.Join(gallery, galleryName(t.Name())+".png")
+		page.Screenshot(playwright.PageScreenshotOptions{Path: playwright.String(png)})
+	}
 	dir := os.Getenv(appstate.EnvE2EResults)
 	if !t.Failed() || dir == "" {
 		ctx.Tracing().Stop()
@@ -129,6 +136,13 @@ var unsafe = regexp.MustCompile(`[^A-Za-z0-9_-]+`)
 
 func safeName(name string) string {
 	return strings.Trim(unsafe.ReplaceAllString(name, "-"), "-")
+}
+
+// galleryName is a test's screenshot in the gallery: its name as safeName
+// makes it safe for a file name, with each subtest separator an underscore,
+// so TestSettings/empty becomes TestSettings_empty.
+func galleryName(name string) string {
+	return strings.Trim(unsafe.ReplaceAllString(name, "_"), "_")
 }
 
 func viewport() *playwright.Size {
