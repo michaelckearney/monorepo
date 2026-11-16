@@ -96,10 +96,10 @@ const variants = computed(() => [
       </div>
       <section v-for="v in variants" :key="v.key" class="grid gap-2">
         <h4 class="text-small font-medium uppercase tracking-wide text-muted-foreground">{{ v.label }}</h4>
-        <ul class="grid gap-x-6 gap-y-1 sm:grid-cols-2">
+        <ul class="grid gap-y-1">
           <li v-for="row in v.rows" :key="row.name" class="flex min-w-0 items-center gap-2 text-small">
             <span class="size-3.5 shrink-0 rounded-sm border" :style="{ background: row.colour }"></span>
-            <span class="min-w-0 truncate text-muted-foreground">{{ row.name }}</span>
+            <span class="text-muted-foreground whitespace-nowrap">{{ row.name }}</span>
             <span class="ml-auto shrink-0 font-mono">{{ row.colour }}</span>
           </li>
         </ul>
