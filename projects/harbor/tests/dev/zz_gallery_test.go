@@ -125,12 +125,20 @@ func TestSettings(t *testing.T) {
 		pane := setting(t, page, "Logins & passkeys")
 		e2e.Expect(t, pane.GetByText("Stored unencrypted")).ToBeVisible()
 		e2e.Expect(t, pane.GetByRole("region", playwright.LocatorGetByRoleOptions{Name: "Saved logins"})).ToHaveCount(0)
+		e2e.Expect(t, pane.GetByRole("heading", playwright.LocatorGetByRoleOptions{Name: "No logins yet", Exact: playwright.Bool(true)})).ToBeVisible()
+		// The pane's own button, not the header's `+`, which shares the name.
+		click(t, pane.GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Add a login", Exact: playwright.Bool(true)}).
+			Filter(playwright.LocatorFilterOptions{HasText: "Add a login"}))
+		e2e.Expect(t, role(page, "form", "Save a login")).ToBeVisible()
+		// Back to the pane, so this test's gallery shot is the empty state.
+		click(t, role(page, "button", "Back"))
+		e2e.Expect(t, pane.GetByRole("heading", playwright.LocatorGetByRoleOptions{Name: "No logins yet", Exact: playwright.Bool(true)})).ToBeVisible()
 	})
 	t.Run("loginsFull", func(t *testing.T) {
 		page := e2e.Open(t)
 		openSettings(t, page)
-		setting(t, page, "Logins & passkeys")
-		click(t, role(page, "button", "Add a login"))
+		pane := setting(t, page, "Logins & passkeys")
+		click(t, pane.Locator("header").GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Add a login", Exact: playwright.Bool(true)}))
 		form := role(page, "form", "Save a login")
 		e2e.Do(t, form.GetByLabel("Site").Fill("https://gallery.example.com"))
 		e2e.Do(t, form.GetByLabel("Username").Fill("alex"))
