@@ -13,9 +13,9 @@ example:
 <script setup lang="ts">
 import { computed, onUnmounted, ref, watch } from "vue";
 import { LoaderCircle } from "lucide-vue-next";
+import { Button as UiButton } from "@ui/components/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@ui/components/tooltip";
 import ServiceIcon from "../../components/ServiceIcon.vue";
-import SignInSentence from "../../components/SignInSentence.vue";
 import { signingIn, useServices } from "../../services";
 import { useStatus } from "../status";
 import type { Option, Total } from "../frame";
@@ -178,15 +178,18 @@ const hasControls = computed(
       <Skeleton class="h-3" />
       <Skeleton class="h-3 w-3/4" />
     </div>
-    <div v-else-if="state === 'signIn'" class="grid h-full content-center justify-items-center gap-2 text-center text-muted-foreground">
+    <div v-else-if="state === 'signIn'" class="grid justify-items-start gap-2">
       <p v-if="signingIn === `${status!.signIn!.service}/${status!.signIn!.tool ?? ''}`" role="status">Signing in to {{ signInTitle }}…</p>
-      <SignInSentence
-        v-else
-        class="max-w-prose"
-        :lead="status!.signIn!.tool ? 'Confirm it\'s you on' : 'Sign in to'"
-        end="to see this."
-        :items="signInItems"
-      />
+      <template v-else>
+        <p class="text-small text-muted-foreground">{{ status!.signIn!.tool ? "Confirm it's you to see this:" : "Sign in to see this:" }}</p>
+        <ul class="grid gap-1.5">
+          <li v-for="item in signInItems" :key="item.title" class="flex min-h-row items-center gap-2">
+            <span class="size-1.5 shrink-0 rounded-full bg-warning" aria-hidden="true"></span>
+            <span class="min-w-0 flex-1">{{ item.title }}</span>
+            <UiButton size="xs" class="shrink-0" :disabled="signingIn !== ''" @click="item.signIn()">{{ status!.signIn!.tool ? "Confirm" : "Sign in" }}</UiButton>
+          </li>
+        </ul>
+      </template>
     </div>
     <p v-else-if="state === 'failed'" class="whitespace-pre-wrap text-destructive" role="alert">{{ status!.problem }}</p>
     <template v-else>

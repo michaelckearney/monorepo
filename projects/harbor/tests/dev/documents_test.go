@@ -104,16 +104,17 @@ func TestListsTheSeededServicesAndDashboards(t *testing.T) {
 }
 
 // A widget of several services, as This week's agenda is, asks in itself for
-// each sign-in it needs, in one sentence that names each service.
+// each sign-in it needs, on a row of its own per service.
 func TestAWidgetOfSeveralServicesAsksForEachSignIn(t *testing.T) {
 	page := e2e.Open(t)
 	// Its name in the sidebar may say a service it uses needs you.
 	click(t, role(page, "region", "Dashboards").GetByRole("button", playwright.LocatorGetByRoleOptions{Name: regexp.MustCompile(`^This week`)}))
 	week := role(page, "region", "The next seven days")
-	e2e.Expect(t, week.GetByText("Sign in to Brightline Energy, Clearwater Health, Maple Grove Schools, and Payday to see this.")).ToBeVisible()
 	for _, title := range []string{"Clearwater Health", "Maple Grove Schools", "Brightline Energy", "Payday"} {
-		// Each name signs in; the service's icon above only names it.
-		e2e.Expect(t, week.GetByRole("paragraph").GetByRole("button", playwright.LocatorGetByRoleOptions{Name: title, Exact: playwright.Bool(true)})).ToBeVisible()
+		// Each row's button signs in; the service's icon above only names it.
+		row := week.GetByRole("listitem").Filter(playwright.LocatorFilterOptions{HasText: title})
+		e2e.Expect(t, row.GetByText(title, playwright.LocatorGetByTextOptions{Exact: playwright.Bool(true)})).ToBeVisible()
+		e2e.Expect(t, row.GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Sign in", Exact: playwright.Bool(true)})).ToBeVisible()
 		e2e.Expect(t, week.GetByRole("list", playwright.LocatorGetByRoleOptions{Name: "Where this is from"}).GetByRole("img", playwright.LocatorGetByRoleOptions{Name: title, Exact: playwright.Bool(true)})).ToBeVisible()
 	}
 	e2e.Expect(t, page.GetByText("Not shown:")).ToHaveCount(0)

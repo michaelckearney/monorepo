@@ -722,13 +722,13 @@ describe("a dashboard", () => {
     expect(app.get('section[aria-label="Open"]').text()).toContain("2");
     expect(app.get('section[aria-label="Issues"] tbody').text()).toBe("Crash1,200");
     const balance = app.get('section[aria-label="Balance"]');
-    expect(balance.text()).toContain("Sign in to Bank to see this.");
+    expect(balance.text()).toContain("Bank");
     // The widget offers it, so the page does not.
     expect(app.find('[aria-label="Sign-ins needed"]').exists()).toBe(false);
     const calls = vi.mocked(Tools.CallForDashboard).mock.calls.length;
-    // Its icon only names the service; the sentence signs in.
+    // Its icon only names the service; the row signs in.
     expect(balance.find('[role="img"][aria-label="Bank"]').exists()).toBe(true);
-    await button(balance, "Bank").trigger("click");
+    await button(balance, "Sign in").trigger("click");
     await flushPromises();
     expect(Tools.SignIn).toHaveBeenCalledWith("bank", "");
     expect(vi.mocked(Tools.CallForDashboard).mock.calls.length).toBeGreaterThan(calls);
