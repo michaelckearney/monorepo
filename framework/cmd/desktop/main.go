@@ -171,10 +171,8 @@ func write(r result) error {
 // With -short or -run, it is not the whole of them.
 func selfTest(ctx context.Context, c call) (result, error) {
 	dir, _ := os.Getwd()
-	args := append([]string{"test"}, c.args...)
-	args = append(args, "./...")
-	full := len(c.args) == 0
-	for _, step := range [][]string{{"vet", "./..."}, args} {
+	steps, full := selfSteps(c.args)
+	for _, step := range steps {
 		fmt.Fprintf(os.Stderr, "desktop: go %s\n", strings.Join(step, " "))
 		cmd := exec.CommandContext(ctx, "go", step...)
 		cmd.Dir = dir
@@ -187,6 +185,38 @@ func selfTest(ctx context.Context, c call) (result, error) {
 		}
 	}
 	return result{Full: full}, nil
+}
+
+// selfSteps are the go commands of selfTest. -lint, -unit, and -e2e pick
+// phases, as they do for a project: vet is the framework's lint, its Go tests
+// its unit tests, and it has no e2e tests of its own. The other arguments are
+// go test's.
+func selfSteps(args []string) ([][]string, bool) {
+	var lint, unit, e2e bool
+	var rest []string
+	for _, a := range args {
+		switch a {
+		case "-lint", "--lint":
+			lint = true
+		case "-unit", "--unit":
+			unit = true
+		case "-e2e", "--e2e":
+			e2e = true
+		default:
+			rest = append(rest, a)
+		}
+	}
+	if !lint && !unit && !e2e {
+		lint, unit = true, true
+	}
+	var steps [][]string
+	if lint {
+		steps = append(steps, []string{"vet", "./..."})
+	}
+	if unit {
+		steps = append(steps, append(append([]string{"test"}, rest...), "./..."))
+	}
+	return steps, len(args) == 0
 }
 
 // testFlags parses harness test's flags and paths. The flags may come
