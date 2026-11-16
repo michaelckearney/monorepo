@@ -13,7 +13,7 @@ import (
 func TestProdHasNoDeveloperBarOrFixtures(t *testing.T) {
 	page := e2e.Open(t)
 	e2e.Do(t, page.GetByRole("button", playwright.PageGetByRoleOptions{Name: "Services", Exact: playwright.Bool(true)}).Click())
-	e2e.Expect(t, page.GetByText("No services yet.")).ToBeVisible()
+	e2e.Expect(t, page.GetByRole("heading", playwright.PageGetByRoleOptions{Name: "No services yet", Exact: playwright.Bool(true)})).ToBeVisible()
 	e2e.Expect(t, page.GetByRole("navigation", playwright.PageGetByRoleOptions{Name: "Developer"})).ToHaveCount(0)
 	e2e.Expect(t, page.GetByRole("button", playwright.PageGetByRoleOptions{Name: "Tools", Exact: playwright.Bool(true)})).ToHaveCount(0)
 }
