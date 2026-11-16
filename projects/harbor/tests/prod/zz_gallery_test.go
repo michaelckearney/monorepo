@@ -32,7 +32,7 @@ func TestServices(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
 		page := e2e.Open(t)
 		click(t, role(t, page, "button", "Services"))
-		e2e.Expect(t, page.GetByText("No services yet.")).ToBeVisible()
+		e2e.Expect(t, page.GetByRole("heading", playwright.PageGetByRoleOptions{Name: "No services yet", Exact: playwright.Bool(true)})).ToBeVisible()
 	})
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Plus } from "lucide-vue-next";
+import { Plug, Plus } from "lucide-vue-next";
 import { sql, useQuery } from "@desktop";
 import { Button } from "@ui/components/button";
 import { open } from "../navigation";
@@ -36,7 +36,7 @@ const rows = computed(() =>
   </PageHeader>
   <div class="min-h-0 flex-1 overflow-y-auto p-page">
     <p v-if="signInProblem" class="mb-3 text-destructive" role="alert">{{ signInProblem }}</p>
-    <section aria-label="Services" class="rounded-lg border bg-card">
+    <section v-if="rows.length > 0" aria-label="Services" class="rounded-lg border bg-card">
       <ul class="divide-y">
         <li v-for="s in rows" :key="s.id" class="flex min-h-row items-center gap-2 px-3 py-1">
           <span class="size-1.5 shrink-0 rounded-full" :class="{ 'bg-warning': s.needed.length > 0 }"></span>
@@ -59,9 +59,13 @@ const rows = computed(() =>
           </Button>
         </li>
       </ul>
-      <p v-if="rows.length === 0" class="px-4 py-6 text-center text-muted-foreground">
-        No services yet.
-      </p>
     </section>
+    <div v-else class="grid min-h-full place-items-center">
+      <div class="grid max-w-sm justify-items-center gap-3 text-center">
+        <span class="grid size-11 place-items-center rounded-xl bg-muted text-muted-foreground"><Plug /></span>
+        <h2 class="text-heading font-semibold tracking-tight">No services yet</h2>
+        <Button variant="outline" @click="open('service', 0)"><Plus />New service</Button>
+      </div>
+    </div>
   </div>
 </template>
