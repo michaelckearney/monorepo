@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Pencil, Plus, ShieldCheck, TriangleAlert } from "lucide-vue-next";
+import { KeyRound, Pencil, Plus, ShieldCheck, TriangleAlert } from "lucide-vue-next";
 import { sql, useQuery } from "@desktop";
 import { Tools } from "@backend";
 import { Badge } from "@ui/components/badge";
@@ -98,6 +98,14 @@ async function setAuto(row: Passkey, e: Event) {
     <template #actions>
       <IconButton label="Add a login" @click="edit()"><Plus /></IconButton>
     </template>
+
+    <div v-if="logins.length === 0 && passkeys.length === 0" class="grid min-h-full place-items-center">
+      <div class="grid max-w-sm justify-items-center gap-3 text-center">
+        <span class="grid size-11 place-items-center rounded-xl bg-muted text-muted-foreground"><KeyRound /></span>
+        <h2 class="text-heading font-semibold tracking-tight">No logins yet</h2>
+        <Button variant="outline" @click="edit()"><Plus />Add a login</Button>
+      </div>
+    </div>
 
     <section v-if="logins.length" aria-label="Saved logins" class="grid gap-2">
       <div class="flex items-center gap-3">
