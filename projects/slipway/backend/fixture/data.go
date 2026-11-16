@@ -216,6 +216,11 @@ func seed(now time.Time) *data {
 		{Number: 16, Title: "Cache the framework's e2e builds", Author: me, Labels: []string{"framework"},
 			Created: ago(600), Updated: ago(600),
 			Body: "Each e2e run builds the frontend again, even when nothing in it changed."},
+		{Number: 17, Title: "Jump the timeline to its top", Author: me, Labels: []string{"project:harbor"},
+			Created: ago(90), Updated: ago(6),
+			Body: "Harbor's timeline has no way back to the top of a long thread.",
+			Comments: []comment{{Author: bot, Created: ago(8),
+				Body: "I've read the thread and know what to change; I'll start when the others ahead of me are done."}}},
 		{Number: 18, Title: "chore: try the harness's next release", Author: me, Labels: []string{},
 			Created: ago(120), Updated: ago(100), Body: "Pins the harness's release candidate, to see what breaks.",
 			PR: &pr{Branch: "try-harness-next", Additions: 2, Deletions: 2,
@@ -236,7 +241,12 @@ func seed(now time.Time) *data {
 		newThread(11, "idle", "opencode", "project:harbor", 12, 80),
 		newThread(13, "running", "claude-code", "project:slipway", 14, 25),
 		newThread(15, "blocked", "opencode", "project:harbor", 0, 45),
+		newThread(17, "idle", "opencode", "project:harbor", 0, 20),
 	}
+	// #17's turn is over and the thread is idle, but new events have come in
+	// since, so its item shows that state of the status line rather than
+	// waiting for you.
+	d.threads[3].Waiting = 3
 	say := func(number, minutes int, kind, text string) {
 		d.lines[number] = append(d.lines[number], line{Repo: Repo, Number: number, Time: ago(minutes), Kind: kind, Text: text})
 	}
@@ -270,5 +280,12 @@ func seed(now time.Time) *data {
 	say(15, 41, "tool", `bash: {"command":"harness reply -"}`)
 	say(15, 41, "result", "bash: harness reply -\nReplied on #15.")
 	say(15, 40, "text", "I asked whether the dark theme should follow the system's appearance, and I'm waiting for an answer.")
+
+	prompt(17, 20, "opencode", "Jump the timeline to its top", "@alex-morgan opened the issue.")
+	say(17, 19, "tool", status)
+	say(17, 19, "result", "bash: harness status\nIssue #17: Jump the timeline to its top\nBranch: harness/17\nPull request: none yet")
+	say(17, 18, "tool", `bash: {"command":"harness reply -"}`)
+	say(17, 18, "result", "bash: harness reply -\nReplied on #17.")
+	say(17, 8, "text", "I've read the thread and know what to change; I'll start when the others ahead of me are done.")
 	return d
 }
