@@ -41,7 +41,7 @@ onMounted(checkNow);
     <template v-if="state === 'checking'">Checking whether you are signed in…</template>
     <template v-else-if="state === 'signed-in'"><span class="dot ok"></span>Signed in</template>
     <template v-else-if="state === 'signed-out'">
-      <span class="dot"></span>Signed out
+      <span class="dot need"></span>Signed out
       <Button size="sm" variant="outline" type="button" @click="signIn">Sign in</Button>
     </template>
     <template v-else-if="state === 'signing-in'">
@@ -70,6 +70,9 @@ onMounted(checkNow);
 }
 .dot.ok {
   background: var(--success);
+}
+.dot.need {
+  background: var(--warning);
 }
 .problem {
   color: var(--destructive);
