@@ -24,7 +24,7 @@ const closeSettings = inject(closeSettingsKey, () => {});
       <IconButton label="Close" class="-mr-2" @click="closeSettings()"><X /></IconButton>
     </header>
     <div class="min-h-0 flex-1 overflow-y-auto">
-      <div class="grid gap-6 p-page">
+      <div class="flex h-full flex-col gap-6 p-page">
         <slot />
       </div>
     </div>
