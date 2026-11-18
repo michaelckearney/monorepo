@@ -43,7 +43,7 @@ const rows = computed(() =>
           <ServiceIcon :url="s.url" />
           <button type="button" class="shrink-0 font-medium hover:underline" @click="open('service', s.id)">{{ s.title }}</button>
           <span v-if="s.error" class="min-w-0 flex-1 truncate text-destructive" :title="s.error">Its file could not be read: {{ s.error }}</span>
-          <span v-else class="min-w-0 flex-1 truncate text-muted-foreground">
+          <span v-else class="min-w-0 flex-1 break-words text-muted-foreground">
             {{ s.url }} · {{ s.tools === 1 ? "1 tool" : `${s.tools} tools` }}<template v-if="s.usedBy"> · used by {{ s.usedBy }}</template>
           </span>
           <Button
