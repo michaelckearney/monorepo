@@ -21,7 +21,7 @@ provide(closeSettingsKey, () => emit("update:open", null));
     <DialogOverlay class="fixed inset-0 z-[5] bg-overlay" />
     <DialogContent
       :aria-describedby="undefined"
-      class="fixed left-1/2 top-1/2 z-[5] flex h-[min(40rem,calc(100vh-2rem))] w-[min(56rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl border bg-background shadow-lg outline-none max-sm:inset-0 max-sm:h-full max-sm:w-full max-sm:translate-x-0 max-sm:translate-y-0 max-sm:rounded-none"
+      class="fixed left-1/2 top-1/2 z-[5] flex h-[min(48rem,calc(100vh-2rem))] w-[min(72rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl border bg-background shadow-lg outline-none max-sm:inset-0 max-sm:h-full max-sm:w-full max-sm:translate-x-0 max-sm:translate-y-0 max-sm:rounded-none"
     >
       <nav aria-label="Settings" class="flex w-48 shrink-0 flex-col gap-0.5 border-r bg-sidebar p-2">
         <DialogTitle class="px-2 pb-2 pt-1.5 text-title font-semibold">Settings</DialogTitle>
