@@ -80,10 +80,6 @@ function setUpProvider() {
 
 <template>
   <form class="grid max-w-3xl gap-4 p-page" aria-label="New run" @submit.prevent="start">
-    <p class="text-muted-foreground">
-      Each scenario is one message to Harbor's agent, on the fixture sites. A trial runs it on a new, empty Harbor, then
-      the grader scores what the agent did. Trials run one at a time.
-    </p>
     <p v-if="status" class="flex items-center gap-3 text-muted-foreground" role="status">
       <span class="flex-1">{{ status }}</span>
       <Button type="button" size="sm" variant="outline" @click="setUpProvider">Set up a provider</Button>
