@@ -16,16 +16,10 @@ const details = useQuery<{ name: string; tools: number; description: string }>(
       coalesce(json_extract(manifest, '$.description'), '') AS description
     FROM services`,
 );
-const usedBy = useQuery<{ service: string; dashboards: string }>(
-  () => sql`
-    SELECT s.service, group_concat(d.name, ', ') AS dashboards
-    FROM dashboard_services s JOIN dashboards d ON d.id = s.dashboard_id GROUP BY s.service`,
-);
 const rows = computed(() =>
   services.value.map((s) => ({
     ...s,
     ...details.value.find((d) => d.name === s.name),
-    usedBy: usedBy.value.find((u) => u.service === s.name)?.dashboards ?? "",
   })),
 );
 </script>
@@ -44,7 +38,7 @@ const rows = computed(() =>
           <button type="button" class="shrink-0 font-medium hover:underline" @click="open('service', s.id)">{{ s.title }}</button>
           <span v-if="s.error" class="min-w-0 flex-1 truncate text-destructive" :title="s.error">Its file could not be read: {{ s.error }}</span>
           <span v-else class="min-w-0 flex-1 truncate text-muted-foreground">
-            {{ s.url }} · {{ s.tools === 1 ? "1 tool" : `${s.tools} tools` }}<template v-if="s.usedBy"> · used by {{ s.usedBy }}</template>
+            {{ s.url }} · {{ s.tools === 1 ? "1 tool" : `${s.tools} tools` }}
           </span>
           <Button
             v-for="n in s.needed"
