@@ -33,8 +33,8 @@ to enforce. A fix that adds parts needs to be clearly worth it.
    title, a short plain sentence (not a Markdown heading). Then, briefly:
 
    - the problem, in a sentence or two, as someone using the app would see it;
-   - the "before" screenshots, as Markdown images with the path from the
-     monorepo's root (`projects/<name>/.desktop/gallery/...`, or
+   - the "before" screenshots, as Markdown images whose captions start with
+     "Before:", with the path from the monorepo's root (`projects/<name>/.desktop/gallery/...`, or
      `.../recordings/...` when you drove a flow);
    - the direction of the fix, in words: what should change on screen, not
      which lines or classes. The bot that works the issue reads the code and
