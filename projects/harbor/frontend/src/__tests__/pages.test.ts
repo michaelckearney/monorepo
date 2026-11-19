@@ -643,7 +643,11 @@ describe("running a tool", () => {
   });
 
   it("shows the error, and does not send input that is not JSON", async () => {
-    vi.mocked(Tools.Call).mockRejectedValueOnce(new Error("sign in needed: sign in to Gitea first"));
+    vi.mocked(Tools.Call).mockRejectedValueOnce(
+      Object.assign(new Error("sign in needed: sign in to Gitea first"), {
+        cause: { service: "gitea", heading: "Sign in to Gitea", message: "sign in to Gitea first" },
+      }),
+    );
     open("service", 1);
     const app = mountApp();
     await flushPromises();
@@ -652,11 +656,15 @@ describe("running a tool", () => {
     await form.get("textarea").setValue("{nope");
     await form.trigger("submit");
     expect(form.get('[role="alert"]').text()).toBe("The input is not JSON.");
+    // Your own bad input is a real failure: the red, not the needs-you amber.
+    expect(form.find('[role="alert"].need').exists()).toBe(false);
     expect(Tools.Call).not.toHaveBeenCalled();
     await form.get("textarea").setValue("{}");
     await form.trigger("submit");
     await flushPromises();
     expect(form.get('[role="alert"]').text()).toBe("sign in needed: sign in to Gitea first");
+    // The sign-in that waits on you is the state the app already says in amber.
+    expect(form.find('[role="alert"].need').exists()).toBe(true);
   });
 });
 

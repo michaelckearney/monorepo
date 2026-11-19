@@ -124,7 +124,8 @@ export interface Host {
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
-function signInNeeded(e: unknown): SignInNeeded | null {
+/** The sign-in waiting on you inside a call's error, as the backend sent it, or null. */
+export function signInNeeded(e: unknown): SignInNeeded | null {
   const cause = (e as { cause?: Partial<SignInNeeded> })?.cause;
   return cause?.service && cause.heading ? (cause as SignInNeeded) : null;
 }
