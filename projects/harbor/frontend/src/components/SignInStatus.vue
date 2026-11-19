@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Button } from "@ui/components/button";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { Tools } from "@backend";
 import type { Manifest } from "../manifest";
 
@@ -10,6 +10,8 @@ const props = defineProps<{ service: Manifest }>();
 
 type State = "checking" | "signed-in" | "signed-out" | "signing-in" | "failed";
 const state = ref<State>("checking");
+const emit = defineEmits<{ state: [state: State] }>();
+watch(state, (s) => emit("state", s), { immediate: true });
 const problem = ref("");
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 

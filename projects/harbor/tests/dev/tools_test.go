@@ -120,4 +120,5 @@ func TestSignsInThroughTheLiveViewPanel(t *testing.T) {
 	e2e.Do(t, address.Press("Enter"))
 	e2e.Expect(t, view).Not().ToBeVisible()
 	e2e.Expect(t, role(page, "status", "Sign-in")).ToContainText("Signed in")
+	e2e.Expect(t, page.GetByText("Sign in at "+srv.URL+"/login")).Not().ToBeVisible()
 }
