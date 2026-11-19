@@ -139,10 +139,22 @@ vi.mock("@backend", () => ({
   },
   AgentTools: {
     List: vi.fn(async () => [
-      { name: "list_dashboards", description: "List the dashboards.", inputSchema: '{"type":"object"}' },
+      {
+        name: "list_dashboards",
+        description: "List the dashboards.",
+        annotations: { readOnlyHint: true },
+        inputSchema: '{"type":"object"}',
+      },
       {
         name: "read_dashboard",
         description: "Read a dashboard's file.",
+        annotations: { readOnlyHint: true },
+        inputSchema: '{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}',
+      },
+      {
+        name: "delete_dashboard",
+        description: "Delete a dashboard.",
+        annotations: { destructiveHint: true },
         inputSchema: '{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}',
       },
     ]),
@@ -1126,7 +1138,7 @@ describe("the developer bar", () => {
     await flushPromises();
     expect(app.findAll("h1").filter((h) => h.isVisible()).map((h) => h.text())).toEqual(["Tools"]);
     expect(app.find('[role="dialog"]').exists()).toBe(false);
-    expect(app.findAll("main li code").map((c) => c.text())).toEqual(["list_dashboards", "read_dashboard"]);
+    expect(app.findAll("main li code").map((c) => c.text())).toEqual(["list_dashboards", "read_dashboard", "delete_dashboard"]);
     await bar.findAll("button")[0].trigger("click");
     await flushPromises();
     // Tools is gone, and Harbor shows again. jsdom keeps the style it worked
@@ -1180,6 +1192,16 @@ describe("the agent's tools", () => {
     expect(form.get('[role="alert"]').text()).toBe("The input is not JSON.");
     expect(form.find(".asks").exists()).toBe(false);
     expect(AgentTools.Call).not.toHaveBeenCalled();
+  });
+
+  it("marks what each tool does, the destructive ones in red", async () => {
+    const app = mountApp();
+    // Dev's components are loaded on their own, as a dev build loads them.
+    await vi.dynamicImportSettled();
+    await flushPromises();
+    const effects = app.findAll("main li .effect");
+    expect(effects.map((e) => e.text())).toEqual(["read-only", "read-only", "destructive"]);
+    expect(effects.map((e) => e.classes().includes("text-destructive"))).toEqual([false, false, true]);
   });
 });
 

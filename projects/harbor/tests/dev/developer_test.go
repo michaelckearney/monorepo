@@ -14,6 +14,10 @@ func TestRunsOneOfTheAgentsTools(t *testing.T) {
 	click(t, role(page, "button", "Tools"))
 	e2e.Expect(t, heading(page, "Tools")).ToBeVisible()
 
+	rows := page.GetByRole("main").GetByRole("listitem")
+	e2e.Expect(t, rows.Filter(playwright.LocatorFilterOptions{HasText: "delete_service"})).ToContainText("destructive")
+	e2e.Expect(t, rows.Filter(playwright.LocatorFilterOptions{HasText: "list_dashboards"})).ToContainText("read-only")
+
 	click(t, role(page, "button", "Run delete_dashboard"))
 	form := role(page, "form", "Run delete_dashboard")
 	e2e.Expect(t, form.GetByText("The agent asks you before this call.")).ToBeVisible()

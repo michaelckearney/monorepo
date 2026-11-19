@@ -29,6 +29,18 @@ type AgentTool struct {
 	Description string `json:"description"`
 	// InputSchema is a JSON schema, as JSON text.
 	InputSchema string `json:"inputSchema"`
+	// Annotations are MCP's hints about what the tool does, so the page can
+	// mark the ones that destroy before you run them.
+	Annotations AgentToolAnnotations `json:"annotations"`
+}
+
+// AgentToolAnnotations are the two hints the mark is read from. MCP takes a
+// tool that is not read-only to destroy what it touches unless it says
+// otherwise, so a tool with no annotations at all comes through as
+// destructive.
+type AgentToolAnnotations struct {
+	ReadOnlyHint    bool `json:"readOnlyHint,omitempty"`
+	DestructiveHint bool `json:"destructiveHint"`
 }
 
 func (t *AgentTools) connect() (*mcp.ClientSession, error) {
@@ -60,7 +72,14 @@ func (t *AgentTools) List(ctx context.Context) ([]AgentTool, error) {
 		if err != nil {
 			return nil, err
 		}
-		tools = append(tools, AgentTool{Name: tool.Name, Description: tool.Description, InputSchema: string(schema)})
+		ann := AgentToolAnnotations{DestructiveHint: true}
+		if a := tool.Annotations; a != nil {
+			ann.ReadOnlyHint = a.ReadOnlyHint
+			if a.DestructiveHint != nil {
+				ann.DestructiveHint = *a.DestructiveHint
+			}
+		}
+		tools = append(tools, AgentTool{Name: tool.Name, Description: tool.Description, InputSchema: string(schema), Annotations: ann})
 	}
 	return tools, nil
 }
