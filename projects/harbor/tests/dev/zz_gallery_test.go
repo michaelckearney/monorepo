@@ -292,7 +292,13 @@ func TestService(t *testing.T) {
 }
 `)
 		e2e.Expect(t, heading(page, "Gallery dead")).ToBeVisible()
-		e2e.Expect(t, role(page, "status", "Sign-in").
+		status := role(page, "status", "Sign-in")
+		// A plain sentence, with no browser jargon in it, and Chromium's
+		// reason beside it for whoever is debugging.
+		e2e.Expect(t, status.Locator(".problem")).
+			ToHaveText("Could not open http://127.0.0.1:9. Check the address and that the site is up.")
+		e2e.Expect(t, status.GetByText("net::ERR_UNSAFE_PORT", playwright.LocatorGetByTextOptions{Exact: playwright.Bool(true)})).ToBeVisible()
+		e2e.Expect(t, status.
 			GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Check again"})).ToBeVisible()
 	})
 }

@@ -300,6 +300,9 @@ func (b *Browser) Open(ctx context.Context, url string) (*Tab, error) {
 	// A new tab starts at about:blank, which back would go to.
 	if err := t.run(ctx, chromedp.Navigate(url), page.ResetNavigationHistory()); err != nil {
 		cancel()
+		if reason, ok := isPageLoadError(err); ok {
+			return nil, pageLoadError(url, reason)
+		}
 		return nil, fmt.Errorf("could not open %s: %w", url, err)
 	}
 	t.refresh()
@@ -400,7 +403,13 @@ func (t *Tab) run(ctx context.Context, actions ...chromedp.Action) error {
 
 // Navigate loads url in the tab, and waits for it to load.
 func (t *Tab) Navigate(ctx context.Context, url string) error {
-	return t.run(ctx, chromedp.Navigate(url))
+	if err := t.run(ctx, chromedp.Navigate(url)); err != nil {
+		if reason, ok := isPageLoadError(err); ok {
+			return pageLoadError(url, reason)
+		}
+		return err
+	}
+	return nil
 }
 
 // URL is the address the tab shows. Chromium says, not the page, so it
