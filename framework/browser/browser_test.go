@@ -274,6 +274,30 @@ func TestDialogsFilesAndDownloadsGoToTheHooks(t *testing.T) {
 	})
 }
 
+// A page that would not load is said in a sentence someone using the app
+// can act on, with Chromium's own reason kept for whoever is debugging.
+func TestAFailedPageLoadSaysWhatToDo(t *testing.T) {
+	for _, reason := range []string{"net::ERR_UNSAFE_PORT", "page load error net::ERR_UNSAFE_PORT"} {
+		err := pageLoadError("http://127.0.0.1:9", reason)
+		sentence, detail, ok := strings.Cut(err.Error(), "\n")
+		if !ok {
+			t.Fatalf("the error keeps no separate reason: %q", err)
+		}
+		if want := "Could not open http://127.0.0.1:9. Check the address and that the site is up."; sentence != want {
+			t.Errorf("the sentence is %q, want %q", sentence, want)
+		}
+		if detail != "net::ERR_UNSAFE_PORT" {
+			t.Errorf("the reason is %q, want the code Chromium gave", detail)
+		}
+	}
+	if _, ok := isPageLoadError(errors.New("the tab was closed")); ok {
+		t.Error("a closed tab was taken for a page that would not load")
+	}
+	if _, ok := isPageLoadError(errors.New("page load error net::ERR_CONNECTION_REFUSED")); !ok {
+		t.Error("chromedp's own load failure was not recognised")
+	}
+}
+
 // A site can name a download anything.
 func TestSafeName(t *testing.T) {
 	for name, want := range map[string]string{
