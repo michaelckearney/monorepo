@@ -28,6 +28,7 @@ const loginURL = computed(() => service.value?.login && siteURL(service.value.lo
 
 // The tools whose Run panel is open.
 const opened = ref(new Set<string>());
+const signInState = ref("");
 function toggle(name: string) {
   const next = new Set(opened.value);
   if (!next.delete(name)) {
@@ -66,8 +67,8 @@ async function remove() {
         <p class="text-muted-foreground"><code class="font-mono text-body">{{ service.name }}</code> · {{ service.url }}</p>
         <p v-if="browseProblem" class="text-destructive" role="alert">{{ browseProblem }}</p>
         <p v-if="service.description">{{ service.description }}</p>
-        <p v-if="service.login" class="text-muted-foreground">Sign in at {{ loginURL }}</p>
-        <SignInStatus v-if="service.login" :key="service.name" :service="service" />
+        <p v-if="service.login && signInState !== 'signed-in' && signInState !== 'signing-in'" class="text-muted-foreground">Sign in at {{ loginURL }}</p>
+        <SignInStatus v-if="service.login" :key="service.name" :service="service" @state="(s) => (signInState = s)" />
 
         <section aria-label="Tools" class="mt-4">
           <h2 class="mb-2 font-semibold">Tools</h2>

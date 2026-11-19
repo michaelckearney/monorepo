@@ -409,11 +409,13 @@ describe("signing in", () => {
     expect(Tools.SignedIn).toHaveBeenCalledWith("gitea");
     expect(status.text()).toContain("Signed out");
     expect(status.find(".dot.need").exists()).toBe(true);
+    expect(app.text()).toContain("Sign in at http://localhost:7100/user/login");
     await status.get("button").trigger("click");
     await flushPromises();
     expect(Tools.SignIn).toHaveBeenCalledWith("gitea", "");
     expect(status.text()).toBe("Signed in");
     expect(status.find(".dot.ok").exists()).toBe(true);
+    expect(app.text()).not.toContain("Sign in at http://localhost:7100/user/login");
   });
 
   it("says what went wrong, and checks again", async () => {
