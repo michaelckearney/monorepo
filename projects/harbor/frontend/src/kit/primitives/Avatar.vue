@@ -31,7 +31,7 @@ const color = computed(() => {
   <span
     class="inline-grid shrink-0 place-items-center overflow-hidden rounded-full font-medium"
     :class="size === 'sm' ? 'size-5 text-caption' : 'size-7 text-small'"
-    :style="src ? undefined : { background: `color-mix(in oklab, ${color} 18%, transparent)`, color }"
+    :style="src ? undefined : { background: `color-mix(in oklab, ${color} 18%, transparent)`, color: `color-mix(in oklab, ${color} 25%, var(--foreground))` }"
     :title="name"
     role="img"
     :aria-label="name"
