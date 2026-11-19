@@ -27,7 +27,12 @@ func TestStartsAChatAndSetsUpAProvider(t *testing.T) {
 	e2e.Expect(t, agent.GetByLabel("You", playwright.LocatorGetByLabelOptions{Exact: playwright.Bool(true)})).ToHaveText("Which services do I have?")
 	e2e.Expect(t, agent.GetByRole("heading", playwright.LocatorGetByRoleOptions{Name: "Which services do I have?"})).ToBeVisible()
 	e2e.Expect(t, sidebarItem(page, "Chats", "Which services do I have?")).ToBeVisible()
+	// The answer under the message says it once, in the needs-you tone, and
+	// the footer steps aside while it shows.
 	e2e.Expect(t, agent.GetByRole("alert")).ToHaveText("Harbor's agent has no provider yet. Set one up in Settings, under Providers")
+	e2e.Expect(t, agent.Locator("[role=alert].need")).ToBeVisible()
+	e2e.Expect(t, agent.Locator("[role=alert].text-destructive")).ToHaveCount(0)
+	e2e.Expect(t, agent.GetByRole("status")).ToHaveCount(0)
 
 	click(t, role(page, "button", "Set up a provider"))
 	e2e.Expect(t, role(page, "dialog", "Settings")).ToBeVisible()
