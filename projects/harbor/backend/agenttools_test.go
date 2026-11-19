@@ -27,6 +27,22 @@ func TestAgentToolsReturnWhatTheAgentGets(t *testing.T) {
 		t.Errorf("tools: %v", names)
 	}
 
+	// The marks the Tools page badges with, as MCP reads the annotations:
+	// a tool that is not read-only destroys unless it says otherwise.
+	for name, want := range map[string]AgentToolAnnotations{
+		"list_dashboards":   {ReadOnlyHint: true, DestructiveHint: true},
+		"write_dashboard":   {DestructiveHint: false},
+		"delete_dashboard":  {DestructiveHint: true},
+		"call_service_tool": {DestructiveHint: true},
+		"browser_click":     {DestructiveHint: false},
+	} {
+		for _, tool := range list {
+			if tool.Name == name && tool.Annotations != want {
+				t.Errorf("%s's annotations: %+v, want %+v", name, tool.Annotations, want)
+			}
+		}
+	}
+
 	for _, tc := range []struct{ tool, input, want string }{
 		{"write_dashboard", `{"name":"Inbox","source":"<template><p>hi</p></template>"}`, `{"output":{"replaced":false,"saved":"dashboard Inbox"}}`},
 		{"list_dashboards", `{}`, `{"output":{"dashboards":["Inbox"]}}`},

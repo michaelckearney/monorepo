@@ -3,6 +3,7 @@ import { onMounted, ref } from "vue";
 import { AgentTools } from "@backend";
 import { Button } from "@ui/components/button";
 import AgentToolRunner, { type AgentTool } from "./AgentToolRunner.vue";
+import EffectBadge from "./EffectBadge.vue";
 import PageHeader from "./PageHeader.vue";
 
 // The tools Harbor's agent has, from Harbor's MCP server, to try one at a time.
@@ -41,6 +42,7 @@ function toggle(name: string) {
         <li v-for="tool in tools" :key="tool.name" class="py-3">
           <div class="flex items-center gap-2">
             <code class="font-mono text-body">{{ tool.name }}</code>
+            <EffectBadge :tool="tool" />
             <Button
               size="xs"
               variant="outline"

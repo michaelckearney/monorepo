@@ -1,5 +1,7 @@
 <script lang="ts">
-export type AgentTool = { name: string; description: string; inputSchema: Record<string, unknown> };
+import type { Annotations } from "../manifest";
+
+export type AgentTool = { name: string; description: string; annotations?: Annotations; inputSchema: Record<string, unknown> };
 </script>
 
 <script setup lang="ts">

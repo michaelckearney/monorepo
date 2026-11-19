@@ -4,9 +4,10 @@ import { Button } from "@ui/components/button";
 import { computed, ref } from "vue";
 import { sql, useQuery } from "@desktop";
 import { Documents, Tools } from "@backend";
-import { effect, type Manifest } from "../manifest";
+import { type Manifest } from "../manifest";
 import { askAgent, open, openServices } from "../navigation";
 import DeleteButton from "@ui/components/DeleteButton.vue";
+import EffectBadge from "./EffectBadge.vue";
 import SignInStatus from "./SignInStatus.vue";
 import ToolRunner from "./ToolRunner.vue";
 import PageHeader from "./PageHeader.vue";
@@ -77,15 +78,7 @@ async function remove() {
               <div class="flex items-center gap-2">
                 <code class="font-mono text-body">{{ tool.name }}</code>
                 <span v-if="tool.title">{{ tool.title }}</span>
-                <span
-                  class="effect rounded-full px-2 py-px text-caption font-medium"
-                  :class="{
-                    'bg-destructive/15 text-destructive': effect(tool) === 'destructive',
-                    'bg-muted text-muted-foreground': effect(tool) !== 'destructive',
-                  }"
-                >
-                  {{ effect(tool) }}
-                </span>
+                <EffectBadge :tool="tool" />
                 <Button
                   size="xs"
                   variant="outline"
