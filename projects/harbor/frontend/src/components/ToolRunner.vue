@@ -4,6 +4,7 @@ import { Tools } from "@backend";
 import { exampleInput, type Tool } from "../manifest";
 import { addFile, download, filesIn, type FileRef } from "../files";
 import { Button } from "@ui/components/button";
+import { signInNeeded } from "../kit/runtime";
 
 // Runs one tool with input typed as JSON, and shows what it returned. An
 // input that is a file has a picker, which puts the chosen file's id in the
@@ -24,6 +25,7 @@ async function attach(name: string, e: Event) {
     return;
   }
   problem.value = "";
+  needsYou.value = false;
   try {
     const value = JSON.parse(input.value);
     value[name] = await addFile(chosen);
@@ -33,12 +35,16 @@ async function attach(name: string, e: Event) {
   }
 }
 const problem = ref("");
+// Whether what stopped the run is a sign-in that waits on you: the app says
+// that in its needs-you amber, not the failure red.
+const needsYou = ref(false);
 const running = ref(false);
 
 async function run() {
   output.value = "";
   files.value = [];
   problem.value = "";
+  needsYou.value = false;
   try {
     JSON.parse(input.value);
   } catch {
@@ -53,6 +59,7 @@ async function run() {
     files.value = filesIn(value);
   } catch (e) {
     problem.value = e instanceof Error ? e.message : String(e);
+    needsYou.value = signInNeeded(e) !== null;
   } finally {
     running.value = false;
   }
@@ -78,7 +85,7 @@ async function run() {
     <div>
       <Button type="submit" size="sm" :disabled="running">{{ running ? "Running…" : "Run" }}</Button>
     </div>
-    <p v-if="problem" class="whitespace-pre-wrap text-destructive" role="alert">{{ problem }}</p>
+    <p v-if="problem" class="whitespace-pre-wrap" :class="needsYou ? 'need' : 'text-destructive'" role="alert">{{ problem }}</p>
     <pre
       v-if="output"
       :aria-label="`Output of ${tool.name}`"
@@ -92,3 +99,11 @@ async function run() {
     </div>
   </form>
 </template>
+
+<style scoped>
+/* A run that waits on your sign-in is the state the app already shows in its
+   needs-you amber, as the Signed out dot does; only a real failure is red. */
+.need {
+  color: var(--warning);
+}
+</style>
