@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Button } from "@ui/components/button";
-import { onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { Tools } from "@backend";
 import type { Manifest } from "../manifest";
 
@@ -14,6 +14,14 @@ const emit = defineEmits<{ state: [state: State] }>();
 watch(state, (s) => emit("state", s), { immediate: true });
 const problem = ref("");
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
+// The browser layer puts the plain sentence first and Chromium's own reason
+// after a newline: the person using the app reads the sentence, and whoever
+// is debugging still has the reason, muted on the same line and in its title.
+const headline = computed(() => problem.value.split("\n", 1)[0]);
+const reason = computed(() => {
+  const at = problem.value.indexOf("\n");
+  return at < 0 ? "" : problem.value.slice(at + 1);
+});
 
 async function checkNow() {
   state.value = "checking";
@@ -50,7 +58,8 @@ onMounted(checkNow);
       Signing in to {{ service.title }}…
     </template>
     <template v-else>
-      <span class="problem">{{ problem }}</span>
+      <span class="problem">{{ headline }}</span>
+      <span v-if="reason">{{ reason }}</span>
       <Button size="sm" variant="outline" type="button" @click="checkNow">Check again</Button>
     </template>
   </div>

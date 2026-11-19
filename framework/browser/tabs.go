@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"slices"
+	"strings"
 	"time"
 	"unicode/utf16"
 
@@ -297,10 +298,26 @@ func (t *Tab) start(ctx context.Context, url string) error {
 	return t.run(ctx, chromedp.ActionFunc(func(ctx context.Context) error {
 		_, _, errorText, _, err := page.Navigate(url).Do(ctx)
 		if err == nil && errorText != "" {
-			err = fmt.Errorf("could not open %s: %s", url, errorText)
+			err = pageLoadError(url, errorText)
 		}
 		return err
 	}))
+}
+
+// pageLoadError is the error for a page Chromium would not load. Its first
+// line is for someone using the app: what it could not open, and what to
+// try. What follows, after a newline, is Chromium's own reason — for the
+// log, for whoever is debugging, and for a frontend to show as secondary
+// text beside the sentence, or as the line's title.
+func pageLoadError(url, reason string) error {
+	reason, _ = strings.CutPrefix(reason, "page load error ")
+	return fmt.Errorf("Could not open %s. Check the address and that the site is up.\n%s", url, reason)
+}
+
+// isPageLoadError tells Chromium's reason a page would not load, as
+// chromedp's Navigate words it, from any other failure.
+func isPageLoadError(err error) (string, bool) {
+	return strings.CutPrefix(err.Error(), "page load error ")
 }
 
 // Screenshot is a JPEG of what the tab shows: its window, or the whole page
