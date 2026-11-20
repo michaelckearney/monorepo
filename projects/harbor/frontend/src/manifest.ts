@@ -56,6 +56,15 @@ type Schema = {
 };
 
 /**
+ * Whether a tool takes an input: its schema declares properties to fill in.
+ * A tool that takes one runs from beside its input box; one that takes none
+ * runs from a Run button in its row.
+ */
+export function takesInput(schema: Record<string, unknown>): boolean {
+  return Object.keys((schema as Schema).properties ?? {}).length > 0;
+}
+
+/**
  * A starting input for a tool, from its inputSchema: each required property
  * with an empty value of its type, for the user to fill in.
  */

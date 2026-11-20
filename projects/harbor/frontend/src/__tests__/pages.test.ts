@@ -633,6 +633,18 @@ describe("the live view of a sign-in", () => {
 });
 
 describe("running a tool", () => {
+  it("runs a tool with no input from its row, where its only Run is", async () => {
+    open("service", 1);
+    const app = mountApp();
+    await flushPromises();
+    // The tool with an input has no row Run: its Run is beside its box.
+    expect(app.find('button[aria-label="Run list_issues"]').exists()).toBe(false);
+    await app.get('button[aria-label="Run close_issue"]').trigger("click");
+    await flushPromises();
+    expect(Tools.Call).toHaveBeenCalledWith("gitea", "close_issue", "{}");
+    expect(app.get('[aria-label="Output of close_issue"]').text()).toBe(JSON.stringify({ issues: [1, 2] }, null, 2));
+  });
+
   it("saves a file it returned", async () => {
     vi.mocked(Tools.Call).mockResolvedValueOnce(
       JSON.stringify({ pdf: { file: "f1", name: "march.pdf", type: "application/pdf", size: 4 } }) as never,
@@ -640,7 +652,6 @@ describe("running a tool", () => {
     open("service", 1);
     const app = mountApp();
     await flushPromises();
-    await app.get('[aria-label="Run list_issues"]').trigger("click");
     const form = app.get('form[aria-label="Run list_issues"]');
     await form.get("textarea").setValue("{}");
     await form.trigger("submit");
@@ -657,7 +668,6 @@ describe("running a tool", () => {
     open("service", 1);
     const app = mountApp();
     await flushPromises();
-    await app.get('[aria-label="Run list_issues"]').trigger("click");
     const form = app.get('form[aria-label="Run list_issues"]');
     const input = form.get("textarea");
     expect(JSON.parse((input.element as HTMLTextAreaElement).value)).toEqual({ repo: "" });
@@ -677,7 +687,6 @@ describe("running a tool", () => {
     open("service", 1);
     const app = mountApp();
     await flushPromises();
-    await app.get('[aria-label="Run list_issues"]').trigger("click");
     const form = app.get('form[aria-label="Run list_issues"]');
     await form.get("textarea").setValue("{nope");
     await form.trigger("submit");
@@ -1177,8 +1186,6 @@ describe("the agent's tools", () => {
     // Dev's components are loaded on their own, as a dev build loads them.
     await vi.dynamicImportSettled();
     await flushPromises();
-    await app.get('[aria-label="Run read_dashboard"]').trigger("click");
-    await flushPromises();
     const form = app.get('form[aria-label="Run read_dashboard"]');
     const input = form.get("textarea");
     expect(JSON.parse((input.element as HTMLTextAreaElement).value)).toEqual({ name: "" });
@@ -1199,13 +1206,29 @@ describe("the agent's tools", () => {
     // Dev's components are loaded on their own, as a dev build loads them.
     await vi.dynamicImportSettled();
     await flushPromises();
-    await app.get('[aria-label="Run list_dashboards"]').trigger("click");
-    const form = app.get('form[aria-label="Run list_dashboards"]');
+    const form = app.get('form[aria-label="Run read_dashboard"]');
     await form.get("textarea").setValue("{nope");
     await form.trigger("submit");
     expect(form.get('[role="alert"]').text()).toBe("The input is not JSON.");
     expect(form.find(".asks").exists()).toBe(false);
     expect(AgentTools.Call).not.toHaveBeenCalled();
+  });
+
+  it("runs a tool with no input from its row, where its only Run is", async () => {
+    const app = mountApp();
+    // Dev's components are loaded on their own, as a dev build loads them.
+    await vi.dynamicImportSettled();
+    await flushPromises();
+    // The tools with an input have no row Run: their Run is beside their box.
+    expect(app.find('button[aria-label="Run read_dashboard"]').exists()).toBe(false);
+    expect(app.find('button[aria-label="Run delete_dashboard"]').exists()).toBe(false);
+    await app.get('button[aria-label="Run list_dashboards"]').trigger("click");
+    await flushPromises();
+    expect(AgentTools.Call).toHaveBeenCalledWith("list_dashboards", "{}");
+    expect(app.get('[aria-label="Result of list_dashboards"]').text()).toBe(
+      JSON.stringify({ error: "there is no dashboard named Nope" }, null, 2),
+    );
+    expect(app.get('form[aria-label="Run list_dashboards"]').find(".took").text()).toMatch(/^Took \d+ ms\.$/);
   });
 
   it("marks what each tool does, the destructive ones in red", async () => {
