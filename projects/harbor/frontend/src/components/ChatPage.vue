@@ -30,7 +30,8 @@ const { status: providerStatus } = useProviders();
 const working = computed(() => chat.value?.working === 1);
 // The last turn stopped because there is no provider: that is setup waiting
 // on you, not a failure. The panel says it once, under the message, in its
-// needs-you voice with the way to Settings, and the footer steps aside.
+// needs-you voice — the footer's words, with the button right there as the
+// way to Settings — and the footer steps aside.
 const waiting = computed(() => providerStatus.value !== "" && chat.value?.error === noProviderError);
 
 const message = ref("");
@@ -116,9 +117,11 @@ watch([() => messages.value.length, () => chat.value?.draft], async () => {
 
     <Markdown v-if="chat?.draft" :text="chat.draft" class="leading-relaxed" aria-label="Agent" />
     <p v-else-if="working" class="m-0 text-muted-foreground" role="status">Working…</p>
-    <div v-if="waiting" class="flex items-center gap-3">
-      <p class="need m-0 whitespace-pre-wrap" role="alert">{{ chat?.error }}</p>
-      <Button size="sm" variant="outline" @click="openSettings('providers')">Set up a provider</Button>
+    <div v-if="waiting" class="grid gap-2">
+      <p class="need m-0" role="alert">{{ providerStatus }}</p>
+      <div>
+        <Button size="sm" variant="outline" @click="openSettings('providers')">Set up a provider</Button>
+      </div>
     </div>
     <p v-else-if="chat?.error" class="m-0 whitespace-pre-wrap text-destructive" role="alert">{{ chat.error }}</p>
     <p v-if="problem" class="m-0 whitespace-pre-wrap text-destructive" role="alert">{{ problem }}</p>

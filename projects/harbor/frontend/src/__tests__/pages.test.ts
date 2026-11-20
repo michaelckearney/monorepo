@@ -1048,7 +1048,8 @@ describe("a chat", () => {
     await app.get(".setup button").trigger("click");
     expect(settings.value).toBe("providers");
     // A message sent without a provider is answered once, in the needs-you
-    // tone with its way to Settings, and the footer steps aside while it shows.
+    // tone, the button right there rather than instructions, and the footer
+    // steps aside while it shows.
     settings.value = null;
     app.unmount();
     tables.chats = [
@@ -1057,7 +1058,7 @@ describe("a chat", () => {
     openChat("chat-1");
     const sent = mountApp();
     await flushPromises();
-    expect(sent.get('[role="alert"]').text()).toBe("Harbor's agent has no provider yet. Set one up in Settings, under Providers");
+    expect(sent.get('[role="alert"]').text()).toBe("Harbor's agent has no provider yet.");
     expect(sent.find('[role="alert"].need').exists()).toBe(true);
     expect(sent.find('[role="alert"].text-destructive').exists()).toBe(false);
     expect(sent.find(".setup").exists()).toBe(false);
