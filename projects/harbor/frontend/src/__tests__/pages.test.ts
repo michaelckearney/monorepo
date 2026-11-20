@@ -442,7 +442,7 @@ describe("signing in", () => {
     expect(status.text()).toContain("Signed out");
   });
 
-  it("keeps the browser's own code out of the sentence, and shows it beside it", async () => {
+  it("keeps the browser's own code out of the row, where it waits in the sentence's tooltip", async () => {
     vi.mocked(Tools.SignedIn).mockRejectedValueOnce(
       new Error("Could not open http://127.0.0.1:9. Check the address and that the site is up.\nnet::ERR_UNSAFE_PORT"),
     );
@@ -451,7 +451,8 @@ describe("signing in", () => {
     await flushPromises();
     const status = app.get('[aria-label="Sign-in"]');
     expect(status.get(".problem").text()).toBe("Could not open http://127.0.0.1:9. Check the address and that the site is up.");
-    expect(status.text()).toContain("net::ERR_UNSAFE_PORT");
+    expect(status.text()).not.toContain("net::ERR_UNSAFE_PORT");
+    expect(status.get(".problem").attributes("title")).toBe("net::ERR_UNSAFE_PORT");
     expect(status.get("button").text()).toBe("Check again");
   });
 });
