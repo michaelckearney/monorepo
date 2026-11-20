@@ -314,6 +314,87 @@ func TestSafeName(t *testing.T) {
 	}
 }
 
+// Chromium guards its profile with a SingletonLock symlink ("hostname-pid")
+// and two siblings. A Chromium that crashed or was killed leaves them, and
+// every later start aborts rather than share the profile; clearSingleton
+// clears them when the process that left them is gone, and refuses to when
+// another Chromium still holds the profile. The lock lives only on POSIX, so
+// the whole thing is skipped on Windows.
+func seedSingleton(t *testing.T, profile string, pid int) {
+	t.Helper()
+	host, _ := os.Hostname()
+	if err := os.Symlink(fmt.Sprintf("%s-%d", host, pid), filepath.Join(profile, "SingletonLock")); err != nil {
+		t.Fatal(err)
+	}
+	for _, name := range []string{"SingletonSocket", "SingletonCookie"} {
+		if err := os.WriteFile(filepath.Join(profile, name), []byte("leftover"), 0o600); err != nil {
+			t.Fatal(err)
+		}
+	}
+}
+
+func singletonGone(profile string) bool {
+	for _, name := range singleton {
+		if _, err := os.Lstat(filepath.Join(profile, name)); !errors.Is(err, os.ErrNotExist) {
+			return false
+		}
+	}
+	return true
+}
+
+// deadPID is a pid no process holds: a child we started, killed, and reaped.
+func deadPID(t *testing.T) int {
+	t.Helper()
+	cmd := exec.Command("sleep", "30")
+	if err := cmd.Start(); err != nil {
+		t.Fatal(err)
+	}
+	pid := cmd.Process.Pid
+	if err := cmd.Process.Kill(); err != nil {
+		t.Fatal(err)
+	}
+	_ = cmd.Wait() // it died by our signal, which Wait reports as an error
+	return pid
+}
+
+func TestClearSingletonLetsAStaleLockGo(t *testing.T) {
+	if runtime.GOOS == "windows" {
+		t.Skip("Chromium's SingletonLock is a POSIX file")
+	}
+	profile := t.TempDir()
+	seedSingleton(t, profile, deadPID(t))
+
+	if err := clearSingleton(profile); err != nil {
+		t.Fatalf("a lock whose process is gone should clear: %v", err)
+	}
+	if !singletonGone(profile) {
+		t.Error("the leftover singleton files are still there")
+	}
+	// Nothing to clear is not an error, so a first start is unbothered.
+	if err := clearSingleton(profile); err != nil {
+		t.Errorf("a profile with no lock failed to clear: %v", err)
+	}
+}
+
+func TestClearSingletonLeavesALiveProfileToItsChromium(t *testing.T) {
+	if runtime.GOOS == "windows" {
+		t.Skip("Chromium's SingletonLock is a POSIX file")
+	}
+	profile := t.TempDir()
+	seedSingleton(t, profile, os.Getpid()) // the test process is alive
+
+	err := clearSingleton(profile)
+	if err == nil {
+		t.Fatal("clearSingleton started over a Chromium that still has the profile")
+	}
+	if !strings.Contains(err.Error(), profile) || !strings.Contains(err.Error(), "another Chromium") {
+		t.Errorf("the error should name the profile and another Chromium: %q", err)
+	}
+	if singletonGone(profile) {
+		t.Error("the live Chromium's singleton files were removed, risking its profile")
+	}
+}
+
 // Holding Option sends its key again and again. Chromium once took its code,
 // 18, as a Mac's own key code, and on a Mac that opened System Information.
 // Option-Delete deletes a word.

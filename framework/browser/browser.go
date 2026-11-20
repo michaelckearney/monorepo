@@ -22,9 +22,11 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"sync"
 	"sync/atomic"
+	"syscall"
 	"time"
 
 	"github.com/chromedp/cdproto/cdp"
@@ -166,6 +168,9 @@ func (b *Browser) running() (*process, error) {
 	if err := forgetSession(dir); err != nil {
 		return nil, err
 	}
+	if err := clearSingleton(dir); err != nil {
+		return nil, err
+	}
 	agent, err := b.userAgent()
 	if err != nil {
 		return nil, err
@@ -271,6 +276,71 @@ func forgetSession(profile string) error {
 		}
 	}
 	return nil
+}
+
+// singleton are the files Chromium puts in the profile to keep a second
+// Chromium off it: the lock, a symlink to "hostname-pid", and its siblings.
+var singleton = []string{"SingletonLock", "SingletonSocket", "SingletonCookie"}
+
+// clearSingleton lets a start go ahead after the last Chromium died without
+// cleaning up. A Chromium that crashed or was killed leaves its singleton
+// files, and every later start aborts rather than share the profile. The
+// lock's "hostname-pid" target names who held it: when that process is gone
+// the files are left over and go; when it lives, another Chromium really has
+// the profile, so they stay, and clearing fails rather than risk the profile
+// corruption the lock guards against.
+func clearSingleton(profile string) error {
+	target, err := os.Readlink(filepath.Join(profile, "SingletonLock"))
+	if errors.Is(err, os.ErrNotExist) {
+		return nil
+	}
+	if err != nil {
+		// No lock to read: nothing can be holding it, so clear the rest.
+		return removeSingleton(profile)
+	}
+	pid, err := singletonPID(target)
+	if err != nil || !processAlive(pid) {
+		return removeSingleton(profile)
+	}
+	return fmt.Errorf("could not start Chromium: another Chromium is using the profile %s; close it and start again", profile)
+}
+
+// removeSingleton drops the leftover singleton files, gone ones included.
+func removeSingleton(profile string) error {
+	for _, name := range singleton {
+		if err := os.Remove(filepath.Join(profile, name)); err != nil && !errors.Is(err, os.ErrNotExist) {
+			return err
+		}
+	}
+	return nil
+}
+
+// singletonPID is the pid a SingletonLock's "hostname-pid" target carries.
+// A hostname can hold hyphens, so the pid is what follows the last one.
+func singletonPID(target string) (int, error) {
+	i := strings.LastIndexByte(target, '-')
+	if i < 0 {
+		return 0, fmt.Errorf("no pid in %q", target)
+	}
+	n, err := strconv.Atoi(target[i+1:])
+	if err != nil {
+		return 0, fmt.Errorf("no pid in %q: %w", target, err)
+	}
+	return n, nil
+}
+
+// processAlive reports whether a process with pid is running now.
+func processAlive(pid int) bool {
+	if pid <= 0 {
+		return false
+	}
+	p, err := os.FindProcess(pid)
+	if err != nil {
+		return false
+	}
+	// Signal 0 does nothing but report whether the process can be signalled,
+	// which it cannot be once it is gone.
+	return p.Signal(syscall.Signal(0)) == nil
 }
 
 // Open opens a tab at url, starting Chromium if it is not running.
