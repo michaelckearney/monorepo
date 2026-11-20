@@ -15,8 +15,8 @@ watch(state, (s) => emit("state", s), { immediate: true });
 const problem = ref("");
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 // The browser layer puts the plain sentence first and Chromium's own reason
-// after a newline: the person using the app reads the sentence, and whoever
-// is debugging still has the reason, muted on the same line and in its title.
+// after a newline: the person using the app reads only the sentence, across
+// the whole row, and whoever is debugging finds the reason in its tooltip.
 const headline = computed(() => problem.value.split("\n", 1)[0]);
 const reason = computed(() => {
   const at = problem.value.indexOf("\n");
@@ -58,8 +58,7 @@ onMounted(checkNow);
       Signing in to {{ service.title }}…
     </template>
     <template v-else>
-      <span class="problem">{{ headline }}</span>
-      <span v-if="reason">{{ reason }}</span>
+      <span class="problem" :title="reason || undefined">{{ headline }}</span>
       <Button size="sm" variant="outline" type="button" @click="checkNow">Check again</Button>
     </template>
   </div>
@@ -86,6 +85,8 @@ onMounted(checkNow);
   background: var(--warning);
 }
 .problem {
+  flex: 1;
+  min-width: 0;
   color: var(--destructive);
 }
 </style>
