@@ -7,7 +7,11 @@ repo: michaelckearney/monorepo
 # Who can give the bots work: only their issues, comments, reviews, and labels count.
 triggers: [michaelckearney]
 agents:
-  default: opencode
+  # Codex and Claude Code talk in Discord, write the digest, and run the
+  # tasks, which write the issues: Codex first, Claude Code when Codex is at
+  # its limit. opencode works the issues.
+  talk: [openai-codex, claude-code]
+  work: opencode
   # An agent that sends the code to a third party belongs here only if whoever
   # owns the code agreed to it. claude-code runs on the Claude subscription,
   # openai-codex on the ChatGPT one.

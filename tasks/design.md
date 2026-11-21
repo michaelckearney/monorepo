@@ -30,16 +30,18 @@ to enforce. A fix that adds parts needs to be clearly worth it.
 4. Open one issue with `harness open-issue -label project:<name> -` (or
    `-label framework` for the shared `framework/ui`); the harness adds the
    `design` label and uploads the images you embed. Its first line is the
-   title, a short plain sentence (not a Markdown heading). Then, briefly:
+   title, a short plain sentence (not a Markdown heading). Then, briefly, in
+   the sections the harness's "Writing an issue" gives:
 
-   - the problem, in a sentence or two, as someone using the app would see it;
-   - the "before" screenshots, as Markdown images whose captions start with
-     "Before:", with the path from the monorepo's root (`projects/<name>/.desktop/gallery/...`, or
-     `.../recordings/...` when you drove a flow);
-   - the direction of the fix, in words: what should change on screen, not
-     which lines or classes. The bot that works the issue reads the code and
-     decides how;
-   - what done looks like.
+   - **Why**: the problem, in a sentence or two, as someone using the app
+     would see it, and the "before" screenshots, as Markdown images whose
+     captions start with "Before:", with the path from the monorepo's root
+     (`projects/<name>/.desktop/gallery/...`, or `.../recordings/...` when
+     you drove a flow);
+   - **Change**: the direction of the fix, in words: what should change on
+     screen, not which lines or classes. The bot that works the issue reads
+     the code and decides how;
+   - **Done when**: what the screen shows once it is fixed.
 
 5. Open no issue when nothing is clearly worth it, and say so. Don't stretch a
    screenshot into a proposal just to have one.
