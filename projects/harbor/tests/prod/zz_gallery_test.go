@@ -53,7 +53,14 @@ func TestChat(t *testing.T) {
 		e2e.Do(t, agent.GetByLabel("Message").Fill("Which services do I have?"))
 		e2e.Do(t, agent.GetByLabel("Message").Press("Enter"))
 		e2e.Expect(t, agent.GetByLabel("You", playwright.LocatorGetByLabelOptions{Exact: playwright.Bool(true)})).ToHaveText("Which services do I have?")
-		e2e.Expect(t, agent.GetByRole("alert")).ToHaveText("Harbor's agent has no provider yet. Set one up in Settings, under Providers")
+		// Said once, under the message, in the needs-you tone, the button
+		// right there as its way to Settings; the footer steps aside, and no
+		// red alarms for a setup that waits on the person.
+		e2e.Expect(t, agent.GetByRole("alert")).ToHaveText("Harbor's agent has no provider yet.")
+		e2e.Expect(t, agent.Locator("[role=alert].need")).ToBeVisible()
+		e2e.Expect(t, agent.Locator("[role=alert].text-destructive")).ToHaveCount(0)
+		e2e.Expect(t, agent.GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Set up a provider"})).ToBeVisible()
+		e2e.Expect(t, agent.GetByRole("status")).ToHaveCount(0)
 	})
 }
 

@@ -99,6 +99,10 @@ func (p *Providers) find(name string) *provider.Provider {
 	return nil
 }
 
+// errNoProvider stops a turn before it runs. The chat shows it in its
+// needs-you voice rather than its failure one, and finds it by these exact
+// words: keep them in step with noProviderError in
+// frontend/src/providers.ts.
 var errNoProvider = errors.New("Harbor's agent has no provider yet. Set one up in Settings, under Providers")
 
 // model is the provider the agent uses, with its settings, read again for

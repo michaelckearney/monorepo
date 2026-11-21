@@ -18,6 +18,13 @@ export interface Provider {
 }
 
 /**
+ * Why a turn stops before it runs when there is no provider, in the words the
+ * backend writes as the chat's error: errNoProvider in backend/providers.go.
+ * The chat shows it in its needs-you voice rather than its failure one.
+ */
+export const noProviderError = "Harbor's agent has no provider yet. Set one up in Settings, under Providers";
+
+/**
  * Why the agent cannot run yet, or "" when it can. It matches the backend's
  * check before each turn.
  */

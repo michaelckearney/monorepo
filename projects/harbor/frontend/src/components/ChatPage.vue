@@ -7,6 +7,7 @@ import { Button } from "@ui/components/button";
 import { chatItems, describe, type ToolStep } from "../chat";
 import { openChat, openSettings, prefill, settings } from "../navigation";
 import { useProviders } from "../providerStatus";
+import { noProviderError } from "../providers";
 import ChatTranscript from "./ChatTranscript.vue";
 import IconButton from "@ui/components/IconButton.vue";
 import Markdown from "@ui/components/Markdown.vue";
@@ -27,6 +28,11 @@ const items = computed(() => chatItems(messages.value));
 // Why the agent cannot run yet, if it cannot.
 const { status: providerStatus } = useProviders();
 const working = computed(() => chat.value?.working === 1);
+// The last turn stopped because there is no provider: that is setup waiting
+// on you, not a failure. The panel says it once, under the message, in its
+// needs-you voice — the footer's words, with the button right there as the
+// way to Settings — and the footer steps aside.
+const waiting = computed(() => providerStatus.value !== "" && chat.value?.error === noProviderError);
 
 const message = ref("");
 const problem = ref("");
@@ -111,12 +117,18 @@ watch([() => messages.value.length, () => chat.value?.draft], async () => {
 
     <Markdown v-if="chat?.draft" :text="chat.draft" class="leading-relaxed" aria-label="Agent" />
     <p v-else-if="working" class="m-0 text-muted-foreground" role="status">Working…</p>
-    <p v-if="chat?.error" class="m-0 whitespace-pre-wrap text-destructive" role="alert">{{ chat.error }}</p>
+    <div v-if="waiting" class="grid gap-2">
+      <p class="need m-0" role="alert">{{ providerStatus }}</p>
+      <div>
+        <Button size="sm" variant="outline" @click="openSettings('providers')">Set up a provider</Button>
+      </div>
+    </div>
+    <p v-else-if="chat?.error" class="m-0 whitespace-pre-wrap text-destructive" role="alert">{{ chat.error }}</p>
     <p v-if="problem" class="m-0 whitespace-pre-wrap text-destructive" role="alert">{{ problem }}</p>
   </div>
 
   <!-- Settings says it too, in Providers, so it is not said twice. -->
-  <p v-if="providerStatus && !settings" class="setup flex items-center gap-3 border-t px-4 py-2 text-muted-foreground" role="status">
+  <p v-if="providerStatus && !settings && !waiting" class="setup flex items-center gap-3 border-t px-4 py-2 text-muted-foreground" role="status">
     <span class="flex-1">{{ providerStatus }}</span>
     <Button size="sm" variant="outline" @click="openSettings('providers')">Set up a provider</Button>
   </p>
@@ -136,3 +148,11 @@ watch([() => messages.value.length, () => chat.value?.draft], async () => {
     </div>
   </form>
 </template>
+
+<style scoped>
+/* Setup waiting on you is the app's needs-you amber, as the Signed out dot
+   and a run waiting on a sign-in use it; only a real failure is red. */
+.need {
+  color: var(--warning);
+}
+</style>
