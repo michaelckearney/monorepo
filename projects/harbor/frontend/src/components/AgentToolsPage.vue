@@ -5,6 +5,7 @@ import { Button } from "@ui/components/button";
 import AgentToolRunner, { type AgentTool } from "./AgentToolRunner.vue";
 import EffectBadge from "./EffectBadge.vue";
 import PageHeader from "./PageHeader.vue";
+import { takesInput } from "../manifest";
 
 // The tools Harbor's agent has, from Harbor's MCP server, to try one at a time.
 const tools = ref<AgentTool[]>([]);
@@ -18,14 +19,25 @@ onMounted(async () => {
   }
 });
 
-// The tools whose Run panel is open.
-const opened = ref(new Set<string>());
-function toggle(name: string) {
-  const next = new Set(opened.value);
-  if (!next.delete(name)) {
-    next.add(name);
+// A tool with an input runs from the Run beside its box; one with no input
+// runs from the row's Run, which starts the runner through its ref.
+const runners = new Map<string, { run: () => void }>();
+const running = ref(new Set<string>());
+function setRunner(name: string, el: unknown) {
+  if (el) {
+    runners.set(name, el as { run: () => void });
+  } else {
+    runners.delete(name);
   }
-  opened.value = next;
+}
+function setRunning(name: string, is: boolean) {
+  const next = new Set(running.value);
+  if (is) {
+    next.add(name);
+  } else {
+    next.delete(name);
+  }
+  running.value = next;
 }
 </script>
 
@@ -44,18 +56,23 @@ function toggle(name: string) {
             <code class="font-mono text-body">{{ tool.name }}</code>
             <EffectBadge :tool="tool" />
             <Button
+              v-if="!takesInput(tool.inputSchema)"
               size="xs"
               variant="outline"
               class="ml-auto"
-              :aria-expanded="opened.has(tool.name)"
+              :disabled="running.has(tool.name)"
               :aria-label="`Run ${tool.name}`"
-              @click="toggle(tool.name)"
+              @click="runners.get(tool.name)?.run()"
             >
-              Run
+              {{ running.has(tool.name) ? "Running…" : "Run" }}
             </Button>
           </div>
           <p class="mt-1 text-muted-foreground">{{ tool.description }}</p>
-          <AgentToolRunner v-if="opened.has(tool.name)" :tool="tool" />
+          <AgentToolRunner
+            :ref="(el) => setRunner(tool.name, el)"
+            :tool="tool"
+            @running="(is) => setRunning(tool.name, is)"
+          />
         </li>
       </ul>
     </div>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { effect, exampleInput, type Tool } from "../manifest";
+import { effect, exampleInput, takesInput, type Tool } from "../manifest";
 
 const tool = (annotations?: Tool["annotations"]): Tool => ({
   name: "t",
@@ -44,5 +44,14 @@ describe("exampleInput", () => {
 
   it("is an empty object for a tool with no input", () => {
     expect(exampleInput({ type: "object" })).toBe("{}");
+  });
+});
+
+describe("takesInput", () => {
+  it("is true only when the schema declares properties", () => {
+    expect(takesInput({ type: "object" })).toBe(false);
+    expect(takesInput({ type: "object", properties: {} })).toBe(false);
+    expect(takesInput({ type: "object", properties: { limit: { type: "integer" } } })).toBe(true);
+    expect(takesInput({ type: "object", required: ["name"], properties: { name: { type: "string" } } })).toBe(true);
   });
 });

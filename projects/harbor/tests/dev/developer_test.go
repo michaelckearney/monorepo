@@ -18,17 +18,24 @@ func TestRunsOneOfTheAgentsTools(t *testing.T) {
 	e2e.Expect(t, rows.Filter(playwright.LocatorFilterOptions{HasText: "delete_service"})).ToContainText("destructive")
 	e2e.Expect(t, rows.Filter(playwright.LocatorFilterOptions{HasText: "list_dashboards"})).ToContainText("read-only")
 
-	click(t, role(page, "button", "Run delete_dashboard"))
+	// A tool with an input has no Run in its row: it runs from beside its box.
+	e2e.Expect(t, role(page, "button", "Run delete_dashboard")).ToHaveCount(0)
 	form := role(page, "form", "Run delete_dashboard")
 	e2e.Expect(t, form.GetByText("The agent asks you before this call.")).ToBeVisible()
 
-	click(t, role(page, "button", "Run read_dashboard"))
 	form = role(page, "form", "Run read_dashboard")
 	e2e.Expect(t, form.GetByText("The agent makes this call without asking.")).ToBeVisible()
 	e2e.Do(t, form.GetByLabel("Input for read_dashboard").Fill(`{"name": "Nope"}`))
 	click(t, form.GetByRole("button"))
 	e2e.Expect(t, form.GetByLabel("Result of read_dashboard")).ToHaveText("{\n  \"error\": \"there is no dashboard named Nope\"\n}")
 	e2e.Expect(t, form.GetByText("Took ")).ToBeVisible()
+
+	// A tool with no input keeps the row's Run, and that is its only Run.
+	e2e.Expect(t, role(page, "form", "Run list_services").GetByRole("button")).ToHaveCount(0)
+	click(t, role(page, "button", "Run list_services"))
+	result := role(page, "form", "Run list_services")
+	e2e.Expect(t, result.GetByLabel("Result of list_services")).ToContainText("tidewater")
+	e2e.Expect(t, result.GetByText("Took ")).ToBeVisible()
 }
 
 // The Benchmarks page lists the scenarios for a new run, and a run needs a

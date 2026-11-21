@@ -62,8 +62,11 @@ func TestRunsAToolInTheBrowser(t *testing.T) {
 	page := e2e.Open(t)
 	saveService(t, page, "shop", "Shop", srv.URL, "")
 
-	click(t, role(page, "button", "Run stock"))
+	// The tool takes an input, so it has no Run in its row: it runs from
+	// beside its box, and that is its only Run.
+	e2e.Expect(t, role(page, "button", "Run stock")).ToHaveCount(0)
 	form := page.GetByRole("form", playwright.PageGetByRoleOptions{Name: "Run stock"})
+	e2e.Expect(t, form.GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Run", Exact: playwright.Bool(true)})).ToHaveCount(1)
 	e2e.Expect(t, form.GetByLabel("Input for stock")).ToHaveValue("{\n  \"item\": \"\"\n}")
 	e2e.Do(t, form.GetByLabel("Input for stock").Fill(`{"item": "kettle"}`))
 	e2e.Do(t, form.GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Run", Exact: playwright.Bool(true)}).Click())
@@ -84,7 +87,6 @@ func TestASignedOutServiceSaysSo(t *testing.T) {
 	e2e.Expect(t, role(page, "status", "Sign-in")).ToContainText("Signed out")
 	e2e.Expect(t, role(page, "status", "Sign-in").GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Sign in"})).ToBeVisible()
 
-	click(t, role(page, "button", "Run stock"))
 	form := page.GetByRole("form", playwright.PageGetByRoleOptions{Name: "Run stock"})
 	e2e.Do(t, form.GetByLabel("Input for stock").Fill(`{"item": "kettle"}`))
 	e2e.Do(t, form.GetByRole("button", playwright.LocatorGetByRoleOptions{Name: "Run", Exact: playwright.Bool(true)}).Click())

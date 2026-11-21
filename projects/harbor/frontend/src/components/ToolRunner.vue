@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { Tools } from "@backend";
-import { exampleInput, type Tool } from "../manifest";
+import { exampleInput, takesInput, type Tool } from "../manifest";
 import { addFile, download, filesIn, type FileRef } from "../files";
 import { Button } from "@ui/components/button";
 import { signInNeeded } from "../kit/runtime";
 
-// Runs one tool with input typed as JSON, and shows what it returned. An
-// input that is a file has a picker, which puts the chosen file's id in the
-// JSON; a file in the output can be saved.
+// Runs one tool and shows what it returned. A tool that takes an input runs
+// from the Run beside the JSON box; one that takes none has no box and is run
+// by the row's own Run, through the exposed run. So each tool has one Run.
+// An input that is a file has a picker, which puts the chosen file's id in
+// the JSON; a file in the output can be saved.
 const props = defineProps<{ service: string; tool: Tool }>();
+const emit = defineEmits<{ running: [boolean] }>();
 
+const hasInput = takesInput(props.tool.inputSchema);
 const input = ref(exampleInput(props.tool.inputSchema));
 const output = ref("");
 const files = ref<FileRef[]>([]);
@@ -41,6 +45,9 @@ const needsYou = ref(false);
 const running = ref(false);
 
 async function run() {
+  if (running.value) {
+    return;
+  }
   output.value = "";
   files.value = [];
   problem.value = "";
@@ -52,6 +59,7 @@ async function run() {
     return;
   }
   running.value = true;
+  emit("running", true);
   try {
     const result = await Tools.Call(props.service, props.tool.name, input.value);
     const value = JSON.parse(result);
@@ -62,13 +70,17 @@ async function run() {
     needsYou.value = signInNeeded(e) !== null;
   } finally {
     running.value = false;
+    emit("running", false);
   }
 }
+
+// A tool with no input has no box to run from: the row's Run calls this.
+defineExpose({ run });
 </script>
 
 <template>
   <form class="mt-2 grid gap-2" :aria-label="`Run ${tool.name}`" @submit.prevent="run">
-    <label class="grid gap-1 text-small text-muted-foreground">
+    <label v-if="hasInput" class="grid gap-1 text-small text-muted-foreground">
       Input
       <textarea
         v-model="input"
@@ -82,7 +94,7 @@ async function run() {
       File for {{ name }}
       <input type="file" :aria-label="`File for ${name}`" @change="attach(name, $event)" />
     </label>
-    <div>
+    <div v-if="hasInput">
       <Button type="submit" size="sm" :disabled="running">{{ running ? "Running…" : "Run" }}</Button>
     </div>
     <p v-if="problem" class="whitespace-pre-wrap" :class="needsYou ? 'need' : 'text-destructive'" role="alert">{{ problem }}</p>

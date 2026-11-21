@@ -4,7 +4,7 @@ import { Button } from "@ui/components/button";
 import { computed, ref } from "vue";
 import { sql, useQuery } from "@desktop";
 import { Documents, Tools } from "@backend";
-import { type Manifest } from "../manifest";
+import { type Manifest, takesInput } from "../manifest";
 import { askAgent, open, openServices } from "../navigation";
 import DeleteButton from "@ui/components/DeleteButton.vue";
 import EffectBadge from "./EffectBadge.vue";
@@ -27,16 +27,27 @@ const unread = computed(() => (rows.value[0] && !rows.value[0].manifest ? rows.v
 const siteURL = (path: string) => new URL(path, service.value!.url).href;
 const loginURL = computed(() => service.value?.login && siteURL(service.value.login.url));
 
-// The tools whose Run panel is open.
-const opened = ref(new Set<string>());
-const signInState = ref("");
-function toggle(name: string) {
-  const next = new Set(opened.value);
-  if (!next.delete(name)) {
-    next.add(name);
+// A tool with an input runs from the Run beside its box; one with no input
+// runs from the row's Run, which starts the runner through its ref.
+const runners = new Map<string, { run: () => void }>();
+const running = ref(new Set<string>());
+function setRunner(name: string, el: unknown) {
+  if (el) {
+    runners.set(name, el as { run: () => void });
+  } else {
+    runners.delete(name);
   }
-  opened.value = next;
 }
+function setRunning(name: string, is: boolean) {
+  const next = new Set(running.value);
+  if (is) {
+    next.add(name);
+  } else {
+    next.delete(name);
+  }
+  running.value = next;
+}
+const signInState = ref("");
 
 // Shows the service's tab in Harbor's window until you are done.
 const browseProblem = ref("");
@@ -80,21 +91,27 @@ async function remove() {
                 <span v-if="tool.title">{{ tool.title }}</span>
                 <EffectBadge :tool="tool" />
                 <Button
+                  v-if="!takesInput(tool.inputSchema)"
                   size="xs"
                   variant="outline"
                   class="ml-auto"
-                  :aria-expanded="opened.has(tool.name)"
+                  :disabled="running.has(tool.name)"
                   :aria-label="`Run ${tool.name}`"
-                  @click="toggle(tool.name)"
+                  @click="runners.get(tool.name)?.run()"
                 >
-                  Run
+                  {{ running.has(tool.name) ? "Running…" : "Run" }}
                 </Button>
               </div>
               <p class="mt-1 text-muted-foreground">{{ tool.description }}</p>
               <p v-if="tool.login" class="mt-1 text-muted-foreground">
                 Before it runs, the site may want you to confirm it's you at {{ siteURL(tool.login.url) }}.
               </p>
-              <ToolRunner v-if="opened.has(tool.name)" :service="service.name" :tool="tool" />
+              <ToolRunner
+                :ref="(el) => setRunner(tool.name, el)"
+                :service="service.name"
+                :tool="tool"
+                @running="(is) => setRunning(tool.name, is)"
+              />
             </li>
           </ul>
           <p v-if="service.tools.length === 0" class="text-muted-foreground">This service has no tools yet.</p>
