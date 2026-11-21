@@ -12,7 +12,7 @@ require (
 	github.com/evanw/esbuild v0.28.2
 	github.com/go-webauthn/webauthn v0.18.2
 	github.com/graph-gophers/graphql-go v1.10.3
-	github.com/michaelckearney/monorepo/framework v0.5.0
+	github.com/michaelckearney/monorepo/framework v0.0.0
 	github.com/modelcontextprotocol/go-sdk v1.8.0
 	github.com/mxschmitt/playwright-go v0.6201.1
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.3
