@@ -1034,6 +1034,9 @@ describe("a chat", () => {
     const app = mountApp();
     await flushPromises();
     expect(app.get('[role="alert"]').text()).toBe("OpenAI said 401 Unauthorized: Incorrect API key provided.");
+    // A genuine failure is the red, not the needs-you amber.
+    expect(app.find('[role="alert"].text-destructive').exists()).toBe(true);
+    expect(app.find('[role="alert"].need').exists()).toBe(false);
   });
 
   it("says when there is no provider, and goes to Providers in Settings", async () => {
@@ -1043,6 +1046,23 @@ describe("a chat", () => {
     await flushPromises();
     expect(app.get(".setup").text()).toContain("Harbor's agent has no provider yet.");
     await app.get(".setup button").trigger("click");
+    expect(settings.value).toBe("providers");
+    // A message sent without a provider is answered once, in the needs-you
+    // tone, the button right there rather than instructions, and the footer
+    // steps aside while it shows.
+    settings.value = null;
+    app.unmount();
+    tables.chats = [
+      { title: "Which services do I have?", working: 0, draft: "", error: "Harbor's agent has no provider yet. Set one up in Settings, under Providers" },
+    ];
+    openChat("chat-1");
+    const sent = mountApp();
+    await flushPromises();
+    expect(sent.get('[role="alert"]').text()).toBe("Harbor's agent has no provider yet.");
+    expect(sent.find('[role="alert"].need').exists()).toBe(true);
+    expect(sent.find('[role="alert"].text-destructive').exists()).toBe(false);
+    expect(sent.find(".setup").exists()).toBe(false);
+    await button(sent, "Set up a provider").trigger("click");
     expect(settings.value).toBe("providers");
   });
 });
